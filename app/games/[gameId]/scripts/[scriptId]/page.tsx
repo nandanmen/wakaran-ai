@@ -1,3 +1,5 @@
+import { Script } from "./script";
+
 const API_BASE_URL = `https://trailsinthedatabase.com/api/script/detail`;
 
 export const dynamicParams = false;
@@ -22,22 +24,7 @@ export default async function ScriptPage({
   const data = await response.json();
   return (
     <div className="p-16">
-      <ul className="text-lg max-w-[900px] border rounded-xl divide-y">
-        {data.map((row) => {
-          return (
-            <li className="grid grid-cols-2 divide-x" key={row.row}>
-              <div className="p-4 space-y-2">
-                <h2 className="font-medium">{row.engChrName}</h2>
-                <p>{row.engSearchText}</p>
-              </div>
-              <div className="p-4 space-y-2">
-                <h2 className="font-medium">{row.jpnChrName}</h2>
-                <p dangerouslySetInnerHTML={{ __html: row.jpnHtmlText }} />
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      <Script script={data} />
     </div>
   );
 }
