@@ -64,7 +64,7 @@ export function Question({ word, index }: { word: Word; index: number }) {
             className="underline"
             target="_blank"
             rel="noreferrer"
-            href={`https://jisho.org/word/${word.dictionary || word.word}`}
+            href={`https://jisho.org/search/${word.dictionary || word.word}`}
           >{`Jisho ->`}</a>
         )}
       </div>

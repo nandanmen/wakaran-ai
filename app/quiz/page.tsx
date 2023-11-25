@@ -9,7 +9,7 @@ export default async function QuizPage() {
   const words = await kv.keys("nanda:favourites:*");
   const shuffledWords = shuffle(words);
   return (
-    <div className="py-8">
+    <div className="py-8 max-w-[600px] mx-auto">
       <QuizController>
         {shuffledWords.map((word, index) => (
           <Suspense key={word} fallback={null}>
