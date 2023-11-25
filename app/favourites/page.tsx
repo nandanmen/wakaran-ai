@@ -2,6 +2,8 @@ import { kv } from "@vercel/kv";
 import { WordItem } from "./word-item";
 import type { Word } from "../games/[gameId]/scripts/[scriptId]/script";
 
+export const dynamic = "force-dynamic";
+
 export default async function Favourites() {
   const words = await kv.keys("nanda:favourites:*");
   return (
