@@ -16,7 +16,7 @@ async function Word({ keyName }: { keyName: string }) {
   return (
     <li className="grid grid-cols-2 divide-x items-center">
       <div className="p-4 flex items-center justify-between">
-        <p className="text-2xl">{word.word}</p>
+        <p className="text-2xl">{word.dictionary || word.word}</p>
         <p className="text-gray-500">{word.reading}</p>
       </div>
       <div className="p-4 flex items-center justify-between">
@@ -25,11 +25,6 @@ async function Word({ keyName }: { keyName: string }) {
           <p className="text-sm text-gray-700 bg-gray-100 w-fit px-2 py-1 rounded-md">
             {word.type}
           </p>
-          {word.form && (
-            <p className="text-sm text-gray-700 bg-gray-100 w-fit px-2 py-1 rounded-md">
-              {word.form}
-            </p>
-          )}
         </div>
       </div>
     </li>
