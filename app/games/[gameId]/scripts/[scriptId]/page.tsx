@@ -2,16 +2,7 @@ import { Script } from "./script";
 
 const API_BASE_URL = `https://trailsinthedatabase.com/api/script/detail`;
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  return [
-    {
-      gameId: "1",
-      scriptId: "c0100",
-    },
-  ];
-}
+export const dynamic = "force-dynamic";
 
 export default async function ScriptPage({
   params,
@@ -23,7 +14,7 @@ export default async function ScriptPage({
   );
   const data = await response.json();
   return (
-    <div className="p-16">
+    <div className="p-12">
       <Script script={data} />
     </div>
   );

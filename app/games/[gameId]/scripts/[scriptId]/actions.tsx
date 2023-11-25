@@ -1,15 +1,56 @@
 "use server";
 
 import { OpenAI } from "openai";
+import { kv } from "@vercel/kv";
+import { revalidatePath } from "next/cache";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const cache = new Map();
+const getKey = ({
+  gameId,
+  scriptId,
+  row,
+}: {
+  gameId: string;
+  scriptId: string;
+  row: number;
+}) => `${gameId}:${scriptId}:${row}`;
 
-export async function getTranslation(sentence: string) {
-  if (cache.has(sentence)) return cache.get(sentence);
+function get(key: string) {
+  return fetch(`${process.env.KV_REST_API_URL}/get/${key}`, {
+    cache: "no-store",
+    headers: {
+      Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
+    },
+  })
+    .then((response) => response.json())
+    .then(({ result }) => JSON.parse(result));
+}
+
+export async function addToFavourite(word: string, details: unknown) {
+  const response = await kv.set(`nanda:favourites:${word}`, details);
+  revalidatePath("/favourites");
+  return response;
+}
+
+export async function getTranslation(
+  sentence: string,
+  {
+    gameId,
+    scriptId,
+    row,
+  }: {
+    gameId: string;
+    scriptId: string;
+    row: number;
+  }
+) {
+  const key = getKey({ gameId, scriptId, row });
+  const response = get(key);
+  if (response) return response;
+
   const parsed = sentence.replaceAll("<br/>", "");
   const { usage, choices } = await translate(parsed);
   console.log(
@@ -17,7 +58,9 @@ export async function getTranslation(sentence: string) {
   );
   const [call] = choices.flatMap((choice) => choice.message.tool_calls);
   const results = JSON.parse(call?.function.arguments ?? "{}");
-  cache.set(sentence, results);
+
+  await kv.set(key, results);
+
   return results;
 }
 

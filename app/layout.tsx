@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,6 +16,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${GeistSans.variable} font-sans antialiased`}>
+        <nav className="mx-auto w-fit mt-4">
+          <ul className="flex gap-4">
+            <li>
+              <Link className="underline" href="/favourites">
+                Favourites
+              </Link>
+            </li>
+            <li>
+              <Link className="underline" href="/games/1/scripts/c0100">
+                Sky FC 1
+              </Link>
+            </li>
+          </ul>
+        </nav>
         {children}
       </body>
     </html>

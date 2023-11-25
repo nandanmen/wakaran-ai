@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { getTranslation } from "./actions";
+import { addToFavourite, getTranslation } from "./actions";
+import { useParams } from "next/navigation";
 
 type TranslationState = {
   row: number;
@@ -16,12 +17,13 @@ type TranslationState = {
 };
 
 export function Script({ script }: { script: any[] }) {
+  const params = useParams() as { gameId: string; scriptId: string };
   const [loading, setLoading] = React.useState<number | null>(null);
   const [translation, setTranslation] = React.useState<TranslationState | null>(
     null
   );
   return (
-    <div className="flex">
+    <div className="flex gap-8">
       <ul className="text-lg max-w-[900px] shrink-0 border rounded-xl divide-y">
         {script.map((row) => {
           return (
@@ -32,11 +34,16 @@ export function Script({ script }: { script: any[] }) {
               </div>
               <button
                 className={`p-4 space-y-2 block text-start hover:bg-gray-100 w-full relative ${
-                  row.row === translation?.row ? "bg-gray-100" : ""
+                  row.row === translation?.row ? "bg-gray-50" : ""
                 }`}
                 onClick={() => {
                   setLoading(row.row);
-                  getTranslation(row.jpnSearchText).then(({ words }) => {
+                  getTranslation(row.jpnSearchText, {
+                    gameId: params.gameId,
+                    scriptId: params.scriptId,
+                    row: row.row,
+                  }).then(({ words }) => {
+                    console.log(words);
                     setTranslation({ row: row.row, words });
                     setLoading(null);
                   });
@@ -54,8 +61,82 @@ export function Script({ script }: { script: any[] }) {
           );
         })}
       </ul>
-      <pre>{JSON.stringify(translation, null, 2)}</pre>
+      {translation && (
+        <ul className="border h-fit w-full rounded-xl divide-y sticky top-8">
+          {translation.words.map((word) => {
+            return (
+              <li
+                className="grid grid-cols-[1fr_1fr_min-content] divide-x items-center"
+                key={word.word}
+              >
+                <div className="p-4 flex items-center justify-between">
+                  <p className="text-2xl">{word.word}</p>
+                  <p className="text-gray-500">{word.reading}</p>
+                </div>
+                <div className="p-4 flex items-center justify-between">
+                  <p>{word.meaning}</p>
+                  <div className="flex gap-2">
+                    <p className="text-sm text-gray-700 bg-gray-100 w-fit px-2 py-1 rounded-md">
+                      {word.type}
+                    </p>
+                    {word.form && (
+                      <p className="text-sm text-gray-700 bg-gray-100 w-fit px-2 py-1 rounded-md">
+                        {word.form}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="aspect-square h-full flex items-center px-4">
+                  <FavouriteButton word={word} />
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
+  );
+}
+
+function FavouriteButton({ word }: { word: any }) {
+  const [favourited, setFavourited] = React.useState(false);
+  return (
+    <button
+      className="rounded-full bg-gray-100 p-1 border"
+      onClick={async () => {
+        await addToFavourite(word.word, word);
+        setFavourited(true);
+      }}
+    >
+      {favourited ? (
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M5.75 12.8665L8.33995 16.4138C9.15171 17.5256 10.8179 17.504 11.6006 16.3715L18.25 6.75"
+          ></path>
+        </svg>
+      ) : (
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M12 5.75V18.25"
+          ></path>
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M18.25 12L5.75 12"
+          ></path>
+        </svg>
+      )}
+    </button>
   );
 }
 
