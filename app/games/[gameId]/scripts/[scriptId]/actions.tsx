@@ -26,17 +26,61 @@ function get(key: string) {
     },
   })
     .then((response) => response.json())
-    .then(({ result }) => JSON.parse(result));
+    .then(({ result }) => {
+      try {
+        return JSON.parse(result);
+      } catch {
+        return result;
+      }
+    });
 }
 
-export async function isFavourite(details: any) {
+export async function getComment({
+  gameId,
+  scriptId,
+  row,
+}: {
+  gameId: string;
+  scriptId: string;
+  row: number;
+}) {
+  const key = getKey({ gameId, scriptId, row });
+  return get(`nanda:comments:${key}`);
+}
+
+export async function saveComment(
+  comment: string,
+  {
+    gameId,
+    scriptId,
+    row,
+  }: {
+    gameId: string;
+    scriptId: string;
+    row: number;
+  }
+) {
+  const key = getKey({ gameId, scriptId, row });
+  return kv.set(`nanda:comments:${key}`, comment);
+}
+
+type Word = {
+  word: string;
+  meaning: string;
+  reading: string;
+  type: string;
+  form: string;
+  dictionary: string;
+};
+
+export async function isFavourite(details: Word) {
   const response = await get(
     `nanda:favourites:${details.dictionary || details.word}`
   );
   return response;
 }
 
-export async function addToFavourite(details: any) {
+export async function addToFavourite(details: Word) {
   const response = await kv.set(
     `nanda:favourites:${details.dictionary || details.word}`,
     details
@@ -56,7 +100,7 @@ export async function getTranslation(
     scriptId: string;
     row: number;
   }
-) {
+): Promise<{ words: Word[] }> {
   const key = getKey({ gameId, scriptId, row });
   const response = await get(key);
   if (response) return response;

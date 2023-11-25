@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { addToFavourite, getTranslation, isFavourite } from "./actions";
-import { useParams } from "next/navigation";
+import React, { useTransition } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { useFormStatus } from "react-dom";
 
 export type Word = {
   word: string;
@@ -13,112 +13,84 @@ export type Word = {
   dictionary: string;
 };
 
-type TranslationState = {
-  row: number;
-  words: Word[];
-};
-
 export function Script({ script }: { script: any[] }) {
-  const params = useParams() as { gameId: string; scriptId: string };
-  const [loading, setLoading] = React.useState<number | null>(null);
-  const [translation, setTranslation] = React.useState<TranslationState | null>(
-    null
-  );
   return (
-    <div className="flex gap-8">
-      <ul className="text-lg max-w-[900px] shrink-0 border border-gray-7 rounded-xl divide-y divide-gray-7 overflow-hidden">
-        {script.map((row) => {
-          return (
-            <li
-              className="grid grid-cols-2 divide-x divide-gray-7"
-              key={row.row}
-            >
-              <div className="p-4 space-y-2">
-                <h2 className="font-medium">{row.engChrName}</h2>
-                <p>{row.engSearchText}</p>
-              </div>
-              <button
-                className={`p-4 space-y-2 block text-start hover:bg-gray-2 w-full relative ${
-                  row.row === translation?.row ? "bg-gray-3" : ""
-                }`}
-                onClick={() => {
-                  setLoading(row.row);
-                  getTranslation(row.jpnSearchText, {
-                    gameId: params.gameId,
-                    scriptId: params.scriptId,
-                    row: row.row,
-                  }).then(({ words }) => {
-                    console.log(words);
-                    setTranslation({ row: row.row, words });
-                    setLoading(null);
-                  });
-                }}
-              >
-                <h2 className="font-medium">{row.jpnChrName}</h2>
-                <p dangerouslySetInnerHTML={{ __html: row.jpnHtmlText }} />
-                {loading === row.row && (
-                  <span className="absolute top-2 right-4 block animate-spin">
-                    <Spin />
-                  </span>
-                )}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-      {translation && (
-        <ul className="border h-fit w-full rounded-xl divide-y divide-gray-7 border-gray-7 sticky top-8">
-          {translation.words.map((word) => {
-            return (
-              <li
-                className="grid grid-cols-[1fr_1fr_min-content] divide-x divide-gray-7 items-center"
-                key={word.word}
-              >
-                <div className="p-4 flex items-center justify-between">
-                  <p className="text-2xl">{word.word}</p>
-                  <p className="text-gray-11">{word.reading}</p>
-                </div>
-                <div className="p-4 flex items-center justify-between">
-                  <p>{word.meaning}</p>
-                  <div className="flex gap-2">
-                    <p className="text-sm text-gray-11 bg-gray-3 w-fit px-2 py-1 rounded-md">
-                      {word.type}
-                    </p>
-                    {word.form && (
-                      <p className="text-sm text-gray-11 bg-gray-3 w-fit px-2 py-1 rounded-md">
-                        {word.form}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div className="aspect-square h-full flex items-center px-4">
-                  <FavouriteButton word={word} />
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </div>
+    <ul className="text-lg max-w-[900px] shrink-0 border border-gray-7 rounded-xl divide-y divide-gray-7 overflow-hidden">
+      {script.map((row) => {
+        return <Row key={row.row} row={row} />;
+      })}
+    </ul>
   );
 }
 
-function FavouriteButton({ word }: { word: Word }) {
-  const [favourited, setFavourited] = React.useState(false);
-  React.useEffect(() => {
-    isFavourite(word).then((d) => setFavourited(Boolean(d)));
-  }, [word]);
+function Row({ row }: { row: any }) {
+  const params = useParams() as { gameId: string; scriptId: string };
+  const [pending, startTransition] = useTransition();
+  const router = useRouter();
+  return (
+    <li className="grid grid-cols-2 divide-x divide-gray-7" key={row.row}>
+      <div className="p-4 space-y-2">
+        <h2 className="font-medium">{row.engChrName}</h2>
+        <p>{row.engSearchText}</p>
+      </div>
+      <button
+        className={`p-4 space-y-2 block text-start hover:bg-gray-2 w-full relative`}
+        onClick={() => {
+          startTransition(() => {
+            router.push(
+              `/games/${params.gameId}/scripts/${params.scriptId}?row=${row.row}`
+            );
+          });
+        }}
+      >
+        <h2 className="font-medium">{row.jpnChrName}</h2>
+        <p dangerouslySetInnerHTML={{ __html: row.jpnHtmlText }} />
+        {pending && (
+          <span className="absolute top-2 right-4 block animate-spin">
+            <Spin />
+          </span>
+        )}
+      </button>
+    </li>
+  );
+}
 
+export function Edit({ children }: { children: React.ReactNode }) {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <>
+      <button onClick={() => setOpen(!open)}>{open ? "Cancel" : "Edit"}</button>
+      {open && children}
+    </>
+  );
+}
+
+export function SubmitButton({ children }: { children: React.ReactNode }) {
+  const state = useFormStatus();
+  return (
+    <button>
+      {state.pending && (
+        <span className="block animate-spin">
+          <Spin />
+        </span>
+      )}
+      {children}
+    </button>
+  );
+}
+
+export function FavouriteButton({ favourited }: { favourited?: boolean }) {
+  const state = useFormStatus();
   return (
     <button
       className="rounded-full bg-gray-3 p-1 border border-gray-7 text-gray-11 disabled:text-gray-8"
       disabled={favourited}
-      onClick={async () => {
-        await addToFavourite(word);
-        setFavourited(true);
-      }}
     >
-      {favourited ? (
+      {state.pending ? (
+        <span className="block animate-spin">
+          <Spin />
+        </span>
+      ) : favourited ? (
         <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path
             stroke="currentColor"
