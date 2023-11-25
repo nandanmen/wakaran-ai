@@ -1,9 +1,11 @@
 import { kv } from "@vercel/kv";
+import { WordItem } from "./word-item";
+import type { Word } from "../games/[gameId]/scripts/[scriptId]/script";
 
 export default async function Favourites() {
   const words = await kv.keys("nanda:favourites:*");
   return (
-    <ul className="max-w-[600px] mx-auto my-16 border rounded-xl divide-y">
+    <ul className="max-w-[600px] mx-auto my-16 border border-gray-7 divide-gray-7 lg:rounded-xl divide-y overflow-hidden">
       {words.map((key) => (
         <Word key={key} keyName={key} />
       ))}
@@ -12,21 +14,7 @@ export default async function Favourites() {
 }
 
 async function Word({ keyName }: { keyName: string }) {
-  const word = await kv.get<any>(keyName);
-  return (
-    <li className="grid grid-cols-2 divide-x items-center">
-      <div className="p-4 flex items-center justify-between">
-        <p className="text-2xl">{word.dictionary || word.word}</p>
-        <p className="text-gray-500">{word.reading}</p>
-      </div>
-      <div className="p-4 flex items-center justify-between">
-        <p>{word.meaning}</p>
-        <div className="flex gap-2">
-          <p className="text-sm text-gray-700 bg-gray-100 w-fit px-2 py-1 rounded-md">
-            {word.type}
-          </p>
-        </div>
-      </div>
-    </li>
-  );
+  const word = await kv.get<Word>(keyName);
+  if (!word) return null;
+  return <WordItem word={word} />;
 }

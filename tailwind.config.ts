@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss";
+import { createPlugin } from "windy-radix-palette";
+
+const colors = createPlugin();
 
 const config: Config = {
   content: [
@@ -13,6 +16,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [colors.plugin],
 };
 export default config;

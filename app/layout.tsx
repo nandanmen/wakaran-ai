@@ -15,12 +15,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.variable} font-sans antialiased`}>
+      <body
+        className={`${GeistSans.variable} font-sans antialiased bg-gray-1 text-gray-12`}
+      >
         <nav className="mx-auto w-fit mt-4">
           <ul className="flex gap-4">
             <li>
               <Link className="underline" href="/favourites">
                 Favourites
+              </Link>
+            </li>
+            <li>
+              <Link className="underline" href="/quiz">
+                Quiz
               </Link>
             </li>
             <li>

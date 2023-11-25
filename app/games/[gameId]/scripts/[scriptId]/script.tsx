@@ -4,16 +4,18 @@ import React from "react";
 import { addToFavourite, getTranslation, isFavourite } from "./actions";
 import { useParams } from "next/navigation";
 
+export type Word = {
+  word: string;
+  meaning: string;
+  reading: string;
+  type: string;
+  form: string;
+  dictionary: string;
+};
+
 type TranslationState = {
   row: number;
-  words: Array<{
-    word: string;
-    meaning: string;
-    reading: string;
-    type: string;
-    form: string;
-    dictionary: string;
-  }>;
+  words: Word[];
 };
 
 export function Script({ script }: { script: any[] }) {
@@ -24,17 +26,20 @@ export function Script({ script }: { script: any[] }) {
   );
   return (
     <div className="flex gap-8">
-      <ul className="text-lg max-w-[900px] shrink-0 border rounded-xl divide-y">
+      <ul className="text-lg max-w-[900px] shrink-0 border border-gray-7 rounded-xl divide-y divide-gray-7 overflow-hidden">
         {script.map((row) => {
           return (
-            <li className="grid grid-cols-2 divide-x" key={row.row}>
+            <li
+              className="grid grid-cols-2 divide-x divide-gray-7"
+              key={row.row}
+            >
               <div className="p-4 space-y-2">
                 <h2 className="font-medium">{row.engChrName}</h2>
                 <p>{row.engSearchText}</p>
               </div>
               <button
-                className={`p-4 space-y-2 block text-start hover:bg-gray-100 w-full relative ${
-                  row.row === translation?.row ? "bg-gray-50" : ""
+                className={`p-4 space-y-2 block text-start hover:bg-gray-2 w-full relative ${
+                  row.row === translation?.row ? "bg-gray-3" : ""
                 }`}
                 onClick={() => {
                   setLoading(row.row);
@@ -62,25 +67,25 @@ export function Script({ script }: { script: any[] }) {
         })}
       </ul>
       {translation && (
-        <ul className="border h-fit w-full rounded-xl divide-y sticky top-8">
+        <ul className="border h-fit w-full rounded-xl divide-y divide-gray-7 border-gray-7 sticky top-8">
           {translation.words.map((word) => {
             return (
               <li
-                className="grid grid-cols-[1fr_1fr_min-content] divide-x items-center"
+                className="grid grid-cols-[1fr_1fr_min-content] divide-x divide-gray-7 items-center"
                 key={word.word}
               >
                 <div className="p-4 flex items-center justify-between">
                   <p className="text-2xl">{word.word}</p>
-                  <p className="text-gray-500">{word.reading}</p>
+                  <p className="text-gray-11">{word.reading}</p>
                 </div>
                 <div className="p-4 flex items-center justify-between">
                   <p>{word.meaning}</p>
                   <div className="flex gap-2">
-                    <p className="text-sm text-gray-700 bg-gray-100 w-fit px-2 py-1 rounded-md">
+                    <p className="text-sm text-gray-11 bg-gray-3 w-fit px-2 py-1 rounded-md">
                       {word.type}
                     </p>
                     {word.form && (
-                      <p className="text-sm text-gray-700 bg-gray-100 w-fit px-2 py-1 rounded-md">
+                      <p className="text-sm text-gray-11 bg-gray-3 w-fit px-2 py-1 rounded-md">
                         {word.form}
                       </p>
                     )}
@@ -98,7 +103,7 @@ export function Script({ script }: { script: any[] }) {
   );
 }
 
-function FavouriteButton({ word }: { word: any }) {
+function FavouriteButton({ word }: { word: Word }) {
   const [favourited, setFavourited] = React.useState(false);
   React.useEffect(() => {
     isFavourite(word).then((d) => setFavourited(Boolean(d)));
@@ -106,7 +111,8 @@ function FavouriteButton({ word }: { word: any }) {
 
   return (
     <button
-      className="rounded-full bg-gray-100 p-1 border"
+      className="rounded-full bg-gray-3 p-1 border border-gray-7 text-gray-11 disabled:text-gray-8"
+      disabled={favourited}
       onClick={async () => {
         await addToFavourite(word);
         setFavourited(true);
