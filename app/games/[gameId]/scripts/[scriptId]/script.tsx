@@ -38,7 +38,8 @@ function Row({ row }: { row: any }) {
         onClick={() => {
           startTransition(() => {
             router.push(
-              `/games/${params.gameId}/scripts/${params.scriptId}?row=${row.row}`
+              `/games/${params.gameId}/scripts/${params.scriptId}?row=${row.row}`,
+              { scroll: false }
             );
           });
         }}
