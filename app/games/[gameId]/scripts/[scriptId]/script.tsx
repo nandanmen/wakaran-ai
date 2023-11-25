@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { addToFavourite, getTranslation } from "./actions";
+import { addToFavourite, getTranslation, isFavourite } from "./actions";
 import { useParams } from "next/navigation";
 
 type TranslationState = {
@@ -100,11 +100,15 @@ export function Script({ script }: { script: any[] }) {
 
 function FavouriteButton({ word }: { word: any }) {
   const [favourited, setFavourited] = React.useState(false);
+  React.useEffect(() => {
+    isFavourite(word).then((d) => setFavourited(Boolean(d)));
+  }, [word]);
+
   return (
     <button
       className="rounded-full bg-gray-100 p-1 border"
       onClick={async () => {
-        await addToFavourite(word.word, word);
+        await addToFavourite(word);
         setFavourited(true);
       }}
     >

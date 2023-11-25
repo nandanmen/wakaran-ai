@@ -29,8 +29,18 @@ function get(key: string) {
     .then(({ result }) => JSON.parse(result));
 }
 
-export async function addToFavourite(word: string, details: unknown) {
-  const response = await kv.set(`nanda:favourites:${word}`, details);
+export async function isFavourite(details: any) {
+  const response = await get(
+    `nanda:favourites:${details.dictionary || details.word}`
+  );
+  return response;
+}
+
+export async function addToFavourite(details: any) {
+  const response = await kv.set(
+    `nanda:favourites:${details.dictionary || details.word}`,
+    details
+  );
   revalidatePath("/favourites");
   return response;
 }
