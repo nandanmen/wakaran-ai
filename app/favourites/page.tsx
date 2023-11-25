@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export default async function Favourites() {
   const words = await kv.keys("nanda:favourites:*");
   return (
-    <ul className="max-w-[600px] mx-auto my-16 border border-gray-7 divide-gray-7 lg:rounded-xl divide-y overflow-hidden">
+    <ul className="m-8 md:m-16 grid grid-cols-[repeat(auto-fit,_minmax(500px,1fr))] gap-4 overflow-hidden">
       {words.map((key) => (
         <Word key={key} keyName={key} />
       ))}

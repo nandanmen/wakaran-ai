@@ -6,7 +6,7 @@ import type { Word } from "../games/[gameId]/scripts/[scriptId]/script";
 export function WordItem({ word }: { word: Word }) {
   const [open, setOpen] = React.useState(false);
   return (
-    <li>
+    <li className="border rounded-lg border-gray-7 overflow-hidden">
       <button
         className="lg:grid grid-cols-2 divide-y divide-dashed lg:divide-y-0 lg:divide-solid lg:divide-x divide-gray-7 items-center w-full"
         onClick={() => setOpen(!open)}
