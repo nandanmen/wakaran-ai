@@ -58,7 +58,7 @@ export async function getTranslation(
   }
 ) {
   const key = getKey({ gameId, scriptId, row });
-  const response = get(key);
+  const response = await get(key);
   if (response) return response;
 
   const parsed = sentence.replaceAll("<br/>", "");
