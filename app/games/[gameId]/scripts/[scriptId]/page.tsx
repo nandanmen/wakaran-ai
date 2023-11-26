@@ -27,7 +27,7 @@ export default async function ScriptPage({
   const script = await getScript({ gameId, scriptId });
   const rowNumber = parseInt(searchParams?.row ?? "");
   return (
-    <div className="p-12 flex gap-8">
+    <div className="p-8 lg:px-12 flex gap-8">
       <Script script={script} />
       {!isNaN(rowNumber) && (
         <Translation

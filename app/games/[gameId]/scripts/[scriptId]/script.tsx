@@ -15,7 +15,7 @@ export type Word = {
 
 export function Script({ script }: { script: any[] }) {
   return (
-    <ul className="text-lg max-w-[900px] shrink-0 border border-gray-7 rounded-xl divide-y divide-gray-7 overflow-hidden">
+    <ul className="text-lg w-full max-w-[900px] shrink-0 border border-gray-7 rounded-xl divide-y divide-gray-7 overflow-hidden">
       {script.map((row) => {
         return <Row key={row.row} row={row} />;
       })}
@@ -28,7 +28,10 @@ function Row({ row }: { row: any }) {
   const [pending, startTransition] = useTransition();
   const router = useRouter();
   return (
-    <li className="grid grid-cols-2 divide-x divide-gray-7" key={row.row}>
+    <li
+      className="grid lg:grid-cols-2 divide-dashed divide-y lg:divide-y-0 lg:divide-solid lg:divide-x divide-gray-7"
+      key={row.row}
+    >
       <div className="p-4 space-y-2">
         <h2 className="font-medium">{row.engChrName}</h2>
         <p>{row.engSearchText}</p>
