@@ -1,36 +1,18 @@
 import { kv } from "@vercel/kv";
 import type { Word } from "../games/[gameId]/scripts/[scriptId]/script";
-import { Question, QuizController } from "./quiz-controller";
-import { Suspense } from "react";
+import { QuizController } from "./quiz-controller";
 
 export const dynamic = "force-dynamic";
 
 export default async function QuizPage() {
-  const words = await kv.keys("nanda:favourites:*");
-  const shuffledWords = shuffle(words);
+  const keys = await kv.keys("nanda:favourites:*");
+  const shuffledWords = shuffle(keys);
+  const words = await Promise.all(keys.map((key) => kv.get<Word>(key)));
   return (
     <div className="py-8 max-w-[600px] mx-auto">
-      <QuizController>
-        {shuffledWords.map((word, index) => (
-          <Suspense key={word} fallback={null}>
-            <QuestionWrapper index={index} keyName={word} />
-          </Suspense>
-        ))}
-      </QuizController>
+      <QuizController words={words as Word[]} />
     </div>
   );
-}
-
-async function QuestionWrapper({
-  keyName,
-  index,
-}: {
-  keyName: string;
-  index: number;
-}) {
-  const word = await kv.get<Word>(keyName);
-  if (!word) return null;
-  return <Question word={word} index={index} />;
 }
 
 const shuffle = (array: string[]) => {
