@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useTransition } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useFormStatus } from "react-dom";
 
 export type Word = {
@@ -25,8 +25,10 @@ export function Script({ script }: { script: any[] }) {
 
 function Row({ row }: { row: any }) {
   const params = useParams() as { gameId: string; scriptId: string };
+  const searchParams = useSearchParams();
   const [pending, startTransition] = useTransition();
   const router = useRouter();
+  const activeRowNumber = parseInt(searchParams.get("row") ?? "");
   return (
     <li
       className="grid lg:grid-cols-2 divide-dashed divide-y lg:divide-y-0 lg:divide-solid lg:divide-x divide-gray-7"
@@ -37,7 +39,9 @@ function Row({ row }: { row: any }) {
         <p>{row.engSearchText}</p>
       </div>
       <button
-        className={`p-4 space-y-2 block text-start hover:bg-gray-2 w-full relative`}
+        className={`p-4 space-y-2 block text-start hover:bg-gray-2 w-full relative ${
+          activeRowNumber === row.row ? "bg-gray-2" : ""
+        }`}
         onClick={() => {
           startTransition(() => {
             router.push(

@@ -14,6 +14,7 @@ import {
   saveComment,
 } from "./actions";
 import { revalidatePath } from "next/cache";
+import { ChatForm } from "./chat";
 
 export const dynamic = "force-dynamic";
 
@@ -55,7 +56,11 @@ async function Translation({
   const translation = await getTranslation(text, { gameId, scriptId, row });
   const currentPath = `/games/${gameId}/scripts/${scriptId}?row=${row}`;
   return (
-    <ul className="border h-fit w-full rounded-xl divide-y divide-gray-7 border-gray-7 sticky top-8">
+    <ul
+      className="border h-fit w-full rounded-xl divide-y divide-gray-7 border-gray-7 sticky top-8"
+      key={text}
+    >
+      <ChatForm sentence={text} />
       <CommentForm
         gameId={gameId}
         row={row}
