@@ -19,9 +19,10 @@ export async function POST(req: Request) {
     messages: [
       {
         role: "user",
-        content: `The following is an excerpt from the JRPG series Trails in the Sky: ${sentence}. Answer the following question concisely, assuming the user is able to understand hiragana and katakana: ${prompt}`,
+        content: `The following is an excerpt from the JRPG series Trails in the Sky: ${sentence}. Answer the following question, assuming the user is able to understand hiragana and katakana: ${prompt}`,
       },
     ],
+    max_tokens: 150,
   });
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
