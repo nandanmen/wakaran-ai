@@ -67,7 +67,11 @@ export function Edit({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = React.useState(false);
   return (
     <>
-      <button onClick={() => setOpen(!open)}>{open ? "Cancel" : "Edit"}</button>
+      <div className="p-4">
+        <button onClick={() => setOpen(!open)}>
+          {open ? "Cancel" : "Edit"}
+        </button>
+      </div>
       {open && children}
     </>
   );
@@ -76,13 +80,13 @@ export function Edit({ children }: { children: React.ReactNode }) {
 export function SubmitButton({ children }: { children: React.ReactNode }) {
   const state = useFormStatus();
   return (
-    <button>
+    <button className="w-fit flex gap-1">
+      {children}
       {state.pending && (
         <span className="block animate-spin">
           <Spin />
         </span>
       )}
-      {children}
     </button>
   );
 }
