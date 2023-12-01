@@ -9,8 +9,11 @@ export function ChatForm({ sentence }: { sentence: string }) {
   });
 
   return (
-    <div className="divide-y divide-gray-7">
-      <form className="flex p-2" onSubmit={handleSubmit}>
+    <div className="divide-y divide-gray-7 sticky top-0 -mb-px">
+      <form
+        className="flex p-2 bg-gray-1 border-b border-gray-7"
+        onSubmit={handleSubmit}
+      >
         <input
           className="h-10 pl-2 w-full bg-gray-1 placeholder:text-gray-10"
           value={input}

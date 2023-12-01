@@ -40,7 +40,7 @@ function Row({ row }: { row: any }) {
       </div>
       <button
         className={`p-4 space-y-2 block text-start hover:bg-gray-2 w-full relative ${
-          activeRowNumber === row.row ? "bg-gray-2" : ""
+          activeRowNumber === row.row ? "bg-gray-3" : ""
         }`}
         onClick={() => {
           startTransition(() => {

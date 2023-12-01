@@ -14,7 +14,9 @@ import {
   saveComment,
 } from "./actions";
 import { revalidatePath } from "next/cache";
+import { marked } from "marked";
 import { ChatForm } from "./chat";
+import { CommentForm } from "./comment";
 
 export const dynamic = "force-dynamic";
 
@@ -57,11 +59,11 @@ async function Translation({
   const currentPath = `/games/${gameId}/scripts/${scriptId}?row=${row}`;
   return (
     <ul
-      className="border h-fit w-full rounded-xl divide-y divide-gray-7 border-gray-7 sticky top-8"
+      className="border h-fit max-h-[calc(100vh-theme(space.8)*2)] overflow-y-auto w-full rounded-xl divide-y divide-gray-7 border-gray-7 sticky top-8"
       key={text}
     >
       <ChatForm sentence={text} />
-      <CommentForm
+      <CommentFormWrapper
         gameId={gameId}
         row={row}
         scriptId={scriptId}
@@ -98,7 +100,7 @@ async function Translation({
   );
 }
 
-async function CommentForm({
+async function CommentFormWrapper({
   gameId,
   scriptId,
   row,
@@ -111,42 +113,27 @@ async function CommentForm({
 }) {
   const comment = await getComment({ gameId, scriptId, row });
   return (
-    <>
-      {comment && (
-        <div className="p-4 space-y-2">
-          <h3 className="text-gray-11 font-medium text-sm">Notes</h3>
-          <p>{comment}</p>
-        </div>
-      )}
-      <Edit>
-        <form
-          action={async (data: FormData) => {
-            "use server";
-            const context = {
-              gameId: data.get("gameId") as string,
-              scriptId: data.get("scriptId") as string,
-              row: parseInt(data.get("row") as string),
-            };
-            await saveComment(data.get("comment") as string, context);
-            revalidatePath(currentPath);
-          }}
-          className="flex flex-col divide-y divide-gray-7"
-        >
-          <textarea
-            className="bg-gray-1 h-[100px] p-4 resize-y placeholder:text-gray-10"
-            name="comment"
-            defaultValue={comment}
-            placeholder="Leave some notes about this text..."
-          />
-          <input type="hidden" value={gameId} name="gameId" />
-          <input type="hidden" value={scriptId} name="scriptId" />
-          <input type="hidden" value={row} name="row" />
-          <div className="p-4">
-            <SubmitButton>Add Comment</SubmitButton>
-          </div>
-        </form>
-      </Edit>
-    </>
+    <CommentForm
+      currentComment={
+        comment
+          ? {
+              html: await marked.parse(comment),
+              text: comment,
+            }
+          : undefined
+      }
+      saveComment={async (data: FormData) => {
+        "use server";
+        const context = {
+          gameId: data.get("gameId") as string,
+          scriptId: data.get("scriptId") as string,
+          row: parseInt(data.get("row") as string),
+        };
+        await saveComment(data.get("comment") as string, context);
+        revalidatePath(currentPath);
+      }}
+      context={{ gameId, scriptId, row }}
+    />
   );
 }
 
