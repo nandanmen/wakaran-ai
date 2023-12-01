@@ -95,7 +95,7 @@ export function FavouriteButton({ favourited }: { favourited?: boolean }) {
   const state = useFormStatus();
   return (
     <button
-      className="rounded-full bg-gray-3 p-1 border border-gray-7 text-gray-11 disabled:text-gray-8"
+      className="rounded-full text-gray-11 disabled:text-gray-8"
       disabled={favourited}
     >
       {state.pending ? (

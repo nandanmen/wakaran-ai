@@ -75,11 +75,11 @@ async function Translation({
             className="grid grid-cols-[1fr_1fr_min-content] divide-x divide-gray-7 items-center"
             key={word.word}
           >
-            <div className="p-4 flex items-center justify-between">
-              <p className="text-2xl">{word.word}</p>
+            <div className="px-4 py-2 flex items-center justify-between">
+              <p className="text-lg">{word.word}</p>
               <p className="text-gray-11">{word.reading}</p>
             </div>
-            <div className="p-4 flex items-center justify-between">
+            <div className="px-4 py-2 flex items-center justify-between">
               <p>{word.meaning}</p>
               <div className="flex gap-2">
                 <p className="text-sm text-gray-11 bg-gray-3 w-fit px-2 py-1 rounded-md">
@@ -152,7 +152,7 @@ async function FavouriteForm({
         await addToFavourite(JSON.parse(data.get("word") as string));
         revalidatePath(currentPath);
       }}
-      className="aspect-square h-full flex items-center px-4"
+      className="h-full flex items-center px-2"
     >
       <input type="hidden" value={JSON.stringify(word)} name="word" />
       <FavouriteButton favourited={favourited} />
