@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useTransition } from "react";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useFormStatus } from "react-dom";
 
 export type Word = {
@@ -24,7 +24,7 @@ export function Script({ script }: { script: any[] }) {
 }
 
 function Row({ row }: { row: any }) {
-  const params = useParams() as { gameId: string; scriptId: string };
+  const path = usePathname();
   const searchParams = useSearchParams();
   const [pending, startTransition] = useTransition();
   const router = useRouter();
@@ -44,10 +44,7 @@ function Row({ row }: { row: any }) {
         }`}
         onClick={() => {
           startTransition(() => {
-            router.push(
-              `/games/${params.gameId}/scripts/${params.scriptId}?row=${row.row}`,
-              { scroll: false }
-            );
+            router.push(`${path}?row=${row.row}`, { scroll: false });
           });
         }}
       >
@@ -106,9 +103,9 @@ export function FavouriteButton({ favourited }: { favourited?: boolean }) {
         <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
             d="M5.75 12.8665L8.33995 16.4138C9.15171 17.5256 10.8179 17.504 11.6006 16.3715L18.25 6.75"
           ></path>
         </svg>
@@ -116,16 +113,16 @@ export function FavouriteButton({ favourited }: { favourited?: boolean }) {
         <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
             d="M12 5.75V18.25"
           ></path>
           <path
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
             d="M18.25 12L5.75 12"
           ></path>
         </svg>
@@ -146,58 +143,58 @@ const Spin = () => {
       <path
         d="M12 4.75V6.25"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M17.1266 6.87347L16.0659 7.93413"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M19.25 12L17.75 12"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M17.1266 17.1265L16.0659 16.0659"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M12 17.75V19.25"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M7.9342 16.0659L6.87354 17.1265"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M6.25 12L4.75 12"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M7.9342 7.93413L6.87354 6.87347"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
     </svg>
   );

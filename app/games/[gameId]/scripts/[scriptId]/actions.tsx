@@ -89,6 +89,23 @@ export async function addToFavourite(details: Word) {
   return response;
 }
 
+export async function updateTranslation(
+  json: string,
+  {
+    gameId,
+    scriptId,
+    row,
+  }: {
+    gameId: string;
+    scriptId: string;
+    row: number;
+  }
+) {
+  const key = getKey({ gameId, scriptId, row });
+  await kv.set(key, JSON.parse(json));
+  revalidatePath(`/games/${gameId}/scripts/${scriptId}?row=${row}`);
+}
+
 export async function getTranslation(
   sentence: string,
   {

@@ -31,7 +31,7 @@ export function CommentForm({
           <button onClick={() => setEditing(true)}>Edit</button>
         )}
       </h3>
-      {editing || !currentComment ? (
+      {editing ? (
         <form
           className="flex flex-col"
           action={async (data) => {
@@ -52,11 +52,15 @@ export function CommentForm({
             <SubmitButton>Save Note</SubmitButton>
           </div>
         </form>
-      ) : (
+      ) : currentComment ? (
         <div
           className={`p-4 pt-0 ${styles.comment}`}
           dangerouslySetInnerHTML={{ __html: currentComment.html }}
         />
+      ) : (
+        <div className="p-4 pt-0 text-gray-10">
+          No notes yet. Click edit to add some.
+        </div>
       )}
     </div>
   );
