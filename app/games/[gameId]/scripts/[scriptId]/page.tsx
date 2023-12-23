@@ -15,7 +15,7 @@ import { search } from "@/app/_lib/dictionary";
 import { getSentence, updateSentenceTranslation } from "@/app/_lib/sentences";
 import { notFound } from "next/navigation";
 import { TranslationItem } from "./translation-item";
-import { addWordsToSentence, getSentenceWords } from "@/app/_lib/words";
+import { addWordsToSentence } from "@/app/_lib/words";
 
 export const dynamic = "force-dynamic";
 

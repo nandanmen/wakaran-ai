@@ -24,14 +24,14 @@ const searchWanikani = async (texts: string[]): Promise<Entry[]> => {
     );
     let { data: response } = await wanikani.json();
     if (response.length > 1) {
-      response = response.filter((d) => d.object === "vocabulary");
+      response = response.filter((d: any) => d.object === "vocabulary");
     }
-    return response.map((d) => {
+    return response.map((d: any) => {
       return {
         id: d.id,
         text: d.data.slug,
-        meanings: d.data.meanings?.map((m) => m.meaning.toLowerCase()),
-        readings: d.data.readings?.map((r) => r.reading),
+        meanings: d.data.meanings?.map((m: any) => m.meaning.toLowerCase()),
+        readings: d.data.readings?.map((r: any) => r.reading),
         wanikani: true,
       };
     });
@@ -52,7 +52,12 @@ export const search = async (text: string): Promise<Entry[]> => {
       (entry.is_common && entry.japanese.find((j) => j.reading === text))
   );
 
-  results = await searchWanikani(matches.map((m) => m.slug));
+  const slugs = [
+    ...new Set(
+      matches.flatMap((m) => m.japanese.map((j) => j.word)).filter(Boolean)
+    ),
+  ];
+  results = await searchWanikani(slugs);
   if (results.length > 0) return results;
 
   return matches.map((m) => {
