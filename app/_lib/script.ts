@@ -7,6 +7,8 @@ export async function getScript({
   gameId: string;
   scriptId: string;
 }) {
-  const response = await fetch(`${API_BASE_URL}/${gameId}/${scriptId}`);
+  const response = await fetch(`${API_BASE_URL}/${gameId}/${scriptId}`, {
+    cache: "force-cache",
+  });
   return response.json();
 }
