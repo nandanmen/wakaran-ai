@@ -1,0 +1,31 @@
+"use client";
+
+import React from "react";
+import { useCompletion } from "ai/react";
+
+export function ChatForm({ sentence }: { sentence: string }) {
+  const { completion, input, handleInputChange, handleSubmit } = useCompletion({
+    body: { sentence },
+  });
+
+  return (
+    <div className="sticky bottom-0 -m-8 mt-6 bg-sand-1 rounded-tl-xl rounded-tr-xl border border-sand-4 divide-y divide-sand-4">
+      {completion && (
+        <div className="whitespace-pre-wrap py-4 px-8 text-sm">
+          {completion}
+        </div>
+      )}
+      <form className="flex px-8 items-center text-sm" onSubmit={handleSubmit}>
+        <input
+          className="py-4 w-full bg-transparent placeholder:text-sand-10"
+          value={input}
+          placeholder="Ask something about this text..."
+          onChange={handleInputChange}
+        />
+        <button className="bg-gray-12 text-gray-1 px-2 py-1 rounded-md font-medium">
+          Ask
+        </button>
+      </form>
+    </div>
+  );
+}

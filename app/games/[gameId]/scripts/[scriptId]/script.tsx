@@ -3,6 +3,7 @@
 import React, { useTransition } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useFormStatus } from "react-dom";
+import Link from "next/link";
 
 export type Word = {
   word: string;
@@ -15,7 +16,7 @@ export type Word = {
 
 export function Script({ script }: { script: any[] }) {
   return (
-    <ul className="text-lg w-full max-w-[900px] shrink-0 border border-gray-7 rounded-xl divide-y divide-gray-7 overflow-hidden">
+    <ul className="text-lg w-full max-w-[900px] shrink-0 overflow-hidden space-y-4">
       {script.map((row) => {
         return <Row key={row.row} row={row} />;
       })}
@@ -26,39 +27,22 @@ export function Script({ script }: { script: any[] }) {
 function Row({ row }: { row: any }) {
   const params = useParams() as { gameId: string; scriptId: string };
   const searchParams = useSearchParams();
-  const [pending, startTransition] = useTransition();
-  const router = useRouter();
   const activeRowNumber = parseInt(searchParams.get("row") ?? "");
   return (
-    <li
-      className="grid lg:grid-cols-2 divide-dashed divide-y lg:divide-y-0 lg:divide-solid lg:divide-x divide-gray-7"
-      key={row.row}
-    >
-      <div className="p-4 space-y-2">
-        <h2 className="font-medium">{row.engChrName}</h2>
-        <p>{row.engSearchText}</p>
-      </div>
-      <button
-        className={`p-4 space-y-2 block text-start hover:bg-gray-2 w-full relative ${
+    <li key={row.row}>
+      <Link
+        href={`/games/${params.gameId}/scripts/${params.scriptId}/${row.row}`}
+        className={`p-4 space-y-2 block text-start bg-sand-1 rounded-xl border border-sand-4 w-full relative ${
           activeRowNumber === row.row ? "bg-gray-3" : ""
         }`}
-        onClick={() => {
-          startTransition(() => {
-            router.push(
-              `/games/${params.gameId}/scripts/${params.scriptId}?row=${row.row}`,
-              { scroll: false }
-            );
-          });
-        }}
       >
         <h2 className="font-medium">{row.jpnChrName}</h2>
         <p dangerouslySetInnerHTML={{ __html: row.jpnHtmlText }} />
-        {pending && (
-          <span className="absolute top-2 right-4 block animate-spin">
-            <Spin />
-          </span>
-        )}
-      </button>
+      </Link>
+      <div className="p-4 space-y-2 text-base text-sand-11 border border-sand-4 rounded-bl-xl rounded-br-xl -mt-2.5 pt-6">
+        <h2 className="font-medium">{row.engChrName}</h2>
+        <p>{row.engSearchText}</p>
+      </div>
     </li>
   );
 }

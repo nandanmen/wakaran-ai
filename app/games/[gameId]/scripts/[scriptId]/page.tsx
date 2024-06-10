@@ -1,11 +1,5 @@
 import { getScript } from "@/app/_lib/script";
-import {
-  Edit,
-  FavouriteButton,
-  Script,
-  SubmitButton,
-  type Word,
-} from "./script";
+import { FavouriteButton, Script, type Word } from "./script";
 import {
   addToFavourite,
   getComment,
