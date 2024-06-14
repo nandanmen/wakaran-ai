@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { Noto_Sans_JP } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { useId } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -10,15 +10,22 @@ export const metadata: Metadata = {
 
 const geist = localFont({ src: "./geist.ttf", variable: "--font-geist-sans" });
 
+const jp = Noto_Sans_JP({
+  variable: "--font-jp",
+  weight: "400",
+  subsets: ["latin"],
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const id = useId();
   return (
     <html className="bg-sand-2 text-sand-12" lang="en">
-      <body className={`${geist.variable} font-sans antialiased`}>
+      <body
+        className={`${geist.variable} ${jp.variable} font-sans antialiased`}
+      >
         <nav className="p-8 pb-0">
           <div className="flex rounded-xl">
             <div className="w-[70px] h-16 relative flex items-center justify-center text-4xl font-medium text-sand-9 bg-sand-3 border border-sand-4 rounded-tl-xl rounded-bl-xl pr-2.5 -mr-2.5 overflow-hidden">

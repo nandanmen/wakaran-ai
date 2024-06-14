@@ -13,6 +13,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
+        jp: ["var(--font-jp)"],
       },
     },
   },

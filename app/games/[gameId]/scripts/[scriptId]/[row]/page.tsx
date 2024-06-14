@@ -48,12 +48,9 @@ export default async function RowPage({
   return (
     <div className="p-8 min-h-[calc(100vh-96px)] flex flex-col">
       <section className="bg-sand-1 rounded-xl border border-sand-4 relative">
-        <header className="space-y-1 p-4">
+        <header className="space-y-1 p-4 font-jp">
           <p className="text-sand-11">{row.jpnChrName}</p>
-          <p
-            className="text-lg"
-            dangerouslySetInnerHTML={{ __html: row.jpnHtmlText }}
-          />
+          <p className="text-lg">{row.jpnSearchText.replace("<br/>", "")}</p>
         </header>
         <div className="p-4 space-y-1 border-t border-dashed border-sand-4 relative">
           <p className="text-sand-11">{row.engChrName}</p>
@@ -114,8 +111,8 @@ export default async function RowPage({
             .map((word) => {
               return (
                 <li key={word.word} className="flex gap-1 p-4">
-                  <p>{word.word}</p>
-                  <p className="text-sand-11">{word.reading}</p>
+                  <p className="font-jp">{word.word}</p>
+                  <p className="text-sand-11 font-jp">{word.reading}</p>
                   <p className="text-sm text-sand-11 ml-auto">{word.meaning}</p>
                 </li>
               );
