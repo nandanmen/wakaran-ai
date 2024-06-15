@@ -1,5 +1,6 @@
 import { Game, getRow } from "@/app/_lib/script";
 import { notFound } from "next/navigation";
+import { Toaster } from "sonner";
 import { RowText } from "./row-text";
 
 export default async function RowPage({
@@ -22,5 +23,10 @@ export default async function RowPage({
     getRow({ game, scriptId: script, rowNumber: Number(rowNumber) + 1 }),
     getRow({ game, scriptId: script, rowNumber: Number(rowNumber) - 1 }),
   ]);
-  return <RowText row={data} nextRow={nextRow} previousRow={previousRow} />;
+  return (
+    <>
+      <Toaster />
+      <RowText row={data} nextRow={nextRow} previousRow={previousRow} />
+    </>
+  );
 }

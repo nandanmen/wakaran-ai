@@ -3,7 +3,7 @@
 import { Row } from "@/app/_lib/script";
 import { useEffect, useState } from "react";
 import { clsx } from "clsx";
-import { motion, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import { Word } from "@/app/_lib/translation";
 import { isKana } from "wanakana";
 import { useParams, useRouter } from "next/navigation";
@@ -26,14 +26,10 @@ export function RowText({
   const [open, setOpen] = useState(false);
   const x = useMotionValue(0);
 
-  useEffect(() => {
-    x.on("change", (v) => console.log(v));
-  }, [x]);
-
   return (
     <div
       className={clsx(
-        "flex flex-col h-screen w-screen overflow-hidden transition-colors",
+        "flex flex-col h-[100dvh] w-screen overflow-hidden transition-colors",
         open && "bg-sand-2"
       )}
     >
@@ -54,25 +50,36 @@ export function RowText({
         <motion.div
           className="h-full"
           drag="x"
+          dragMomentum={false}
           style={{ x }}
           onPanEnd={(_, info) => {
             const windowWidth = window.innerWidth;
             if (Math.abs(info.offset.x) > windowWidth / 2) {
               const currentRowNumber = Number(params.rowNumber);
               if (info.offset.x > 0 && previousRow) {
-                x.set(windowWidth);
+                animate(x, windowWidth, {
+                  type: "spring",
+                  duration: 0.5,
+                });
                 router.push(
                   `/${params.game}/${params.script}/${currentRowNumber - 1}`
                 );
+                return;
               } else if (info.offset.x < 0 && nextRow) {
-                x.set(-windowWidth);
+                animate(x, -windowWidth, {
+                  type: "spring",
+                  duration: 0.5,
+                });
                 router.push(
                   `/${params.game}/${params.script}/${currentRowNumber + 1}`
                 );
-              } else {
-                x.set(0);
+                return;
               }
             }
+            animate(x, 0, {
+              type: "spring",
+              duration: 0.5,
+            });
           }}
         >
           <div className="h-full w-[300vw] grid grid-cols-3 gap-16 px-8 -translate-x-[100vw]">

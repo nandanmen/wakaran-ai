@@ -19,6 +19,7 @@
     "openai": "^4.49.1",
     "react": "19.0.0-rc-cc1ec60d0d-20240607",
     "react-dom": "19.0.0-rc-cc1ec60d0d-20240607",
+    "sonner": "^1.5.0",
     "unofficial-jisho-api": "^2.3.4",
     "wanakana": "^5.3.1"
   },
