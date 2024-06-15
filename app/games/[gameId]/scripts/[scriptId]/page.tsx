@@ -31,7 +31,7 @@ export default async function ScriptPage({
           gameId={gameId}
           scriptId={scriptId}
           row={rowNumber}
-          text={script.at(rowNumber - 1).jpnSearchText}
+          text={script.at(rowNumber - 1)?.jpnSearchText ?? ""}
         />
       )}
     </div>
