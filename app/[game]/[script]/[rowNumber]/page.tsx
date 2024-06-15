@@ -18,5 +18,9 @@ export default async function RowPage({
     rowNumber: Number(rowNumber),
   });
   if (!data) notFound();
-  return <RowText row={data} />;
+  const [nextRow, previousRow] = await Promise.all([
+    getRow({ game, scriptId: script, rowNumber: Number(rowNumber) + 1 }),
+    getRow({ game, scriptId: script, rowNumber: Number(rowNumber) - 1 }),
+  ]);
+  return <RowText row={data} nextRow={nextRow} previousRow={previousRow} />;
 }
