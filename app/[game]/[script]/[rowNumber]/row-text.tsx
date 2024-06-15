@@ -26,6 +26,19 @@ export function RowText({
   const [open, setOpen] = useState(false);
   const x = useMotionValue(0);
 
+  useEffect(() => {
+    return document.addEventListener(
+      "touchmove",
+      (e) => {
+        const target = e.target as Element;
+        if (!target.closest("#translation")) e.preventDefault();
+      },
+      {
+        passive: false,
+      }
+    );
+  }, []);
+
   return (
     <div
       className={clsx(
@@ -90,8 +103,9 @@ export function RowText({
         </motion.div>
       </main>
       <div
+        id="translation"
         className={clsx(
-          "border border-b-0 bg-sand-1 rounded-tl-xl rounded-tr-xl py-3",
+          "border border-b-0 bg-sand-1 rounded-tl-xl rounded-tr-xl py-3 max-h-[50dvh] overflow-auto",
           open ? "border-sand-6" : "border-sand-1"
         )}
       >
@@ -203,7 +217,7 @@ function Furigana({
 }) {
   const slices = getSlices(text, translation);
   return (
-    <p className="text-2xl">
+    <p className="text-2xl flex flex-wrap items-end">
       {slices.map((slice, i) => {
         if (slice.type === "text") {
           return (
@@ -214,16 +228,19 @@ function Furigana({
         }
         const { word, reading } = slice.value;
         return (
-          <motion.ruby layout="position" className="inline-block" key={i}>
+          <motion.span layout="position" className="flex flex-col" key={i}>
             {open && (
-              <motion.rt animate={{ opacity: 1 }} className="text-sand-11">
+              <motion.span
+                animate={{ opacity: 1 }}
+                className="text-sand-11 text-xs text-center"
+              >
                 {reading}
-              </motion.rt>
+              </motion.span>
             )}
             <motion.span className="inline-block" layout="position">
               {word}
             </motion.span>
-          </motion.ruby>
+          </motion.span>
         );
       })}
     </p>
