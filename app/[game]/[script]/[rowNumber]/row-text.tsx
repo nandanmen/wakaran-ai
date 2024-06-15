@@ -28,6 +28,20 @@ export function RowText({
   const x = useMotionValue(0);
 
   useEffect(() => {
+    const currentRowNumber = Number(params.rowNumber);
+    if (previousRow) {
+      router.prefetch(
+        `/${params.game}/${params.script}/${currentRowNumber - 1}`
+      );
+    }
+    if (nextRow) {
+      router.prefetch(
+        `/${params.game}/${params.script}/${currentRowNumber + 1}`
+      );
+    }
+  }, [params, previousRow, nextRow]);
+
+  useEffect(() => {
     return document.addEventListener(
       "touchmove",
       (e) => {
