@@ -94,15 +94,17 @@ export function RowText({
                 animate(x, windowWidth, {
                   type: "spring",
                   duration: 0.5,
+                }).then(() => {
+                  push(currentRowNumber - 1);
                 });
-                push(currentRowNumber - 1);
                 return;
               } else if (info.offset.x < 0 && nextRow) {
                 animate(x, -windowWidth, {
                   type: "spring",
                   duration: 0.5,
+                }).then(() => {
+                  push(currentRowNumber + 1);
                 });
-                push(currentRowNumber + 1);
                 return;
               }
             }
