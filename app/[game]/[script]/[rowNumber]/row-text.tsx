@@ -7,6 +7,7 @@ import { motion, useMotionValue, animate } from "framer-motion";
 import { Word } from "@/app/_lib/translation";
 import { isKana } from "wanakana";
 import { useParams, useRouter } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
 
 export function RowText({
   row,
@@ -25,7 +26,50 @@ export function RowText({
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [open, setOpen] = useState(false);
+
+  const handleGestureEnd = (offset: number) => {
+    const windowWidth = window.innerWidth;
+    const currentRowNumber = Number(params.rowNumber);
+    if (Math.abs(offset) > windowWidth / 2) {
+      if (offset > 0 && previousRow) {
+        animate(x, windowWidth, {
+          type: "spring",
+          duration: 0.5,
+        }).then(() => {
+          push(currentRowNumber - 1);
+        });
+        return;
+      } else if (offset < 0 && nextRow) {
+        animate(x, -windowWidth, {
+          type: "spring",
+          duration: 0.5,
+        }).then(() => {
+          push(currentRowNumber + 1);
+        });
+        return;
+      }
+    }
+    animate(x, 0, {
+      type: "spring",
+      duration: 0.5,
+    });
+  };
+
   const x = useMotionValue(0);
+  const handleWheelEnd = useDebouncedCallback(handleGestureEnd, 200);
+
+  useEffect(() => {
+    document.addEventListener(
+      "wheel",
+      (e) => {
+        e.preventDefault();
+        const newX = x.get() + e.deltaX;
+        x.set(newX);
+        handleWheelEnd(newX);
+      },
+      { passive: false }
+    );
+  }, [x]);
 
   useEffect(() => {
     const currentRowNumber = Number(params.rowNumber);
@@ -87,31 +131,7 @@ export function RowText({
           dragMomentum={false}
           style={{ x }}
           onPanEnd={(_, info) => {
-            const windowWidth = window.innerWidth;
-            if (Math.abs(info.offset.x) > windowWidth / 2) {
-              const currentRowNumber = Number(params.rowNumber);
-              if (info.offset.x > 0 && previousRow) {
-                animate(x, windowWidth, {
-                  type: "spring",
-                  duration: 0.5,
-                }).then(() => {
-                  push(currentRowNumber - 1);
-                });
-                return;
-              } else if (info.offset.x < 0 && nextRow) {
-                animate(x, -windowWidth, {
-                  type: "spring",
-                  duration: 0.5,
-                }).then(() => {
-                  push(currentRowNumber + 1);
-                });
-                return;
-              }
-            }
-            animate(x, 0, {
-              type: "spring",
-              duration: 0.5,
-            });
+            handleGestureEnd(info.offset.x);
           }}
         >
           <div className="h-full w-[300vw] grid grid-cols-3 gap-16 px-8 -translate-x-[100vw]">
