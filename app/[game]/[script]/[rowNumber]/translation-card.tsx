@@ -85,7 +85,7 @@ export function TranslationCard({
             .map((word) => {
               return (
                 <li key={word.word}>
-                  <button className="flex items-center p-2 w-full">
+                  <button className="flex items-center p-2 w-full hover:bg-sand-3 rounded-lg">
                     <span className="font-jp">{word.word}</span>
                     <span className="font-jp text-sand-11 ml-1">
                       {word.reading}

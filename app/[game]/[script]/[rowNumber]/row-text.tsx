@@ -9,6 +9,7 @@ import { isKana } from "wanakana";
 import { useParams, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { TranslationCard } from "./translation-card";
+import { SPRING_CONFIG } from "./spring";
 
 export function RowText({
   row,
@@ -28,11 +29,7 @@ export function RowText({
   const [pending, startTransition] = useTransition();
   const [open, setOpen] = useState(false);
   const [height, setHeight] = useState(0);
-  const y = useSpring(0, {
-    damping: 22,
-    mass: 1,
-    stiffness: 150,
-  });
+  const y = useSpring(0, SPRING_CONFIG);
 
   const handleGestureEnd = (offset: number) => {
     const windowWidth = window.innerWidth;
