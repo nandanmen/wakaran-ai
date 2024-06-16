@@ -113,7 +113,7 @@ export function RowText({
   return (
     <div
       className={clsx(
-        "flex flex-col h-[100dvh] w-screen overflow-hidden transition-colors",
+        "flex flex-col h-[100svh] w-screen overflow-hidden transition-colors",
         open && "bg-sand-2 dark:bg-sand-1"
       )}
     >
@@ -158,7 +158,10 @@ export function RowText({
             y.set(0);
           }
         }}
-        onHeightMeasured={setHeight}
+        onHeightMeasured={(h) => {
+          console.log(h);
+          setHeight(h);
+        }}
         pending={pending}
       />
     </div>
