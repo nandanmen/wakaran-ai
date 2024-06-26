@@ -1,3 +1,6 @@
+import { shouldFetchLocal } from "./config";
+import * as local from "./local";
+
 const getKey = ({
   gameId,
   scriptId,
@@ -8,21 +11,20 @@ const getKey = ({
   rowNumber: number;
 }) => `${gameId}:${scriptId}:${rowNumber}`;
 
-function get(key: string) {
-  return fetch(`${process.env.KV_REST_API_URL}/get/${key}`, {
+async function get(key: string) {
+  if (shouldFetchLocal) return local.getTranslation(key);
+  const response = await fetch(`${process.env.KV_REST_API_URL}/get/${key}`, {
     cache: "no-store",
     headers: {
       Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
     },
-  })
-    .then((response) => response.json())
-    .then(({ result }) => {
-      try {
-        return JSON.parse(result);
-      } catch {
-        return result;
-      }
-    });
+  });
+  const { result } = await response.json();
+  try {
+    return JSON.parse(result);
+  } catch {
+    return result;
+  }
 }
 
 export type Word = {

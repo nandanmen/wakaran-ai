@@ -1,4 +1,6 @@
 import { getTranslation, type Word } from "./translation";
+import { shouldFetchLocal } from "./config";
+import * as local from "./local";
 
 const API_BASE_URL = `https://trailsinthedatabase.com/api/script/detail`;
 
@@ -24,6 +26,7 @@ export async function getScript({
   gameId: string;
   scriptId: string;
 }) {
+  if (shouldFetchLocal) return local.getScript(scriptId);
   const response = await fetch(`${API_BASE_URL}/${gameId}/${scriptId}`, {
     cache: "force-cache",
   });
