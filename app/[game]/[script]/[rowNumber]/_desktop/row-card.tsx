@@ -5,6 +5,7 @@ import { Furigana } from "../row-text";
 import { ReactNode, useState } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
+import { Chat } from "./chat";
 
 export function RowCardPlaceholder() {
   return (
@@ -127,7 +128,7 @@ export function RowCard({ row }: { row: Row }) {
         </div>
       </main>
       <aside className="h-full overflow-y-auto flex flex-col">
-        <header className="px-2 sticky top-0 bg-sand-2 dark:bg-sand-1">
+        <header className="sticky top-0 bg-sand-2 dark:bg-sand-1">
           <h2 className="text-sm font-medium text-gray-11 capitalize">
             {active}
           </h2>
@@ -137,7 +138,7 @@ export function RowCard({ row }: { row: Row }) {
             {row.translation.map((word) => {
               return (
                 <li
-                  className="p-2 flex hover:bg-sand-3 rounded-md justify-between items-center"
+                  className="py-2 flex hover:bg-sand-3 rounded-md justify-between items-center"
                   key={word.word}
                 >
                   <p className="font-medium">{word.word}</p>
@@ -148,13 +149,14 @@ export function RowCard({ row }: { row: Row }) {
           </ul>
         )}
         {active === "notes" && (
-          <form className="p-2 h-full">
+          <form className="py-2 h-full">
             <textarea
               className="bg-transparent h-full w-full text-sm placeholder:text-sand-10"
               placeholder="Note something down about this text..."
             />
           </form>
         )}
+        {active === "chat" && <Chat sentence={row.jp.text} />}
       </aside>
     </div>
   );
