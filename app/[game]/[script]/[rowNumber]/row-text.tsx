@@ -10,6 +10,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { TranslationCard } from "./translation-card";
 import { SPRING_CONFIG } from "./spring";
+import { Tooltip } from "./_desktop/tooltip";
 
 export function RowText({
   row,
@@ -202,17 +203,7 @@ function getSlices(text: string, translation: Word[]) {
   if (remainder.length) {
     slices.push({ type: "text", value: text.slice(start) });
   }
-  return slices.flatMap((slice) => {
-    if (slice.type === "text") return slice;
-    const { word, reading } = slice.value;
-    if (isKana(word) || !reading || reading === word) {
-      return {
-        type: "text",
-        value: word,
-      };
-    }
-    return slice;
-  });
+  return slices;
 }
 
 export function Furigana({
@@ -238,9 +229,10 @@ export function Furigana({
           );
         }
         const { word, reading } = slice.value;
+        const kanaOnly = isKana(word) || reading === word;
         return (
           <motion.span layout="position" className="flex flex-col" key={i}>
-            {open && (
+            {open && !kanaOnly && (
               <motion.span
                 animate={{ opacity: 1 }}
                 className="text-sand-11 text-xs text-center"
@@ -248,9 +240,25 @@ export function Furigana({
                 {reading}
               </motion.span>
             )}
-            <motion.span className="inline-block" layout="position">
-              {word}
-            </motion.span>
+            <Tooltip
+              content={
+                <span className="flex flex-col items-center gap-1">
+                  {slice.value.reading && (
+                    <span className="font-jp font-medium">
+                      {slice.value.reading}
+                    </span>
+                  )}
+                  <span>{slice.value.meaning}</span>
+                </span>
+              }
+            >
+              <motion.span
+                className="inline-block hover:bg-green-4 rounded-md"
+                layout="position"
+              >
+                {word}
+              </motion.span>
+            </Tooltip>
           </motion.span>
         );
       })}

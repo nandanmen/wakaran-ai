@@ -2,34 +2,73 @@
 
 import type { Row } from "@/app/_lib/script";
 import { Furigana } from "../row-text";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import clsx from "clsx";
+import { motion } from "framer-motion";
+
+export function RowCardPlaceholder() {
+  return (
+    <div className="sticky top-4 h-[calc(100vh-theme(space.8))] grid grid-cols-[1fr_350px] gap-4">
+      <main className="flex items-center justify-center h-full relative bg-sand-1 dark:bg-sand-2 rounded-lg border border-sand-6 shadow-sm" />
+    </div>
+  );
+}
 
 export function RowCard({ row }: { row: Row }) {
   const [active, setActive] = useState("words");
+  const [open, setOpen] = useState(false);
   return (
     <div className="sticky top-4 h-[calc(100vh-theme(space.8))] grid grid-cols-[1fr_350px] gap-4">
-      <main className="flex items-center justify-center h-full relative bg-sand-1 rounded-lg border border-sand-6 shadow-sm">
+      <main className="flex items-center justify-center h-full relative bg-sand-1 dark:bg-sand-2 rounded-lg border border-sand-6 shadow-sm">
         <div className="max-w-[600px] space-y-2">
-          <p className="font-jp text-lg">{row.jp.name}</p>
+          <motion.p layout="position" className="font-jp text-lg">
+            {row.jp.name}
+          </motion.p>
           <Furigana
             className="text-3xl font-medium font-jp leading-normal"
             text={row.jp.text.trim()}
             translation={row.translation}
-            open
+            open={open}
           />
-          <div className="absolute bottom-6 max-w-[600px] text-sand-11 left-1/2 -translate-x-1/2 text-sm space-y-2">
+          <motion.div
+            style={{ x: "-50%" }}
+            initial={{
+              y: 0,
+              opacity: 0,
+              filter: "blur(10px)",
+            }}
+            animate={
+              open
+                ? {
+                    y: 0,
+                    opacity: 1,
+                    filter: "blur(0px)",
+                  }
+                : {
+                    y: 16,
+                    opacity: 0,
+                    filter: "blur(10px)",
+                  }
+            }
+            transition={{ y: { type: "spring", bounce: 0 } }}
+            className="absolute bottom-6 max-w-[600px] text-sand-11 left-1/2 text-sm space-y-2"
+          >
             <p>{row.en.name}</p>
             <p>{row.en.text}</p>
-          </div>
+          </motion.div>
         </div>
-        <div className="absolute bottom-4 right-4 bg-sand-3 rounded-full p-1">
-          <button
+        <div className="absolute top-4 right-4 bg-sand-3 dark:bg-sand-1 rounded-full p-1">
+          <ButtonTab active={!open} onClick={() => setOpen(false)}>
+            <span className="font-jp font-medium">日</span>
+          </ButtonTab>
+          <ButtonTab active={open} onClick={() => setOpen(true)}>
+            <span className="font-medium">A</span>
+          </ButtonTab>
+        </div>
+        <div className="absolute bottom-4 right-4 bg-sand-3 dark:bg-sand-1 rounded-full p-1">
+          <ButtonTab
             onClick={() => setActive("words")}
-            className={clsx(
-              "flex items-center justify-center w-8 h-8 rounded-t-[20px] rounded-b-md",
-              active === "words" ? "bg-sand-1" : "hover:bg-sand-4 text-sand-11"
-            )}
+            active={active === "words"}
           >
             <svg
               className="translate-y-[2px]"
@@ -45,13 +84,10 @@ export function RowCard({ row }: { row: Row }) {
                 fill="currentColor"
               />
             </svg>
-          </button>
-          <button
+          </ButtonTab>
+          <ButtonTab
             onClick={() => setActive("notes")}
-            className={clsx(
-              "flex items-center justify-center w-8 h-8 rounded-md",
-              active === "notes" ? "bg-sand-1" : "hover:bg-sand-4 text-sand-11"
-            )}
+            active={active === "notes"}
           >
             <svg
               width="18"
@@ -67,13 +103,10 @@ export function RowCard({ row }: { row: Row }) {
                 stroke-linejoin="round"
               />
             </svg>
-          </button>
-          <button
+          </ButtonTab>
+          <ButtonTab
             onClick={() => setActive("chat")}
-            className={clsx(
-              "flex items-center justify-center w-8 h-8 rounded-t-md rounded-b-[20px]",
-              active === "chat" ? "bg-sand-1" : "hover:bg-sand-4 text-sand-11"
-            )}
+            active={active === "chat"}
           >
             <svg
               width="18"
@@ -90,11 +123,11 @@ export function RowCard({ row }: { row: Row }) {
                 fill="currentColor"
               />
             </svg>
-          </button>
+          </ButtonTab>
         </div>
       </main>
       <aside className="h-full overflow-y-auto flex flex-col">
-        <header className="px-2 sticky top-0 bg-gray-2">
+        <header className="px-2 sticky top-0 bg-sand-2 dark:bg-sand-1">
           <h2 className="text-sm font-medium text-gray-11 capitalize">
             {active}
           </h2>
@@ -104,11 +137,11 @@ export function RowCard({ row }: { row: Row }) {
             {row.translation.map((word) => {
               return (
                 <li
-                  className="p-2 flex hover:bg-gray-3 rounded-md justify-between items-center"
+                  className="p-2 flex hover:bg-sand-3 rounded-md justify-between items-center"
                   key={word.word}
                 >
                   <p className="font-medium">{word.word}</p>
-                  <p className="text-xs text-gray-11">{word.meaning}</p>
+                  <p className="text-xs text-sand-11">{word.meaning}</p>
                 </li>
               );
             })}
@@ -124,5 +157,27 @@ export function RowCard({ row }: { row: Row }) {
         )}
       </aside>
     </div>
+  );
+}
+
+function ButtonTab({
+  onClick,
+  active,
+  children,
+}: {
+  onClick?: () => void;
+  active?: boolean;
+  children?: ReactNode;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={clsx(
+        "flex items-center justify-center w-8 h-8 rounded-md first:rounded-t-[20px] last:rounded-b-[20px]",
+        active ? "bg-green-10 text-sand-1" : "hover:bg-sand-4 text-sand-11"
+      )}
+    >
+      {children}
+    </button>
   );
 }

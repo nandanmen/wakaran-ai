@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { RowCard } from "./row-card";
+import { RowCard, RowCardPlaceholder } from "./row-card";
 
 export default async function DesktopPage({
   params: { game, script: scriptId, rowNumber },
@@ -17,9 +17,9 @@ export default async function DesktopPage({
   const script = await getScript({ gameId: toGameId(game), scriptId });
   if (!script) notFound();
   return (
-    <div className="grid grid-cols-[300px_1fr] gap-4 bg-sand-2 p-4">
+    <div className="grid grid-cols-[300px_1fr] gap-4 bg-sand-2 dark:bg-sand-1 p-4">
       <div className="-mt-4">
-        <header className="sticky top-0 py-4 bg-sand-2">
+        <header className="sticky top-0 py-4 bg-sand-2 dark:bg-sand-1">
           <h1 className="font-medium">Trails in the Sky</h1>
         </header>
         <ul className="divide-y divide-gray-6 divide-dashed">
@@ -55,7 +55,7 @@ export default async function DesktopPage({
           })}
         </ul>
       </div>
-      <Suspense fallback={null}>
+      <Suspense fallback={<RowCardPlaceholder />}>
         <Translation params={{ game, script: scriptId, rowNumber }} />
       </Suspense>
     </div>
