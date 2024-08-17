@@ -159,7 +159,6 @@ export function RowText({
           }
         }}
         onHeightMeasured={(h) => {
-          console.log(h);
           setHeight(h);
         }}
         pending={pending}

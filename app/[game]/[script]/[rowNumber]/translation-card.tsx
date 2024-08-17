@@ -3,6 +3,8 @@ import { clsx } from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
 import { SPRING_CONFIG } from "./spring";
+import { saveWord } from "./actions";
+import { useParams } from "next/navigation";
 
 export function TranslationCard({
   open,
@@ -17,6 +19,11 @@ export function TranslationCard({
   onHeightMeasured: (height: number) => void;
   row: Row;
 }) {
+  const params = useParams<{
+    game: string;
+    script: string;
+    rowNumber: string;
+  }>();
   const [height, setHeight] = useState(0);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const y = useMotionValue(0);
@@ -101,7 +108,14 @@ export function TranslationCard({
               .map((word) => {
                 return (
                   <li key={word.word}>
-                    <button className="flex items-center p-2 w-full hover:bg-sand-3 rounded-lg">
+                    <button
+                      className="flex items-center p-2 w-full hover:bg-sand-3 rounded-lg"
+                      onClick={() => {
+                        const offset = row.jp.text.indexOf(word.word);
+                        const key = `${params.game}:${params.script}:${params.rowNumber}:${offset}`;
+                        saveWord(word, key);
+                      }}
+                    >
                       <span className="font-jp">{word.word}</span>
                       <span className="font-jp text-sand-11 ml-1">
                         {word.reading}
