@@ -30,7 +30,7 @@ async function getRow({
 }): Promise<Row | undefined> {
   const script = await getScript({ gameId, scriptId });
   const rowNumber = parseInt(row);
-  return script.at(rowNumber - 1);
+  return script?.at(rowNumber - 1);
 }
 
 export default async function RowPage({
