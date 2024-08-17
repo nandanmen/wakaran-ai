@@ -11,6 +11,7 @@ import { revalidatePath } from "next/cache";
 import { marked } from "marked";
 import { ChatForm } from "./chat";
 import { CommentForm } from "./comment";
+import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -22,6 +23,7 @@ export default async function ScriptPage({
   searchParams?: { row: string };
 }) {
   const script = await getScript({ gameId, scriptId });
+  if (!script) notFound();
   const rowNumber = parseInt(searchParams?.row ?? "");
   return (
     <div className="p-8 lg:px-12 flex gap-8">
