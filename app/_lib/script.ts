@@ -69,7 +69,7 @@ export const getRow = cache(async function getRow({
   game: Game;
   scriptId: string;
   rowNumber: number;
-}) {
+}): Promise<Row | undefined> {
   const gameId = mapGameToId[game];
   const [response, translation] = await Promise.all([
     getScript({ gameId, scriptId }),

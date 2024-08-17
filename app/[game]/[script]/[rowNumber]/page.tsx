@@ -2,7 +2,7 @@ import { Game, getRow } from "@/app/_lib/script";
 import { notFound } from "next/navigation";
 import { Toaster } from "sonner";
 import { RowText } from "./row-text";
-import { DesktopPage } from "./_desktop/page";
+import DesktopPage from "./_desktop/page";
 
 export default async function RowPage({
   params,
