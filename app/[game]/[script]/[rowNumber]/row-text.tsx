@@ -66,6 +66,7 @@ export function RowText({
     document.addEventListener(
       "wheel",
       (e) => {
+        if (window.innerWidth > 1000) return;
         const target = e.target as Element;
         if (target.closest("#translation")) return;
         e.preventDefault();
@@ -95,6 +96,7 @@ export function RowText({
     return document.addEventListener(
       "touchmove",
       (e) => {
+        if (window.innerWidth > 1000) return;
         const target = e.target as Element;
         if (!target.closest("#translation")) e.preventDefault();
       },
@@ -173,7 +175,12 @@ function RowSentence({ row, open }: { row: Row; open?: boolean }) {
       <motion.p layout="position" className="text-sand-11">
         {row.jp.name}
       </motion.p>
-      <Furigana text={row.jp.text} translation={row.translation} open={open} />
+      <Furigana
+        className="text-2xl"
+        text={row.jp.text}
+        translation={row.translation}
+        open={open}
+      />
     </div>
   );
 }
@@ -208,18 +215,20 @@ function getSlices(text: string, translation: Word[]) {
   });
 }
 
-function Furigana({
+export function Furigana({
+  className,
   text,
   translation,
   open = false,
 }: {
+  className?: string;
   text: string;
   translation: Word[];
   open?: boolean;
 }) {
   const slices = getSlices(text, translation);
   return (
-    <p className="text-2xl flex flex-wrap items-end">
+    <p className={clsx("flex flex-wrap items-end", className)}>
       {slices.map((slice, i) => {
         if (slice.type === "text") {
           return (

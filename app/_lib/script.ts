@@ -1,6 +1,7 @@
 import { getTranslation, type Word } from "./translation";
 import { shouldFetchLocal } from "./config";
 import * as local from "./local";
+import { cache } from "react";
 
 const API_BASE_URL = `https://trailsinthedatabase.com/api/script/detail`;
 
@@ -19,24 +20,32 @@ export type RawRow = {
   evoIconHtml: string;
 };
 
-export async function getScript({
+export const getScript = cache(async function getScript({
   gameId,
   scriptId,
 }: {
   gameId: string;
   scriptId: string;
-}) {
-  if (shouldFetchLocal) return local.getScript(scriptId);
-  const response = await fetch(`${API_BASE_URL}/${gameId}/${scriptId}`, {
-    cache: "force-cache",
-  });
-  const data = await response.json();
-  return data as RawRow[];
-}
+}): Promise<RawRow[] | null> {
+  try {
+    if (shouldFetchLocal) return local.getScript(scriptId);
+    const response = await fetch(`${API_BASE_URL}/${gameId}/${scriptId}`, {
+      cache: "force-cache",
+    });
+    const data = await response.json();
+    return data as RawRow[];
+  } catch {
+    return null;
+  }
+});
 
 const mapGameToId = {
   sky: "1",
 } as const;
+
+export const toGameId = (game: Game): string => {
+  return mapGameToId[game];
+};
 
 export type Game = keyof typeof mapGameToId;
 
@@ -52,7 +61,7 @@ export type Row = {
   translation: Word[];
 };
 
-export async function getRow({
+export const getRow = cache(async function getRow({
   game,
   scriptId,
   rowNumber,
@@ -62,12 +71,12 @@ export async function getRow({
   rowNumber: number;
 }) {
   const gameId = mapGameToId[game];
-  const response = await getScript({ gameId, scriptId });
-  const row = response.at(rowNumber - 1);
-  if (!row) return;
-
-  const translation = await getTranslation({ gameId, scriptId, rowNumber });
-  if (!translation) return;
+  const [response, translation] = await Promise.all([
+    getScript({ gameId, scriptId }),
+    getTranslation({ gameId, scriptId, rowNumber }),
+  ]);
+  const row = response?.at(rowNumber - 1);
+  if (!row || !translation) return;
 
   return {
     translation: translation.words,
@@ -80,4 +89,4 @@ export async function getRow({
       text: row.engSearchText,
     },
   };
-}
+});

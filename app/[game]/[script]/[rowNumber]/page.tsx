@@ -2,6 +2,7 @@ import { Game, getRow } from "@/app/_lib/script";
 import { notFound } from "next/navigation";
 import { Toaster } from "sonner";
 import { RowText } from "./row-text";
+import { DesktopPage } from "./_desktop/page";
 
 export default async function RowPage({
   params,
@@ -26,7 +27,12 @@ export default async function RowPage({
   return (
     <>
       <Toaster />
-      <RowText row={data} nextRow={nextRow} previousRow={previousRow} />
+      <div className="block lg:hidden">
+        <RowText row={data} nextRow={nextRow} previousRow={previousRow} />
+      </div>
+      <div className="hidden lg:block">
+        <DesktopPage params={params} />
+      </div>
     </>
   );
 }

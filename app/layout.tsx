@@ -11,7 +11,7 @@ const geist = localFont({ src: "./geist.ttf", variable: "--font-geist-sans" });
 
 const jp = Noto_Sans_JP({
   variable: "--font-jp",
-  weight: "400",
+  weight: ["400", "500"],
   subsets: ["latin"],
 });
 
@@ -60,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="bg-sand-1 text-sand-12" lang="en">
+    <html className="bg-sand-2 text-sand-12" lang="en">
       <body
         className={`${geist.variable} ${jp.variable} font-sans antialiased`}
       >

@@ -1,1 +1,1 @@
-export const shouldFetchLocal = process.env.NODE_ENV !== "production";
+export const shouldFetchLocal = process.env.LOCAL === "true";
