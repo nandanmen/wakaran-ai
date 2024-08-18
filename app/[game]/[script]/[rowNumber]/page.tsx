@@ -1,38 +1,37 @@
-import { Game, getRow } from "@/app/_lib/script";
+import { getRow } from "@/app/_lib/script";
+import { Params } from "./types";
 import { notFound } from "next/navigation";
-import { Toaster } from "sonner";
-import { RowText } from "./row-text";
-import DesktopPage from "./_desktop/page";
+import { Suspense } from "react";
 
-export default async function RowPage({
-  params,
-}: {
-  params: {
-    game: Game;
-    script: string;
-    rowNumber: string;
-  };
-}) {
+export default function RowPage({ params }: { params: Params }) {
+  return (
+    <Suspense fallback={null}>
+      <WordsLoader params={params} />
+    </Suspense>
+  );
+}
+
+async function WordsLoader({ params }: { params: Params }) {
   const { game, script, rowNumber } = params;
-  const data = await getRow({
+  const row = await getRow({
     game,
     scriptId: script,
     rowNumber: Number(rowNumber),
   });
-  if (!data) notFound();
-  const [nextRow, previousRow] = await Promise.all([
-    getRow({ game, scriptId: script, rowNumber: Number(rowNumber) + 1 }),
-    getRow({ game, scriptId: script, rowNumber: Number(rowNumber) - 1 }),
-  ]);
+  if (!row) notFound();
   return (
-    <>
-      <Toaster />
-      <div className="block lg:hidden">
-        <RowText row={data} nextRow={nextRow} previousRow={previousRow} />
-      </div>
-      <div className="hidden lg:block">
-        <DesktopPage params={params} />
-      </div>
-    </>
+    <ul>
+      {row.translation.map((word) => {
+        return (
+          <li
+            className="py-2 flex hover:bg-sand-3 rounded-md justify-between items-center"
+            key={word.word}
+          >
+            <p className="font-medium">{word.word}</p>
+            <p className="text-xs text-sand-11">{word.meaning}</p>
+          </li>
+        );
+      })}
+    </ul>
   );
 }

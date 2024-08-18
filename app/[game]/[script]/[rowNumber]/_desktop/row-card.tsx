@@ -1,11 +1,13 @@
 "use client";
 
-import type { Row } from "@/app/_lib/script";
+import type { Game, Row } from "@/app/_lib/script";
 import { Furigana } from "../row-text";
 import { ReactNode, useState } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { Chat } from "./chat";
+import { useParams, usePathname } from "next/navigation";
+import Link from "next/link";
+import { Params } from "../types";
 
 export function RowCardPlaceholder() {
   return (
@@ -15,9 +17,17 @@ export function RowCardPlaceholder() {
   );
 }
 
-export function RowCard({ row }: { row: Row }) {
-  const [active, setActive] = useState("words");
+export function RowCard({ row, children }: { row: Row; children: ReactNode }) {
+  const params = useParams<{
+    game: Game;
+    script: string;
+    rowNumber: string;
+  }>();
+  const pathname = usePathname();
+  const last = pathname.split("/").at(-1);
+  const active = last === params.rowNumber ? "words" : last;
   const [open, setOpen] = useState(false);
+  const baseUrl = `/${params.game}/${params.script}/${params.rowNumber}`;
   return (
     <div className="sticky top-4 h-[calc(100vh-theme(space.8))] grid grid-cols-[1fr_350px] gap-4">
       <main className="flex items-center justify-center h-full relative bg-sand-1 dark:bg-sand-2 rounded-lg border border-sand-6 shadow-sm">
@@ -67,10 +77,7 @@ export function RowCard({ row }: { row: Row }) {
           </ButtonTab>
         </div>
         <div className="absolute bottom-4 right-4 bg-sand-3 dark:bg-sand-1 rounded-full p-1">
-          <ButtonTab
-            onClick={() => setActive("words")}
-            active={active === "words"}
-          >
+          <ButtonTab href={baseUrl} active={active === "words"}>
             <svg
               className="translate-y-[2px]"
               width="20"
@@ -86,10 +93,7 @@ export function RowCard({ row }: { row: Row }) {
               />
             </svg>
           </ButtonTab>
-          <ButtonTab
-            onClick={() => setActive("notes")}
-            active={active === "notes"}
-          >
+          <ButtonTab href={`${baseUrl}/notes`} active={active === "notes"}>
             <svg
               width="18"
               viewBox="0 0 24 24"
@@ -105,10 +109,7 @@ export function RowCard({ row }: { row: Row }) {
               />
             </svg>
           </ButtonTab>
-          <ButtonTab
-            onClick={() => setActive("chat")}
-            active={active === "chat"}
-          >
+          <ButtonTab href={`${baseUrl}/chat`} active={active === "chat"}>
             <svg
               width="18"
               viewBox="0 0 24 24"
@@ -133,30 +134,7 @@ export function RowCard({ row }: { row: Row }) {
             {active}
           </h2>
         </header>
-        {active === "words" && (
-          <ul>
-            {row.translation.map((word) => {
-              return (
-                <li
-                  className="py-2 flex hover:bg-sand-3 rounded-md justify-between items-center"
-                  key={word.word}
-                >
-                  <p className="font-medium">{word.word}</p>
-                  <p className="text-xs text-sand-11">{word.meaning}</p>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-        {active === "notes" && (
-          <form className="py-2 h-full">
-            <textarea
-              className="bg-transparent h-full w-full text-sm placeholder:text-sand-10"
-              placeholder="Note something down about this text..."
-            />
-          </form>
-        )}
-        {active === "chat" && <Chat sentence={row.jp.text} />}
+        {children}
       </aside>
     </div>
   );
@@ -164,13 +142,28 @@ export function RowCard({ row }: { row: Row }) {
 
 function ButtonTab({
   onClick,
+  href,
   active,
   children,
 }: {
   onClick?: () => void;
+  href?: string;
   active?: boolean;
   children?: ReactNode;
 }) {
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={clsx(
+          "flex items-center justify-center w-8 h-8 rounded-md first:rounded-t-[20px] last:rounded-b-[20px]",
+          active ? "bg-green-10 text-sand-1" : "hover:bg-sand-4 text-sand-11"
+        )}
+      >
+        {children}
+      </Link>
+    );
+  }
   return (
     <button
       onClick={onClick}
