@@ -2,12 +2,11 @@
 
 import type { Game, Row } from "@/app/_lib/script";
 import { Furigana } from "../row-text";
-import { ReactNode, useState } from "react";
+import { ReactNode, useId, useState } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
-import { Params } from "../types";
 
 export function RowCardPlaceholder() {
   return (
@@ -68,6 +67,7 @@ export function RowCard({ row, children }: { row: Row; children: ReactNode }) {
             <p>{row.en.text}</p>
           </motion.div>
         </div>
+        {row.audio && <AudioButton audio={row.audio} />}
         <div className="absolute top-4 right-4 bg-sand-3 dark:bg-sand-1 rounded-full p-1">
           <ButtonTab active={!open} onClick={() => setOpen(false)}>
             <span className="font-jp font-medium">日</span>
@@ -136,6 +136,51 @@ export function RowCard({ row, children }: { row: Row; children: ReactNode }) {
         </header>
         {children}
       </aside>
+    </div>
+  );
+}
+
+function AudioButton({ audio }: { audio: string[] }) {
+  const id = useId();
+
+  const playIndex = (index: number) => {
+    const el = document.getElementById(`${id}-${index}`) as HTMLAudioElement;
+    el?.play();
+  };
+
+  return (
+    <div className="absolute top-4 left-4">
+      {audio.map((href, index) => {
+        return (
+          <audio
+            id={`${id}-${index}`}
+            key={href}
+            onEnded={() => playIndex(index + 1)}
+          >
+            <source src={href} type="audio/ogg" />
+          </audio>
+        );
+      })}
+      <button
+        className="w-8 h-8 flex items-center justify-center rounded-full bg-sand-1 text-sand-10"
+        onClick={() => playIndex(0)}
+      >
+        <svg
+          width="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.6 3.30004C11.5889 2.5584 13 3.26397 13 4.50004V19.5C13 20.7361 11.5889 21.4417 10.6 20.7L5.93333 17.2C5.76024 17.0702 5.5497 17 5.33333 17H4C2.34315 17 1 15.6569 1 14V10C1 8.34318 2.34315 7.00004 4 7.00004H5.33333C5.5497 7.00004 5.76024 6.92986 5.93333 6.80004L10.6 3.30004Z"
+            fill="currentColor"
+          />
+          <path
+            d="M15.1821 7.40422C15.5726 7.0137 16.2057 7.0137 16.5963 7.40422C17.7714 8.5794 18.5001 10.2058 18.5001 12.0004C18.5001 13.7951 17.7714 15.4214 16.5963 16.5966C16.2057 16.9871 15.5726 16.9871 15.1821 16.5966C14.7915 16.2061 14.7915 15.5729 15.1821 15.1824C15.9975 14.367 16.5001 13.2433 16.5001 12.0004C16.5001 10.7575 15.9975 9.63387 15.1821 8.81844C14.7915 8.42791 14.7915 7.79475 15.1821 7.40422Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
     </div>
   );
 }

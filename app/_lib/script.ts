@@ -2,8 +2,10 @@ import { getTranslation, type Word } from "./translation";
 import { shouldFetchLocal } from "./config";
 import * as local from "./local";
 import { cache } from "react";
+import { parse } from "node-html-parser";
 
-const API_BASE_URL = `https://trailsinthedatabase.com/api/script/detail`;
+const BASE_URL = `https://trailsinthedatabase.com`;
+const API_BASE_URL = `${BASE_URL}/api/script/detail`;
 
 export type RawRow = {
   gameId: number;
@@ -11,6 +13,7 @@ export type RawRow = {
   scene: string | null;
   row: number;
   engChrName: string;
+  engHtmlText?: string;
   engSearchText: string;
   jpnChrName: string;
   jpnHtmlText: string;
@@ -58,6 +61,7 @@ export type Row = {
     name: string;
     text: string;
   };
+  audio: string[] | null;
   translation: Word[];
 };
 
@@ -78,8 +82,16 @@ export const getRow = cache(async function getRow({
   const row = response?.at(rowNumber - 1);
   if (!row || !translation) return;
 
+  let audio = null;
+  if (row.engHtmlText?.match(/<audio/g)) {
+    const tree = parse(row.engHtmlText);
+    const sources = tree.querySelectorAll("audio source");
+    audio = sources.map((el) => `${BASE_URL}/${el.attributes.src}`);
+  }
+
   return {
     translation: translation.words,
+    audio,
     jp: {
       name: row.jpnChrName,
       text: row.jpnSearchText.replaceAll("<br/>", "\n"),
