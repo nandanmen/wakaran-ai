@@ -1,5 +1,9 @@
 import { Params } from "../types";
 import { Suspense } from "react";
+import { kv } from "@vercel/kv";
+import { getKey } from "@/app/_lib/translation";
+import { toGameId } from "@/app/_lib/script";
+import { NoteForm } from "./form";
 
 export default function NotesPage({ params }: { params: Params }) {
   return (
@@ -10,12 +14,19 @@ export default function NotesPage({ params }: { params: Params }) {
 }
 
 async function NotesLoader({ params }: { params: Params }) {
+  const key = `nanda:comments:${getKey({
+    gameId: toGameId(params.game),
+    scriptId: params.script,
+    rowNumber: params.rowNumber,
+  })}`;
+  const comments = await kv.get<string | null>(key);
   return (
-    <form className="py-2 h-full">
-      <textarea
-        className="bg-transparent h-full w-full text-sm placeholder:text-sand-10"
-        placeholder="Note something down about this text..."
-      />
-    </form>
+    <NoteForm
+      initialValue={comments ?? undefined}
+      saveComment={async (comment) => {
+        "use server";
+        await kv.set(key, comment);
+      }}
+    />
   );
 }

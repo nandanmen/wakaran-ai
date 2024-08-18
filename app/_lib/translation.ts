@@ -1,14 +1,14 @@
 import { shouldFetchLocal } from "./config";
 import * as local from "./local";
 
-const getKey = ({
+export const getKey = ({
   gameId,
   scriptId,
   rowNumber,
 }: {
   gameId: string;
   scriptId: string;
-  rowNumber: number;
+  rowNumber: number | string;
 }) => `${gameId}:${scriptId}:${rowNumber}`;
 
 async function get(key: string) {
