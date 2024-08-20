@@ -155,7 +155,11 @@ function AudioButton({ audio }: { audio: string[] }) {
           <audio
             id={`${id}-${index}`}
             key={href}
-            onEnded={() => playIndex(index + 1)}
+            onEnded={() =>
+              setTimeout(() => {
+                playIndex(index + 1);
+              }, 500)
+            }
           >
             <source src={href} type="audio/ogg" />
           </audio>
@@ -204,6 +208,7 @@ function ButtonTab({
           "flex items-center justify-center w-8 h-8 rounded-md first:rounded-t-[20px] last:rounded-b-[20px]",
           active ? "bg-green-10 text-sand-1" : "hover:bg-sand-4 text-sand-11"
         )}
+        scroll={false}
       >
         {children}
       </Link>
