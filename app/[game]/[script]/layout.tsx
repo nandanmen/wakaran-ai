@@ -2,6 +2,7 @@ import { Game, getScript, toGameId } from "@/app/_lib/script";
 import { notFound } from "next/navigation";
 import { ReactNode, Suspense } from "react";
 import { LineLink } from "./line-link";
+import Link from "next/link";
 
 export default function ScriptLayout({
   params,
@@ -17,7 +18,11 @@ export default function ScriptLayout({
     <div className="grid grid-cols-[300px_1fr] gap-4 bg-sand-2 dark:bg-sand-1 p-4">
       <div className="-mt-4">
         <header className="sticky top-0 py-4 bg-sand-2 dark:bg-sand-1">
-          <h1 className="font-medium">Trails in the Sky</h1>
+          <h1 className="font-medium">
+            <Link className="hover:underline" href={`/${params.game}`}>
+              Trails in the Sky
+            </Link>
+          </h1>
         </header>
         <Suspense fallback={<div>Loading...</div>}>
           <Lines game={params.game} scriptId={params.script} />
