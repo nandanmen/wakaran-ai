@@ -9,7 +9,10 @@ export default function WordsPage() {
         Trails in the Sky
       </Link>
       <main className="max-w-[900px] mx-auto">
-        <h1 className="text-2xl font-medium mb-4">Saved Words</h1>
+        <header className="flex justify-between items-center">
+          <h1 className="text-2xl font-medium mb-4">Saved Words</h1>
+          <Link href="/quiz">Quiz {`->`}</Link>
+        </header>
         <Suspense fallback={<p>Loading...</p>}>
           <WordsList />
         </Suspense>
@@ -33,7 +36,7 @@ async function WordsList() {
       {words.map((word) => {
         return (
           <li
-            className="h-16 min-w-16 bg-sand-1 rounded-xl font-medium text-2xl flex items-center px-4 w-fit"
+            className="h-16 min-w-16 bg-sand-1 rounded-xl text-2xl flex items-center px-4 w-fit font-jp"
             key={word.id}
           >
             {word.text}

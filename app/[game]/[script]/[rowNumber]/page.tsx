@@ -20,6 +20,7 @@ async function WordsLoader({ params }: { params: Params }) {
     rowNumber: Number(rowNumber),
   });
   if (!row) notFound();
+  if (!row.translation) return null;
   return (
     <ul>
       {row.translation.map((word) => {

@@ -3,9 +3,11 @@ import { clsx } from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
 import { SPRING_CONFIG } from "./spring";
-import { saveWord } from "./actions";
+import { saveToDatabase } from "./actions";
 import { useParams } from "next/navigation";
 import { AddCircle, ChevronUp, Loader, Sparkles } from "./icons";
+import { Word } from "@/app/_lib/translation";
+import { useFormStatus } from "react-dom";
 
 export function TranslationCard({
   open,
@@ -105,27 +107,11 @@ export function TranslationCard({
           </div>
           <ul className="-mx-2 mt-3">
             {row.translation
-              .filter((word) => word.type !== "particle")
+              ?.filter((word) => word.type !== "particle")
               .map((word) => {
                 return (
                   <li key={word.word}>
-                    <button
-                      className="flex items-center p-2 w-full hover:bg-sand-3 rounded-lg"
-                      onClick={() => {
-                        const offset = row.jp.text.indexOf(word.word);
-                        const key = `${params.game}:${params.script}:${params.rowNumber}:${offset}`;
-                        saveWord(word, key);
-                      }}
-                    >
-                      <span className="font-jp">{word.word}</span>
-                      <span className="font-jp text-sand-11 ml-1">
-                        {word.reading}
-                      </span>
-                      <span className="text-sand-11 ml-auto flex gap-2">
-                        <span className="ml-auto text-xs">{word.meaning}</span>
-                        <AddCircle />
-                      </span>
-                    </button>
+                    <TranslationButton word={word} />
                   </li>
                 );
               })}
@@ -137,5 +123,54 @@ export function TranslationCard({
         </div>
       </motion.div>
     </>
+  );
+}
+
+function TranslationButton({ word }: { word: Word }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={clsx(open && "bg-sand-3 rounded-lg")}>
+      <button
+        className="flex items-center p-2 w-full hover:bg-sand-3 rounded-lg"
+        onClick={() => setOpen(!open)}
+      >
+        <span className="font-jp">{word.word}</span>
+        <span className="font-jp text-sand-11 ml-1">{word.reading}</span>
+        <span className="ml-auto text-xs text-sand-11">{word.meaning}</span>
+      </button>
+      {open && (
+        <form
+          className="flex justify-between items-center p-2 pt-0 gap-2"
+          action={saveToDatabase}
+        >
+          <input
+            className="grow bg-sand-2 rounded py-1 px-2"
+            type="text"
+            name="word"
+            defaultValue={word.word || word.dictionary}
+          />
+          <SubmitButton />
+        </form>
+      )}
+    </div>
+  );
+}
+
+function SubmitButton() {
+  const state = useFormStatus();
+  return (
+    <button
+      className="flex text-xs text-sand-11 font-medium gap-1"
+      type="submit"
+    >
+      <span>Save</span>
+      {state.pending ? (
+        <span className="block animate-spin">
+          <Loader />
+        </span>
+      ) : (
+        <AddCircle />
+      )}
+    </button>
   );
 }

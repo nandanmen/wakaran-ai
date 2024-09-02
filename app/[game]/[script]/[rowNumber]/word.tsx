@@ -55,7 +55,13 @@ const SubmitButton = () => {
       className="w-10 h-10 text-sand-10 font-semibold rounded flex items-center justify-center hover:bg-sand-4"
       type="submit"
     >
-      {pending ? <Loader size={24} /> : <AddCircle size={24} />}
+      {pending ? (
+        <span className="block animate-spin">
+          <Loader size={24} />
+        </span>
+      ) : (
+        <AddCircle size={24} />
+      )}
     </button>
   );
 };

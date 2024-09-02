@@ -11,6 +11,7 @@ import { useDebouncedCallback } from "use-debounce";
 import { TranslationCard } from "./translation-card";
 import { SPRING_CONFIG } from "./spring";
 import { Tooltip } from "./_desktop/tooltip";
+import Link from "next/link";
 
 export function RowText({
   row,
@@ -121,9 +122,13 @@ export function RowText({
       )}
     >
       <header className="text-sand-11 flex p-8 justify-between items-center">
-        <p className="font-jp">分</p>
+        <p className="font-jp">
+          <Link href="/words">分</Link>
+        </p>
         <div className="text-xs flex font-medium gap-3">
-          <p>Trails in the Sky FC</p>
+          <p>
+            <Link href="/sky">Trails in the Sky FC</Link>
+          </p>
           <p
             style={{
               fontFeatureSettings: "'ss09' 1",
@@ -217,6 +222,7 @@ export function Furigana({
   translation: Word[];
   open?: boolean;
 }) {
+  if (!translation || !Array.isArray(translation)) return null;
   const slices = getSlices(text, translation);
   return (
     <p className={clsx("flex flex-wrap items-end", className)}>

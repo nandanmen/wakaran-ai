@@ -55,7 +55,7 @@ export const search = async (text: string): Promise<Entry[]> => {
   const matches = data.filter(
     (entry) =>
       entry.slug === text ||
-      (entry.is_common && entry.japanese.find((j) => j.reading === text))
+      entry.japanese.find((j) => j.word === text || j.reading === text)
   );
 
   const slugs = [

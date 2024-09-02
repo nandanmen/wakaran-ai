@@ -1,4 +1,4 @@
-import { Game, getScript, toGameId } from "@/app/_lib/script";
+import { Game, getAudioFromRow, getScript, toGameId } from "@/app/_lib/script";
 import { notFound } from "next/navigation";
 import { ReactNode, Suspense } from "react";
 import { LineLink } from "./line-link";
@@ -15,8 +15,8 @@ export default function ScriptLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="grid grid-cols-[300px_1fr] gap-4 bg-sand-2 dark:bg-sand-1 p-4">
-      <div className="-mt-4">
+    <div className="lg:grid grid-cols-[300px_1fr] gap-4 bg-sand-1 lg:bg-sand-2 dark:bg-sand-1 lg:p-4">
+      <div className="hidden lg:block -mt-4">
         <header className="sticky top-0 py-4 bg-sand-2 dark:bg-sand-1">
           <h1 className="font-medium">
             <Link className="hover:underline" href={`/${params.game}`}>
@@ -39,9 +39,10 @@ async function Lines({ game, scriptId }: { game: Game; scriptId: string }) {
   return (
     <ul className="divide-y divide-gray-6 divide-dashed">
       {script.map((row) => {
+        const audio = getAudioFromRow(row);
         return (
           <li className="first:-mt-4" key={row.row}>
-            <LineLink row={row} />
+            <LineLink row={row} hasAudio={Boolean(audio)} />
           </li>
         );
       })}

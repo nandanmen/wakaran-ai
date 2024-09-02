@@ -65,6 +65,13 @@ export type Row = {
   translation: Word[];
 };
 
+export const getAudioFromRow = (row: RawRow) => {
+  if (!row.engHtmlText?.match(/<audio/g)) return null;
+  const tree = parse(row.engHtmlText);
+  const sources = tree.querySelectorAll("audio source");
+  return sources.map((el) => `${BASE_URL}/${el.attributes.src}`);
+};
+
 export const getRow = cache(async function getRow({
   game,
   scriptId,
@@ -81,17 +88,9 @@ export const getRow = cache(async function getRow({
   ]);
   const row = response?.at(rowNumber - 1);
   if (!row || !translation) return;
-
-  let audio = null;
-  if (row.engHtmlText?.match(/<audio/g)) {
-    const tree = parse(row.engHtmlText);
-    const sources = tree.querySelectorAll("audio source");
-    audio = sources.map((el) => `${BASE_URL}/${el.attributes.src}`);
-  }
-
   return {
     translation: translation.words,
-    audio,
+    audio: getAudioFromRow(row),
     jp: {
       name: row.jpnChrName,
       text: row.jpnSearchText.replaceAll("<br/>", "\n"),

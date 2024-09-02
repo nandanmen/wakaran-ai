@@ -3,15 +3,15 @@
 import React, { FormEvent } from "react";
 import { isKanji, toHiragana } from "wanakana";
 import { useRouter } from "next/navigation";
-import type { Word } from "../games/[gameId]/scripts/[scriptId]/script";
+import { Entry } from "../_lib/dictionary";
 
 function invariant(condition: boolean, message: string): asserts condition {
   if (!condition) throw new Error(message);
 }
 
-export function QuizController({ words }: { words: Word[] }) {
+export function QuizController({ words }: { words: Entry[] }) {
   const router = useRouter();
-  const [questions, setQuestions] = React.useState<Word[]>(words);
+  const [questions, setQuestions] = React.useState<Entry[]>(words);
   const [index, setIndex] = React.useState(0);
   const currentWord = questions[index];
   return (
@@ -30,23 +30,24 @@ export function QuizController({ words }: { words: Word[] }) {
           if (index < questions.length - 1) {
             return setIndex(index + 1);
           }
-          router.push("/favourites");
+          router.push("/words");
         }}
       />
     </>
   );
 }
 
-const getGrade = (form: HTMLFormElement, word: Word) => {
+const getGrade = (form: HTMLFormElement, word: Entry) => {
   const data = new FormData(form);
   const responses = {
     meaning: data.get("meaning") as string,
     reading: data.get("reading") as string,
   };
-  const wordText = word.dictionary || word.word;
-  const hasKanji = [...wordText].some(isKanji);
-  const isMeaningCorrect = responses.meaning === word.meaning;
-  const isReadingCorrect = hasKanji ? responses.reading === word.reading : true;
+  const hasKanji = [...word.text].some(isKanji);
+  const isMeaningCorrect = word.meanings.includes(responses.meaning);
+  const isReadingCorrect = hasKanji
+    ? word.readings.includes(responses.reading)
+    : true;
   return {
     reading: isReadingCorrect,
     meaning: isMeaningCorrect,
@@ -57,8 +58,8 @@ export function Question({
   word,
   onSubmit,
 }: {
-  word: Word;
-  onSubmit: (word: Word, isCorrect: boolean) => void;
+  word: Entry;
+  onSubmit: (word: Entry, isCorrect: boolean) => void;
 }) {
   const [submitted, setSubmitted] = React.useState<{
     reading: boolean;
@@ -75,7 +76,7 @@ export function Question({
 
   return (
     <form className="flex flex-col px-8 space-y-4" onSubmit={next}>
-      <p className="text-4xl text-center">{word.dictionary || word.word}</p>
+      <p className="text-4xl text-center font-jp">{word.text}</p>
       <div className="space-y-4">
         <label className="flex flex-col gap-2 relative">
           <span className="text-sm text-gray-11">Meaning</span>
@@ -87,7 +88,7 @@ export function Question({
           {submitted && (
             <>
               <p className="flex justify-between items-center">
-                <span>{word.meaning}</span>
+                <span>{word.meanings.join(", ")}</span>
                 {!submitted.meaning && (
                   <button
                     className="text-sm py-1 px-2 bg-gray-3 rounded-md"
@@ -115,7 +116,7 @@ export function Question({
           {submitted && (
             <>
               <p className="flex justify-between items-center">
-                <span>{word.reading}</span>
+                <span>{word.readings.join(", ")}</span>
                 {!submitted.reading && (
                   <button
                     className="text-sm py-1 px-2 bg-gray-3 rounded-md"
@@ -142,7 +143,7 @@ export function Question({
             className="underline"
             target="_blank"
             rel="noreferrer"
-            href={`https://jisho.org/search/${word.dictionary || word.word}`}
+            href={`https://jisho.org/search/${word.text}`}
           >{`Jisho ->`}</a>
         )}
       </div>
