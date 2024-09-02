@@ -130,7 +130,7 @@ export function RowCard({ row, children }: { row: Row; children: ReactNode }) {
       </main>
       <aside className="h-full overflow-y-auto flex flex-col">
         <header className="sticky top-0 bg-sand-2 dark:bg-sand-1">
-          <h2 className="text-sm font-medium text-gray-11 capitalize">
+          <h2 className="text-sm font-medium text-gray-11 capitalize px-2">
             {active}
           </h2>
         </header>

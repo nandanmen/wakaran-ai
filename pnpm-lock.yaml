@@ -38,6 +38,9 @@ dependencies:
   openai:
     specifier: ^4.49.1
     version: 4.49.1
+  postgres:
+    specifier: ^3.4.4
+    version: 3.4.4
   react:
     specifier: 19.0.0-rc-cc1ec60d0d-20240607
     version: 19.0.0-rc-cc1ec60d0d-20240607
@@ -3440,6 +3443,11 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.1
       source-map-js: 1.2.0
+    dev: false
+
+  /postgres@3.4.4:
+    resolution: {integrity: sha512-IbyN+9KslkqcXa8AO9fxpk97PA4pzewvpi2B3Dwy9u4zpV32QicaEdgmF3eSQUzdRk7ttDHQejNgAEr4XoeH4A==}
+    engines: {node: '>=12'}
     dev: false
 
   /prelude-ls@1.2.1:

@@ -42,9 +42,15 @@ const searchWanikani = async (texts: string[]): Promise<Entry[]> => {
 };
 
 export const search = async (text: string): Promise<Entry[]> => {
-  let results = await searchWanikani([text]);
-  if (results.length > 0) return results;
+  console.log("[search] Searching for", text);
 
+  let results = await searchWanikani([text]);
+  if (results.length > 0) {
+    console.log("[search] Found wanikani results");
+    return results;
+  }
+
+  console.log("[search] Searching via jisho...");
   const { data } = await jisho.searchForPhrase(text);
   const matches = data.filter(
     (entry) =>
@@ -57,9 +63,16 @@ export const search = async (text: string): Promise<Entry[]> => {
       matches.flatMap((m) => m.japanese.map((j) => j.word)).filter(Boolean)
     ),
   ];
-  results = await searchWanikani(slugs);
-  if (results.length > 0) return results;
 
+  console.log(`[search] Found ${slugs.length} slugs: ${slugs.join(", ")}`);
+  console.log("[search] Searching via wanikani...");
+  results = await searchWanikani(slugs);
+  if (results.length > 0) {
+    console.log("[search] Found wanikani results");
+    return results;
+  }
+
+  console.log("[search] No wanikani results found, falling back to jisho");
   return matches.map((m) => {
     return {
       id: m.slug,
