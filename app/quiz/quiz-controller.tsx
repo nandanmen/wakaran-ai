@@ -4,7 +4,6 @@ import React, { FormEvent, useEffect } from "react";
 import { isKanji, toHiragana } from "wanakana";
 import { useRouter } from "next/navigation";
 import { Entry } from "../_lib/dictionary";
-import { getKanjisForWord } from "./actions";
 import { checkCorrect } from "./check-correct";
 
 function invariant(condition: boolean, message: string): asserts condition {
@@ -73,7 +72,9 @@ export function Question({
 
   useEffect(() => {
     if ([...word.text].some(isKanji)) {
-      getKanjisForWord(word.text).then(setEntries);
+      fetch(`/api/kanji?word=${word.text}`)
+        .then((res) => res.json())
+        .then(({ kanjis }) => setEntries(kanjis));
     }
   }, [word.text]);
 
