@@ -1,17 +1,21 @@
 "use client";
 
-import React, { FormEvent } from "react";
+import React, { FormEvent, useEffect } from "react";
 import { isKanji, toHiragana } from "wanakana";
 import { useRouter } from "next/navigation";
 import { Entry } from "../_lib/dictionary";
+import { getKanjisForWord } from "./actions";
+import { checkCorrect } from "./check-correct";
 
 function invariant(condition: boolean, message: string): asserts condition {
   if (!condition) throw new Error(message);
 }
 
-export function QuizController({ words }: { words: Entry[] }) {
+type WordsWithKanjis = Entry & { kanjis?: Record<string, string> };
+
+export function QuizController({ words }: { words: WordsWithKanjis[] }) {
   const router = useRouter();
-  const [questions, setQuestions] = React.useState<Entry[]>(words);
+  const [questions, setQuestions] = React.useState<WordsWithKanjis[]>(words);
   const [index, setIndex] = React.useState(0);
   const currentWord = questions[index];
   return (
@@ -40,27 +44,20 @@ export function QuizController({ words }: { words: Entry[] }) {
 const getGrade = (form: HTMLFormElement, word: Entry) => {
   const data = new FormData(form);
   const responses = {
-    meaning: data.get("meaning") as string,
-    reading: data.get("reading") as string,
+    meaning: (data.get("meaning") as string).toLowerCase().trim(),
+    reading: (data.get("reading") as string).toLowerCase().trim(),
   };
-  const hasKanji = [...word.text].some(isKanji);
-  const isMeaningCorrect = word.meanings.includes(responses.meaning);
-  const isReadingCorrect = hasKanji
-    ? word.readings.includes(responses.reading)
-    : true;
-  return {
-    reading: isReadingCorrect,
-    meaning: isMeaningCorrect,
-  };
+  return checkCorrect(word, responses);
 };
 
 export function Question({
   word,
   onSubmit,
 }: {
-  word: Entry;
-  onSubmit: (word: Entry, isCorrect: boolean) => void;
+  word: WordsWithKanjis;
+  onSubmit: (word: WordsWithKanjis, isCorrect: boolean) => void;
 }) {
+  const [entries, setEntries] = React.useState<Entry[]>([]);
   const [submitted, setSubmitted] = React.useState<{
     reading: boolean;
     meaning: boolean;
@@ -73,6 +70,12 @@ export function Question({
     }
     setSubmitted(getGrade(e.target as HTMLFormElement, word));
   };
+
+  useEffect(() => {
+    if ([...word.text].some(isKanji)) {
+      getKanjisForWord(word.text).then(setEntries);
+    }
+  }, [word.text]);
 
   return (
     <form className="flex flex-col px-8 space-y-4" onSubmit={next}>
@@ -150,6 +153,26 @@ export function Question({
       <button className="w-full bg-gray-3 rounded-lg py-2">
         {submitted ? "Next" : "Submit"}
       </button>
+      {submitted && (
+        <ul className="grid grid-cols-2 gap-4">
+          {entries.map((entry) => (
+            <li key={entry.id}>
+              <a
+                className="flex items-center gap-4 hover:bg-gray-3 -mx-2 px-2 rounded-md"
+                href={`https://jisho.org/search/${entry.text}%20%23kanji`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <p className="text-[40px] font-jp">{entry.text}</p>
+                <div className="text-sm text-gray-11">
+                  <p className="font-jp ">{entry.readings.join(", ")}</p>
+                  <p>{entry.meanings.slice(0, 2).join(", ")}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </form>
   );
 }
@@ -165,6 +188,9 @@ function HiraganaInput() {
       onChange={(e) => {
         const next = e.target.value;
         if (next.endsWith("nn")) return setValue(`${value.slice(0, -1)}ん`);
+        if (next.endsWith("y") && value.at(-1) === "n") {
+          return setValue(next);
+        }
         if (next.endsWith("n")) return setValue(next);
         setValue(toHiragana(next));
       }}

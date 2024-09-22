@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { sql } from "../_lib/sql";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export default function WordsPage() {
   return (
     <div className="p-8">

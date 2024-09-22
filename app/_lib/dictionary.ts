@@ -30,8 +30,12 @@ const searchWanikani = async (texts: string[]): Promise<Entry[]> => {
       return {
         id: d.id,
         text: d.data.slug,
-        meanings: d.data.meanings?.map((m: any) => m.meaning.toLowerCase()),
-        readings: d.data.readings?.map((r: any) => r.reading),
+        meanings: d.data.meanings
+          ?.filter((v: any) => v.accepted_answer)
+          .map((m: any) => m.meaning.toLowerCase()),
+        readings: d.data.readings
+          ?.filter((v: any) => v.accepted_answer)
+          .map((r: any) => r.reading),
         wanikani: true,
       };
     });
