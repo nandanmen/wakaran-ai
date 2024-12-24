@@ -1,0 +1,5167 @@
+[
+  [
+    {
+      "word": "オッケー",
+      "reading": "おっけー",
+      "meaning": "Okay",
+      "type": "interjection"
+    }
+  ],
+  null,
+  [
+    {
+      "word": "うん",
+      "meaning": "Yes",
+      "reading": "うん",
+      "type": "noun"
+    },
+    {
+      "word": "了解",
+      "meaning": "Understood",
+      "reading": "りょうかい",
+      "type": "noun"
+    }
+  ],
+  [
+    {
+      "word": "おう",
+      "meaning": "Hey! (casual greeting)"
+    }
+  ],
+  [
+    {
+      "word": "出た",
+      "reading": "でた",
+      "meaning": "came out",
+      "type": "verb",
+      "form": "past tense"
+    },
+    {
+      "word": "わね",
+      "reading": "わね",
+      "meaning": "I see",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "ら",
+      "reading": "ら",
+      "type": "particle",
+      "meaning": "(casual question marker)"
+    },
+    {
+      "word": "落第",
+      "reading": "らくだい",
+      "type": "noun",
+      "meaning": "failure"
+    },
+    {
+      "word": "ぃ",
+      "reading": "い",
+      "type": "particle",
+      "meaning": "(question particle)"
+    }
+  ],
+  [
+    {
+      "word": "また",
+      "meaning": "again",
+      "reading": "また",
+      "type": "adverb"
+    },
+    {
+      "word": "出た",
+      "meaning": "came out",
+      "reading": "でた",
+      "type": "verb",
+      "form": "past tense",
+      "dictionary": "出る"
+    },
+    {
+      "word": "わ",
+      "meaning": "exclamation",
+      "reading": "わ",
+      "type": "particle"
+    },
+    {
+      "word": "ね",
+      "meaning": "sentence-ending particle for seeking agreement",
+      "reading": "ね",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "分かった",
+      "reading": "わかった",
+      "meaning": "understood",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "分かる"
+    },
+    {
+      "word": "わ",
+      "meaning": "I",
+      "type": "pronoun"
+    },
+    {
+      "word": "！",
+      "meaning": "!",
+      "type": "punctuation"
+    }
+  ],
+  [
+    {
+      "word": "また",
+      "reading": "また",
+      "meaning": "again",
+      "type": "adverb"
+    },
+    {
+      "word": "出た",
+      "reading": "でた",
+      "meaning": "came out",
+      "type": "verb",
+      "form": "past tense"
+    },
+    {
+      "word": "わ",
+      "reading": "わ",
+      "meaning": "sentence-ending particle indicating emotion",
+      "type": "particle"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "meaning": "sentence-ending particle indicating confirmation or seeking agreement",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "あ",
+      "meaning": "Oh",
+      "reading": "あ",
+      "type": "interjection"
+    },
+    {
+      "word": "それ",
+      "meaning": "that",
+      "reading": "それ",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "meaning": "topic marker",
+      "reading": "は",
+      "type": "particle"
+    },
+    {
+      "word": "そう",
+      "meaning": "so",
+      "reading": "そう",
+      "type": "adverb"
+    },
+    {
+      "word": "かも",
+      "meaning": "might",
+      "reading": "かも",
+      "type": "auxiliary verb"
+    }
+  ],
+  [
+    {
+      "word": "うん",
+      "meaning": "Yes",
+      "reading": "うん",
+      "type": "noun"
+    },
+    {
+      "word": "分かった",
+      "meaning": "understood",
+      "reading": "わかった",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "分かる"
+    },
+    {
+      "word": "わ",
+      "meaning": "I",
+      "reading": "わ",
+      "type": "noun"
+    }
+  ],
+  [
+    {
+      "word": "落第",
+      "reading": "らくだい",
+      "meaning": "failure",
+      "type": "noun"
+    },
+    {
+      "word": "したい",
+      "reading": "したい",
+      "meaning": "want to do",
+      "type": "i-adjective"
+    },
+    {
+      "word": "ん",
+      "reading": "ん",
+      "meaning": "casual speech",
+      "type": "particle"
+    },
+    {
+      "word": "だっ",
+      "reading": "だっ",
+      "meaning": "casual past tense",
+      "type": "verb"
+    },
+    {
+      "word": "ら",
+      "reading": "ら",
+      "meaning": "conditional",
+      "type": "particle"
+    },
+    {
+      "word": "止め",
+      "reading": "とめ",
+      "meaning": "stop",
+      "type": "verb"
+    },
+    {
+      "word": "ない",
+      "reading": "ない",
+      "meaning": "not",
+      "type": "verb"
+    },
+    {
+      "word": "けど",
+      "reading": "けど",
+      "meaning": "but",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "扉",
+      "reading": "とびら",
+      "meaning": "door",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "錆びついて",
+      "reading": "さびついて",
+      "meaning": "rusting",
+      "type": "verb",
+      "form": "te-form",
+      "dictionary": "錆びつく"
+    },
+    {
+      "word": "開き",
+      "reading": "あき",
+      "meaning": "opening",
+      "type": "noun"
+    },
+    {
+      "word": "そうに",
+      "reading": "そうに",
+      "meaning": "seems like",
+      "type": "particle"
+    },
+    {
+      "word": "ない",
+      "reading": "ない",
+      "meaning": "not",
+      "type": "verb",
+      "form": "negative",
+      "dictionary": "ない"
+    }
+  ],
+  [
+    {
+      "word": "おっと",
+      "meaning": "Oops",
+      "reading": "おっと",
+      "type": "interjection"
+    },
+    {
+      "word": "そう",
+      "meaning": "That's right",
+      "reading": "そう",
+      "type": "adverb"
+    },
+    {
+      "word": "ね",
+      "meaning": "right",
+      "reading": "ね",
+      "type": "particle"
+    },
+    {
+      "word": "確かに",
+      "meaning": "Certainly",
+      "reading": "たしかに",
+      "type": "adverb"
+    },
+    {
+      "word": "長居",
+      "meaning": "long stay",
+      "reading": "ながい",
+      "type": "noun"
+    },
+    {
+      "word": "する",
+      "meaning": "to do",
+      "reading": "する",
+      "type": "verb"
+    },
+    {
+      "word": "場所",
+      "meaning": "place",
+      "reading": "ばしょ",
+      "type": "noun"
+    },
+    {
+      "word": "じゃない",
+      "meaning": "is not",
+      "reading": "じゃない",
+      "type": "phrase"
+    },
+    {
+      "word": "わ",
+      "meaning": "(feminine sentence-ending particle)",
+      "reading": "わ",
+      "type": "particle"
+    },
+    {
+      "word": "ね",
+      "meaning": "right",
+      "reading": "ね",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "Ｓ",
+      "meaning": "S"
+    },
+    {
+      "word": "ブレイク",
+      "meaning": "break"
+    },
+    {
+      "word": "として",
+      "meaning": "as"
+    },
+    {
+      "word": "発動",
+      "meaning": "activation"
+    },
+    {
+      "word": "する",
+      "meaning": "to do"
+    },
+    {
+      "word": "Ｓ",
+      "meaning": "S"
+    },
+    {
+      "word": "クラフト",
+      "meaning": "craft"
+    },
+    {
+      "word": "の",
+      "meaning": "of"
+    },
+    {
+      "word": "変更",
+      "meaning": "change"
+    },
+    {
+      "word": "は",
+      "meaning": "is"
+    },
+    {
+      "word": "キャンプ",
+      "meaning": "camp"
+    },
+    {
+      "word": "[Tactics]",
+      "meaning": "Tactics"
+    },
+    {
+      "word": "内",
+      "meaning": "inside"
+    },
+    {
+      "word": "の",
+      "meaning": "of"
+    },
+    {
+      "word": "[Ｓ",
+      "meaning": "[S"
+    },
+    {
+      "word": "ブレイク",
+      "meaning": "break"
+    },
+    {
+      "word": "登録",
+      "meaning": "registration"
+    },
+    {
+      "word": "]",
+      "meaning": "]"
+    },
+    {
+      "word": "で",
+      "meaning": "at"
+    }
+  ],
+  [
+    {
+      "word": "小箱",
+      "reading": "こばこ",
+      "meaning": "small box",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "meaning": "particle indicating the object of the action",
+      "type": "particle"
+    },
+    {
+      "word": "２つ",
+      "reading": "ふたつ",
+      "meaning": "two",
+      "type": "noun"
+    },
+    {
+      "word": "手",
+      "reading": "て",
+      "meaning": "hand",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "particle indicating the target of the action",
+      "type": "particle"
+    },
+    {
+      "word": "入れた",
+      "reading": "いれた",
+      "meaning": "got",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "入れる"
+    }
+  ],
+  [
+    {
+      "word": "エステル",
+      "reading": "えすてる",
+      "meaning": "Estelle",
+      "type": "noun"
+    },
+    {
+      "word": "ちょっと",
+      "reading": "ちょっと",
+      "meaning": "a little",
+      "type": "adverb"
+    },
+    {
+      "word": "待って",
+      "reading": "まって",
+      "meaning": "wait",
+      "type": "verb",
+      "form": "te-form"
+    },
+    {
+      "word": "今",
+      "reading": "いま",
+      "meaning": "now",
+      "type": "noun"
+    },
+    {
+      "word": "戦った",
+      "reading": "たたかった",
+      "meaning": "fought",
+      "type": "verb",
+      "form": "past tense"
+    },
+    {
+      "word": "魔獣",
+      "reading": "まじゅう",
+      "meaning": "magical beast",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "情報",
+      "reading": "じょうほう",
+      "meaning": "information",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "魔獣",
+      "reading": "まじゅう",
+      "meaning": "magical beast",
+      "type": "noun"
+    },
+    {
+      "word": "手帳",
+      "reading": "てちょう",
+      "meaning": "notebook",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "記して",
+      "reading": "しるして",
+      "meaning": "write down",
+      "type": "verb",
+      "form": "te-form"
+    },
+    {
+      "word": "おこう",
+      "reading": "おこう",
+      "meaning": "let's",
+      "type": "verb",
+      "form": "volitional"
+    }
+  ],
+  [
+    {
+      "word": "戦闘",
+      "reading": "せんとう",
+      "meaning": "battle",
+      "type": "noun"
+    },
+    {
+      "word": "で",
+      "reading": "で",
+      "meaning": "in",
+      "type": "particle"
+    },
+    {
+      "word": "戦った",
+      "reading": "たたかった",
+      "meaning": "fought",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "戦う"
+    },
+    {
+      "word": "相手",
+      "reading": "あいて",
+      "meaning": "opponent",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "情報",
+      "reading": "じょうほう",
+      "meaning": "information",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "自動的に",
+      "reading": "じどうてきに",
+      "meaning": "automatically",
+      "type": "adverb"
+    },
+    {
+      "word": "魔獣",
+      "reading": "まじゅう",
+      "meaning": "magical beast",
+      "type": "noun"
+    },
+    {
+      "word": "手帳",
+      "reading": "てちょう",
+      "meaning": "notebook",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "記録",
+      "reading": "きろく",
+      "meaning": "record",
+      "type": "noun"
+    },
+    {
+      "word": "されます",
+      "reading": "されます",
+      "meaning": "will be",
+      "type": "verb",
+      "form": "passive"
+    }
+  ],
+  [
+    {
+      "word": "あっと",
+      "reading": "あっと",
+      "meaning": "Ah",
+      "type": "interjection"
+    },
+    {
+      "word": "そう",
+      "reading": "そう",
+      "meaning": "That's right",
+      "type": "adverb"
+    },
+    {
+      "word": "だった",
+      "reading": "だった",
+      "meaning": "was",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "だ"
+    },
+    {
+      "word": "わね",
+      "reading": "わね",
+      "meaning": "isn't it",
+      "type": "particle"
+    },
+    {
+      "word": "さらさら",
+      "reading": "さらさら",
+      "meaning": "smoothly",
+      "type": "adverb"
+    },
+    {
+      "word": "さらっと",
+      "reading": "さらっと",
+      "meaning": "lightly",
+      "type": "adverb"
+    },
+    {
+      "word": "よし",
+      "reading": "よし",
+      "meaning": "alright",
+      "type": "interjection"
+    },
+    {
+      "word": "これ",
+      "reading": "これ",
+      "meaning": "this",
+      "type": "noun"
+    },
+    {
+      "word": "で",
+      "reading": "で",
+      "meaning": "with",
+      "type": "particle"
+    },
+    {
+      "word": "オッケー",
+      "reading": "オッケー",
+      "meaning": "okay",
+      "type": "noun"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "meaning": "right",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "余裕",
+      "reading": "よゆう",
+      "meaning": "margin, leeway"
+    },
+    {
+      "word": "出てきた",
+      "reading": "でてきた",
+      "meaning": "seems to have appeared"
+    },
+    {
+      "word": "みたい",
+      "reading": "みたい",
+      "meaning": "seems like"
+    },
+    {
+      "word": "だ",
+      "reading": "だ",
+      "meaning": "is (copula)"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "meaning": "right?"
+    }
+  ],
+  [
+    {
+      "word": "クオーツ",
+      "reading": "くおーつ",
+      "meaning": "quartz",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "欠片",
+      "reading": "かけら",
+      "meaning": "fragment",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "手",
+      "reading": "て",
+      "meaning": "hand",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "入れた",
+      "reading": "いれた",
+      "meaning": "obtained",
+      "type": "verb",
+      "form": "past"
+    }
+  ],
+  [
+    {
+      "word": "宝箱",
+      "reading": "たからばこ",
+      "meaning": "treasure chest",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "in",
+      "type": "particle"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "何も",
+      "reading": "なにも",
+      "meaning": "nothing",
+      "type": "noun"
+    },
+    {
+      "word": "入って",
+      "reading": "はいって",
+      "meaning": "to be contained",
+      "type": "verb",
+      "form": "te-form",
+      "dictionary": "入る"
+    },
+    {
+      "word": "いない",
+      "reading": "いない",
+      "meaning": "not exist",
+      "type": "verb",
+      "form": "negative",
+      "dictionary": "いる"
+    }
+  ],
+  [
+    {
+      "word": "エステル",
+      "reading": "えすてる",
+      "meaning": "Estelle",
+      "type": "noun"
+    },
+    {
+      "word": "背後",
+      "reading": "はいご",
+      "meaning": "behind",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "meaning": "particle indicating the object of the verb",
+      "type": "particle"
+    },
+    {
+      "word": "取られない",
+      "reading": "とられない",
+      "meaning": "not taken",
+      "type": "verb"
+    },
+    {
+      "word": "ように",
+      "reading": "ように",
+      "meaning": "in order to",
+      "type": "particle"
+    },
+    {
+      "word": "気をつけて",
+      "reading": "きをつけて",
+      "meaning": "be careful",
+      "type": "verb"
+    }
+  ],
+  [
+    {
+      "word": "エステル",
+      "reading": "えすてる",
+      "meaning": "Estelle",
+      "type": "noun"
+    },
+    {
+      "word": "、",
+      "reading": null,
+      "meaning": null,
+      "type": "particle"
+    },
+    {
+      "word": "ちょっと",
+      "reading": null,
+      "meaning": "a little",
+      "type": "adverb"
+    },
+    {
+      "word": "待って",
+      "reading": "まって",
+      "meaning": "wait",
+      "type": "verb",
+      "form": "te-form"
+    },
+    {
+      "word": "。",
+      "reading": null,
+      "meaning": null,
+      "type": "particle"
+    },
+    {
+      "word": "あそこ",
+      "reading": null,
+      "meaning": "there",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": null,
+      "meaning": null,
+      "type": "particle"
+    },
+    {
+      "word": "回復",
+      "reading": "かいふく",
+      "meaning": "recovery",
+      "type": "noun"
+    },
+    {
+      "word": "ポイント",
+      "reading": null,
+      "meaning": "points",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": null,
+      "meaning": null,
+      "type": "particle"
+    },
+    {
+      "word": "ある",
+      "reading": "ある",
+      "meaning": "to exist",
+      "type": "verb",
+      "form": "dictionary"
+    },
+    {
+      "word": "から",
+      "reading": null,
+      "meaning": "because",
+      "type": "conjunction"
+    },
+    {
+      "word": "ＨＰ",
+      "reading": null,
+      "meaning": "HP",
+      "type": "noun"
+    },
+    {
+      "word": "や",
+      "reading": null,
+      "meaning": "and",
+      "type": "particle"
+    },
+    {
+      "word": "ＥＰ",
+      "reading": null,
+      "meaning": "EP",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": null,
+      "meaning": null,
+      "type": "particle"
+    },
+    {
+      "word": "減った",
+      "reading": "へった",
+      "meaning": "decreased",
+      "type": "verb",
+      "form": "past tense"
+    },
+    {
+      "word": "ら",
+      "reading": "ら",
+      "meaning": null,
+      "type": "particle"
+    },
+    {
+      "word": "使って",
+      "reading": "つかって",
+      "meaning": "use",
+      "type": "verb",
+      "form": "te-form"
+    },
+    {
+      "word": "みよう",
+      "reading": "みよう",
+      "meaning": "let's try",
+      "type": "verb",
+      "form": "volitional"
+    }
+  ],
+  [
+    {
+      "word": "あそこ",
+      "meaning": "there",
+      "reading": "あそこ",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "meaning": "at",
+      "reading": "に",
+      "type": "particle"
+    },
+    {
+      "word": "回復",
+      "meaning": "recovery",
+      "reading": "かいふく",
+      "type": "noun"
+    },
+    {
+      "word": "ポイント",
+      "meaning": "point",
+      "reading": "ぽいんと",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "meaning": "subject marker",
+      "reading": "が",
+      "type": "particle"
+    },
+    {
+      "word": "設置",
+      "meaning": "installation",
+      "reading": "せっち",
+      "type": "noun"
+    },
+    {
+      "word": "されてる",
+      "meaning": "is being done",
+      "reading": "されてる",
+      "type": "verb"
+    },
+    {
+      "word": "みたい",
+      "meaning": "seems like",
+      "reading": "みたい",
+      "type": "na-adjective"
+    },
+    {
+      "word": "だ",
+      "meaning": "is",
+      "reading": "だ",
+      "type": "verb"
+    },
+    {
+      "word": "よ",
+      "meaning": "sentence-ending particle",
+      "reading": "よ",
+      "type": "particle"
+    },
+    {
+      "word": "ＨＰ",
+      "meaning": "HP",
+      "reading": "えいちぴー",
+      "type": "noun"
+    },
+    {
+      "word": "や",
+      "meaning": "and",
+      "reading": "や",
+      "type": "particle"
+    },
+    {
+      "word": "ＥＰ",
+      "meaning": "EP",
+      "reading": "いーぴー",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "meaning": "subject marker",
+      "reading": "が",
+      "type": "particle"
+    },
+    {
+      "word": "減っていたら",
+      "meaning": "if decreases",
+      "reading": "へっていたら",
+      "type": "verb"
+    },
+    {
+      "word": "戦闘",
+      "meaning": "battle",
+      "reading": "せんとう",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "meaning": "to",
+      "reading": "に",
+      "type": "particle"
+    },
+    {
+      "word": "なる",
+      "meaning": "become",
+      "reading": "なる",
+      "type": "verb"
+    },
+    {
+      "word": "前に",
+      "meaning": "before",
+      "reading": "まえに",
+      "type": "particle"
+    },
+    {
+      "word": "使って",
+      "meaning": "use",
+      "reading": "つかって",
+      "type": "verb"
+    },
+    {
+      "word": "おこう",
+      "meaning": "let's do",
+      "reading": "おこう",
+      "type": "verb"
+    }
+  ],
+  [
+    {
+      "word": "エステル",
+      "reading": "えすてる",
+      "meaning": "Estelle",
+      "type": "noun"
+    },
+    {
+      "word": "、",
+      "reading": "、",
+      "type": "particle"
+    },
+    {
+      "word": "今回",
+      "reading": "こんかい",
+      "meaning": "this time",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "type": "particle"
+    },
+    {
+      "word": "任務",
+      "reading": "にんむ",
+      "meaning": "mission",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "type": "particle"
+    },
+    {
+      "word": "捜索",
+      "reading": "そうさく",
+      "meaning": "search",
+      "type": "noun"
+    },
+    {
+      "word": "と",
+      "reading": "と",
+      "type": "particle"
+    },
+    {
+      "word": "回収",
+      "reading": "かいしゅう",
+      "meaning": "recovery",
+      "type": "noun"
+    },
+    {
+      "word": "だ",
+      "reading": "だ",
+      "type": "verb"
+    },
+    {
+      "word": "よ",
+      "reading": "よ",
+      "type": "particle"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "type": "particle"
+    },
+    {
+      "word": "対象",
+      "reading": "たいしょう",
+      "meaning": "target",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "type": "particle"
+    },
+    {
+      "word": "調査",
+      "reading": "ちょうさ",
+      "meaning": "investigation",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "type": "particle"
+    },
+    {
+      "word": "任務",
+      "reading": "にんむ",
+      "meaning": "mission",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "type": "particle"
+    },
+    {
+      "word": "入",
+      "reading": "はい",
+      "meaning": "enter",
+      "type": "verb"
+    },
+    {
+      "word": "って",
+      "reading": "って",
+      "type": "particle"
+    },
+    {
+      "word": "なかっ",
+      "reading": "なかっ",
+      "type": "verb"
+    },
+    {
+      "word": "た",
+      "reading": "た",
+      "type": "verb"
+    },
+    {
+      "word": "と",
+      "reading": "と",
+      "type": "particle"
+    },
+    {
+      "word": "思",
+      "reading": "おも",
+      "meaning": "think",
+      "type": "verb"
+    },
+    {
+      "word": "う",
+      "reading": "う",
+      "type": "verb"
+    },
+    {
+      "word": "けど",
+      "reading": "けど",
+      "type": "particle"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "asterisk",
+      "reading": "アスタリスク",
+      "type": "symbol"
+    },
+    {
+      "word": "ボタン",
+      "meaning": "button",
+      "reading": "ぼたん",
+      "type": "noun"
+    },
+    {
+      "word": "で",
+      "meaning": "by",
+      "reading": "で",
+      "type": "particle"
+    },
+    {
+      "word": "キャンプ",
+      "meaning": "camp",
+      "reading": "キャンプ",
+      "type": "noun"
+    },
+    {
+      "word": "メニュー",
+      "meaning": "menu",
+      "reading": "メニュー",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "reading": "を",
+      "type": "particle"
+    },
+    {
+      "word": "開き",
+      "meaning": "open",
+      "reading": "ひらき",
+      "type": "verb",
+      "form": "te-form",
+      "dictionary": "開く"
+    },
+    {
+      "word": "、",
+      "meaning": "comma",
+      "reading": "、",
+      "type": "symbol"
+    },
+    {
+      "word": "[ORBMENT]",
+      "meaning": "orbment",
+      "reading": "オーブメント",
+      "type": "noun"
+    },
+    {
+      "word": ">",
+      "meaning": "greater than",
+      "reading": ">",
+      "type": "symbol"
+    },
+    {
+      "word": "[QUARTZ]",
+      "meaning": "quartz",
+      "reading": "クオーツ",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "reading": "を",
+      "type": "particle"
+    },
+    {
+      "word": "選択",
+      "meaning": "select",
+      "reading": "せんたく",
+      "type": "noun"
+    },
+    {
+      "word": "する",
+      "meaning": "do",
+      "reading": "する",
+      "type": "verb",
+      "form": "dictionary",
+      "dictionary": "する"
+    },
+    {
+      "word": "と",
+      "meaning": "if",
+      "reading": "と",
+      "type": "particle"
+    },
+    {
+      "word": "クオーツ",
+      "meaning": "quartz",
+      "reading": "クオーツ",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "meaning": "possessive particle",
+      "reading": "の",
+      "type": "particle"
+    },
+    {
+      "word": "セット",
+      "meaning": "set",
+      "reading": "セット",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "meaning": "subject marker",
+      "reading": "が",
+      "type": "particle"
+    },
+    {
+      "word": "行え",
+      "meaning": "perform",
+      "reading": "おこなえ",
+      "type": "verb",
+      "form": "potential",
+      "dictionary": "行う"
+    },
+    {
+      "word": "ます",
+      "meaning": "polite ending",
+      "reading": "ます",
+      "type": "suffix"
+    }
+  ],
+  [
+    {
+      "word": "エステル",
+      "reading": "えすてる",
+      "meaning": "Estelle",
+      "type": "noun"
+    },
+    {
+      "word": "、",
+      "reading": "、",
+      "type": "particle"
+    },
+    {
+      "word": "今度",
+      "reading": "こんど",
+      "meaning": "this time",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "type": "particle"
+    },
+    {
+      "word": "戦技",
+      "reading": "せんぎ",
+      "meaning": "combat skills",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "type": "particle"
+    },
+    {
+      "word": "使って",
+      "reading": "つかって",
+      "meaning": "use",
+      "type": "verb",
+      "form": "te-form",
+      "dictionary": "使う"
+    },
+    {
+      "word": "みよう",
+      "reading": "みよう",
+      "meaning": "let's try",
+      "type": "verb",
+      "form": "volitional form",
+      "dictionary": "見る"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "type": "particle"
+    },
+    {
+      "word": "クラフト",
+      "reading": "くらふと",
+      "meaning": "Craft",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "type": "particle"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "type": "particle"
+    },
+    {
+      "word": "攻撃",
+      "reading": "こうげき",
+      "meaning": "attack",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "type": "particle"
+    },
+    {
+      "word": "他にも",
+      "reading": "ほかにも",
+      "meaning": "besides",
+      "type": "particle"
+    },
+    {
+      "word": "いろんな",
+      "reading": "いろんな",
+      "meaning": "various",
+      "type": "na-adjective"
+    },
+    {
+      "word": "効果",
+      "reading": "こうか",
+      "meaning": "effect",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "type": "particle"
+    },
+    {
+      "word": "ある",
+      "reading": "ある",
+      "meaning": "exist",
+      "type": "verb",
+      "form": "dictionary form",
+      "dictionary": "ある"
+    },
+    {
+      "word": "から",
+      "reading": "から",
+      "meaning": "because",
+      "type": "conjunction"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "meaning": "right?",
+      "type": "particle"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "※",
+      "type": "symbol"
+    },
+    {
+      "word": "戦闘",
+      "reading": "せんとう",
+      "meaning": "battle",
+      "type": "noun"
+    },
+    {
+      "word": "中",
+      "reading": "ちゅう",
+      "meaning": "during",
+      "type": "noun"
+    },
+    {
+      "word": "、",
+      "reading": "、",
+      "meaning": ",",
+      "type": "symbol"
+    },
+    {
+      "word": "ＡＴ",
+      "reading": "えーてぃー",
+      "meaning": "AT (Action Turn)",
+      "type": "noun"
+    },
+    {
+      "word": "（",
+      "reading": "（",
+      "meaning": "(",
+      "type": "symbol"
+    },
+    {
+      "word": "行動",
+      "reading": "こうどう",
+      "meaning": "action",
+      "type": "noun"
+    },
+    {
+      "word": "順",
+      "reading": "じゅん",
+      "meaning": "order",
+      "type": "noun"
+    },
+    {
+      "word": "）",
+      "reading": "）",
+      "meaning": ")",
+      "type": "symbol"
+    },
+    {
+      "word": "によって",
+      "reading": "によって",
+      "meaning": "depending on",
+      "type": "particle"
+    },
+    {
+      "word": "「",
+      "reading": "「",
+      "meaning": "\"",
+      "type": "symbol"
+    },
+    {
+      "word": "ＨＰ",
+      "reading": "えいちぴー",
+      "meaning": "HP",
+      "type": "noun"
+    },
+    {
+      "word": "回復",
+      "reading": "かいふく",
+      "meaning": "recovery",
+      "type": "noun"
+    },
+    {
+      "word": "」",
+      "reading": "」",
+      "meaning": "\"",
+      "type": "symbol"
+    },
+    {
+      "word": "、",
+      "reading": "、",
+      "meaning": ",",
+      "type": "symbol"
+    },
+    {
+      "word": "「",
+      "reading": "「",
+      "meaning": "\"",
+      "type": "symbol"
+    },
+    {
+      "word": "クリティカル",
+      "reading": "くりてぃかる",
+      "meaning": "critical",
+      "type": "noun"
+    },
+    {
+      "word": "」",
+      "reading": "」",
+      "meaning": "\"",
+      "type": "symbol"
+    },
+    {
+      "word": "など",
+      "reading": "など",
+      "meaning": "such as",
+      "type": "particle"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "ＡＴ",
+      "reading": "えーてぃー",
+      "meaning": "AT (Action Turn)",
+      "type": "noun"
+    },
+    {
+      "word": "ボーナス",
+      "reading": "ぼーなす",
+      "meaning": "bonus",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "つく",
+      "reading": "つく",
+      "meaning": "to be attached",
+      "type": "verb"
+    },
+    {
+      "word": "こと",
+      "reading": "こと",
+      "meaning": "thing",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "あります",
+      "reading": "あります",
+      "meaning": "there is",
+      "type": "verb"
+    }
+  ],
+  [
+    {
+      "word": "ふふん",
+      "reading": "ふふん",
+      "meaning": "Hmm",
+      "type": "interjection"
+    },
+    {
+      "word": "思った",
+      "reading": "おもった",
+      "meaning": "thought",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "思う"
+    },
+    {
+      "word": "より",
+      "reading": "より",
+      "meaning": "than",
+      "type": "particle"
+    },
+    {
+      "word": "楽勝",
+      "reading": "らくしょう",
+      "meaning": "easy win",
+      "type": "noun"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "meaning": "right?",
+      "type": "particle"
+    },
+    {
+      "word": "よ～し",
+      "reading": "よ～し",
+      "meaning": "Alright",
+      "type": "interjection"
+    },
+    {
+      "word": "この",
+      "reading": "この",
+      "meaning": "this",
+      "type": "determiner"
+    },
+    {
+      "word": "調子",
+      "reading": "ちょうし",
+      "meaning": "condition",
+      "type": "noun"
+    },
+    {
+      "word": "で",
+      "reading": "で",
+      "meaning": "in",
+      "type": "particle"
+    },
+    {
+      "word": "先",
+      "reading": "さき",
+      "meaning": "before",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "進む",
+      "reading": "すすむ",
+      "meaning": "proceed",
+      "type": "verb",
+      "dictionary": "進む"
+    },
+    {
+      "word": "わ",
+      "reading": "わ",
+      "meaning": "(feminine sentence ending particle)",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "※",
+      "reading": "※",
+      "type": "symbol"
+    },
+    {
+      "word": "Ｓ",
+      "meaning": "S",
+      "reading": "エス",
+      "type": "noun"
+    },
+    {
+      "word": "ブレイク",
+      "meaning": "break",
+      "reading": "ぶれいく",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "meaning": "is",
+      "reading": "は",
+      "type": "particle"
+    },
+    {
+      "word": "ＡＴ",
+      "meaning": "AT",
+      "reading": "エーティー",
+      "type": "noun"
+    },
+    {
+      "word": "（",
+      "meaning": "(",
+      "reading": "（",
+      "type": "symbol"
+    },
+    {
+      "word": "行動",
+      "meaning": "action",
+      "reading": "こうどう",
+      "type": "noun"
+    },
+    {
+      "word": "順",
+      "meaning": "order",
+      "reading": "じゅん",
+      "type": "noun"
+    },
+    {
+      "word": "）",
+      "meaning": ")",
+      "reading": "）",
+      "type": "symbol"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "reading": "を",
+      "type": "particle"
+    },
+    {
+      "word": "無視",
+      "meaning": "ignore",
+      "reading": "むし",
+      "type": "verb"
+    },
+    {
+      "word": "して",
+      "meaning": "and",
+      "reading": "して",
+      "type": "conjunction"
+    },
+    {
+      "word": "Ｓ",
+      "meaning": "S",
+      "reading": "エス",
+      "type": "noun"
+    },
+    {
+      "word": "クラフト",
+      "meaning": "craft",
+      "reading": "くらふと",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "reading": "を",
+      "type": "particle"
+    },
+    {
+      "word": "発動",
+      "meaning": "activate",
+      "reading": "はつどう",
+      "type": "verb"
+    },
+    {
+      "word": "する",
+      "meaning": "to do",
+      "reading": "する",
+      "type": "verb"
+    },
+    {
+      "word": "技",
+      "meaning": "technique",
+      "reading": "わざ",
+      "type": "noun"
+    },
+    {
+      "word": "です",
+      "meaning": "is",
+      "reading": "です",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "地上",
+      "reading": "ちじょう",
+      "meaning": "ground",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "もどる",
+      "reading": "もどる",
+      "meaning": "return",
+      "type": "verb",
+      "form": "dictionary"
+    },
+    {
+      "word": "前に",
+      "reading": "まえに",
+      "meaning": "before",
+      "type": "particle"
+    },
+    {
+      "word": "捜索",
+      "reading": "そうさく",
+      "meaning": "search",
+      "type": "noun"
+    },
+    {
+      "word": "対象",
+      "reading": "たいしょう",
+      "meaning": "target",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "回収",
+      "reading": "かいしゅう",
+      "meaning": "retrieve",
+      "type": "verb",
+      "form": "dictionary"
+    },
+    {
+      "word": "して",
+      "reading": "して",
+      "meaning": "and",
+      "type": "particle"
+    },
+    {
+      "word": "こない",
+      "reading": "こない",
+      "meaning": "not come",
+      "type": "verb",
+      "form": "negative plain form"
+    },
+    {
+      "word": "と",
+      "reading": "と",
+      "meaning": "if",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "note",
+      "reading": "ふりがな"
+    },
+    {
+      "word": "なお",
+      "meaning": "furthermore",
+      "reading": "なお"
+    },
+    {
+      "word": "戦闘",
+      "meaning": "battle",
+      "reading": "せんとう",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "meaning": "to",
+      "reading": "に",
+      "type": "particle"
+    },
+    {
+      "word": "勝利",
+      "meaning": "victory",
+      "reading": "しょうり",
+      "type": "noun"
+    },
+    {
+      "word": "する",
+      "meaning": "to win",
+      "reading": "する",
+      "type": "verb"
+    },
+    {
+      "word": "か",
+      "meaning": "or",
+      "reading": "か",
+      "type": "particle"
+    },
+    {
+      "word": "逃走",
+      "meaning": "escape",
+      "reading": "とうそう",
+      "type": "noun"
+    },
+    {
+      "word": "する",
+      "meaning": "to escape",
+      "reading": "する",
+      "type": "verb"
+    },
+    {
+      "word": "か",
+      "meaning": "or",
+      "reading": "か",
+      "type": "particle"
+    },
+    {
+      "word": "によって",
+      "meaning": "depending on",
+      "reading": "によって",
+      "type": "particle"
+    },
+    {
+      "word": "記録",
+      "meaning": "record",
+      "reading": "きろく",
+      "type": "noun"
+    },
+    {
+      "word": "される",
+      "meaning": "will be",
+      "reading": "される",
+      "type": "verb"
+    },
+    {
+      "word": "内容",
+      "meaning": "content",
+      "reading": "ないよう",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "meaning": "is",
+      "reading": "は",
+      "type": "particle"
+    },
+    {
+      "word": "変化",
+      "meaning": "change",
+      "reading": "へんか",
+      "type": "noun"
+    },
+    {
+      "word": "します",
+      "meaning": "will change",
+      "reading": "します",
+      "type": "verb"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "※",
+      "type": "particle"
+    },
+    {
+      "word": "クラフト",
+      "meaning": "craft",
+      "type": "noun",
+      "reading": "くらふと"
+    },
+    {
+      "word": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "射程",
+      "meaning": "range",
+      "type": "noun",
+      "reading": "しゃてい"
+    },
+    {
+      "word": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "制限",
+      "meaning": "restriction",
+      "type": "noun",
+      "reading": "せいげん"
+    },
+    {
+      "word": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "あります",
+      "meaning": "exists",
+      "type": "verb",
+      "form": "ます",
+      "dictionary": "ある"
+    },
+    {
+      "word": "が",
+      "meaning": "but",
+      "type": "particle"
+    },
+    {
+      "word": "即座",
+      "meaning": "immediately",
+      "type": "noun",
+      "reading": "そくざ"
+    },
+    {
+      "word": "に",
+      "meaning": "immediately",
+      "type": "particle"
+    },
+    {
+      "word": "発動",
+      "meaning": "activate",
+      "type": "noun",
+      "reading": "はつどう"
+    },
+    {
+      "word": "します",
+      "meaning": "do",
+      "type": "verb",
+      "form": "ます",
+      "dictionary": "する"
+    },
+    {
+      "word": "。",
+      "meaning": ".",
+      "type": "particle"
+    },
+    {
+      "word": "使用",
+      "meaning": "use",
+      "type": "noun",
+      "reading": "しよう"
+    },
+    {
+      "word": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "必要",
+      "meaning": "necessary",
+      "type": "na-adjective",
+      "reading": "ひつよう"
+    },
+    {
+      "word": "な",
+      "meaning": "-",
+      "type": "na-adjective"
+    },
+    {
+      "word": "ＣＰ",
+      "meaning": "CP",
+      "type": "noun",
+      "reading": "シーピー"
+    },
+    {
+      "word": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "攻撃",
+      "meaning": "attack",
+      "type": "noun",
+      "reading": "こうげき"
+    },
+    {
+      "word": "したり",
+      "meaning": "do such things as",
+      "type": "verb",
+      "form": "たり",
+      "dictionary": "する"
+    },
+    {
+      "word": "、",
+      "meaning": ",",
+      "type": "particle"
+    },
+    {
+      "word": "ダメージ",
+      "meaning": "damage",
+      "type": "noun",
+      "reading": "だめーじ"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "受け",
+      "meaning": "receive",
+      "type": "verb",
+      "form": "て",
+      "dictionary": "受ける"
+    },
+    {
+      "word": "たり",
+      "meaning": "do such things as",
+      "type": "verb",
+      "form": "たり",
+      "dictionary": "する"
+    },
+    {
+      "word": "する",
+      "meaning": "do",
+      "type": "verb",
+      "dictionary": "する"
+    },
+    {
+      "word": "こと",
+      "meaning": "thing",
+      "type": "noun",
+      "reading": "こと"
+    },
+    {
+      "word": "で",
+      "meaning": "by",
+      "type": "particle"
+    },
+    {
+      "word": "自然",
+      "meaning": "naturally",
+      "type": "na-adjective",
+      "reading": "しぜん"
+    },
+    {
+      "word": "に",
+      "meaning": "-",
+      "type": "particle"
+    },
+    {
+      "word": "蓄積",
+      "meaning": "accumulate",
+      "type": "noun",
+      "reading": "ちくせき"
+    },
+    {
+      "word": "されて",
+      "meaning": "be",
+      "type": "verb",
+      "form": "て",
+      "dictionary": "される"
+    },
+    {
+      "word": "いきます",
+      "meaning": "go",
+      "type": "verb",
+      "form": "ます",
+      "dictionary": "いく"
+    },
+    {
+      "word": "。",
+      "meaning": ".",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "※",
+      "type": "symbol"
+    },
+    {
+      "word": "通常",
+      "meaning": "normal",
+      "reading": "つうじょう",
+      "type": "noun"
+    },
+    {
+      "word": "攻撃",
+      "meaning": "attack",
+      "reading": "こうげき",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "meaning": "of",
+      "reading": "の",
+      "type": "particle"
+    },
+    {
+      "word": "効きにくい",
+      "meaning": "difficult to be effective",
+      "reading": "ききにくい",
+      "type": "i-adjective"
+    },
+    {
+      "word": "敵",
+      "meaning": "enemy",
+      "reading": "てき",
+      "type": "noun"
+    },
+    {
+      "word": "には",
+      "meaning": "to",
+      "reading": "には",
+      "type": "particle"
+    },
+    {
+      "word": "アーツ",
+      "meaning": "Arts",
+      "reading": "あーつ",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "meaning": "subject marker",
+      "reading": "が",
+      "type": "particle"
+    },
+    {
+      "word": "有効",
+      "meaning": "effective",
+      "reading": "ゆうこう",
+      "type": "na-adjective"
+    },
+    {
+      "word": "です",
+      "meaning": "is",
+      "reading": "です",
+      "type": "verb"
+    },
+    {
+      "word": "。",
+      "meaning": ".",
+      "reading": "。",
+      "type": "symbol"
+    }
+  ],
+  [
+    {
+      "word": "すごく",
+      "meaning": "very",
+      "reading": "すごく",
+      "type": "adverb"
+    },
+    {
+      "word": "大雑把",
+      "meaning": "rough",
+      "reading": "おおざっぱ",
+      "type": "na-adjective"
+    },
+    {
+      "word": "に",
+      "meaning": "-ly",
+      "reading": "に",
+      "type": "particle"
+    },
+    {
+      "word": "言えば",
+      "meaning": "if we say",
+      "reading": "いえば",
+      "type": "verb",
+      "form": "conditional",
+      "dictionary": "言う"
+    },
+    {
+      "word": "そういう",
+      "meaning": "such",
+      "reading": "そういう",
+      "type": "na-adjective"
+    },
+    {
+      "word": "こと",
+      "meaning": "thing",
+      "reading": "こと",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "meaning": "to",
+      "reading": "に",
+      "type": "particle"
+    },
+    {
+      "word": "なる",
+      "meaning": "become",
+      "reading": "なる",
+      "type": "verb",
+      "dictionary": "なる"
+    },
+    {
+      "word": "けど",
+      "meaning": "but",
+      "reading": "けど",
+      "type": "conjunction"
+    },
+    {
+      "word": "ま",
+      "meaning": "well",
+      "reading": "ま",
+      "type": "interjection"
+    },
+    {
+      "word": "その",
+      "meaning": "that",
+      "reading": "その",
+      "type": "adjective"
+    },
+    {
+      "word": "辺り",
+      "meaning": "area",
+      "reading": "あたり",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "meaning": "of",
+      "reading": "の",
+      "type": "particle"
+    },
+    {
+      "word": "説明",
+      "meaning": "explanation",
+      "reading": "せつめい",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "meaning": "topic marker",
+      "reading": "は",
+      "type": "particle"
+    },
+    {
+      "word": "後回し",
+      "meaning": "postponement",
+      "reading": "あとまわし",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "meaning": "to",
+      "reading": "に",
+      "type": "particle"
+    },
+    {
+      "word": "した",
+      "meaning": "did",
+      "reading": "した",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "する"
+    },
+    {
+      "word": "方",
+      "meaning": "way",
+      "reading": "ほう",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "meaning": "but",
+      "reading": "が",
+      "type": "conjunction"
+    },
+    {
+      "word": "よさそう",
+      "meaning": "seems good",
+      "reading": "よさそう",
+      "type": "na-adjective"
+    },
+    {
+      "word": "だ",
+      "meaning": "is",
+      "reading": "だ",
+      "type": "copula"
+    },
+    {
+      "word": "ね",
+      "meaning": "right",
+      "reading": "ね",
+      "type": "particle"
+    },
+    {
+      "word": "こんな",
+      "meaning": "such",
+      "reading": "こんな",
+      "type": "na-adjective"
+    },
+    {
+      "word": "場所",
+      "meaning": "place",
+      "reading": "ばしょ",
+      "type": "noun"
+    },
+    {
+      "word": "で",
+      "meaning": "at",
+      "reading": "で",
+      "type": "particle"
+    },
+    {
+      "word": "立ち話",
+      "meaning": "standing conversation",
+      "reading": "たちばなし",
+      "type": "noun"
+    },
+    {
+      "word": "なんて",
+      "meaning": "such as",
+      "reading": "なんて",
+      "type": "particle"
+    },
+    {
+      "word": "あんまり",
+      "meaning": "not very",
+      "reading": "あんまり",
+      "type": "adverb"
+    },
+    {
+      "word": "気",
+      "meaning": "feeling",
+      "reading": "き",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "meaning": "subject marker",
+      "reading": "が",
+      "type": "particle"
+    },
+    {
+      "word": "すすまない",
+      "meaning": "do not progress",
+      "reading": "すすまない",
+      "type": "verb",
+      "dictionary": "進む"
+    },
+    {
+      "word": "から",
+      "meaning": "because",
+      "reading": "から",
+      "type": "conjunction"
+    }
+  ],
+  [
+    {
+      "word": "どうしても",
+      "reading": "どうしても",
+      "meaning": "no matter what"
+    },
+    {
+      "word": "気になる",
+      "reading": "きになる",
+      "meaning": "to be concerned about"
+    },
+    {
+      "word": "なら",
+      "reading": "なら",
+      "meaning": "if"
+    },
+    {
+      "word": "あとで",
+      "reading": "あとで",
+      "meaning": "later"
+    },
+    {
+      "word": "シェラさん",
+      "reading": "シェラさん",
+      "meaning": "Shela-san"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to"
+    },
+    {
+      "word": "お願いして",
+      "reading": "おねがいして",
+      "meaning": "to ask for a favor"
+    },
+    {
+      "word": "みれば",
+      "reading": "みれば",
+      "meaning": "if you try"
+    },
+    {
+      "word": "それ",
+      "reading": "それ",
+      "meaning": "that"
+    },
+    {
+      "word": "じゃ",
+      "reading": "じゃ",
+      "meaning": "well then"
+    },
+    {
+      "word": "帰り道",
+      "reading": "かえりみち",
+      "meaning": "way back home"
+    },
+    {
+      "word": "も",
+      "reading": "も",
+      "meaning": "also"
+    },
+    {
+      "word": "集中して",
+      "reading": "しゅうちゅうして",
+      "meaning": "to concentrate"
+    },
+    {
+      "word": "行こう",
+      "reading": "いこう",
+      "meaning": "let's go"
+    }
+  ],
+  [
+    {
+      "word": "ほんとに",
+      "reading": "ほんとに",
+      "type": "adverb",
+      "meaning": "really"
+    },
+    {
+      "word": "キレイ",
+      "reading": "きれい",
+      "type": "na-adjective",
+      "meaning": "beautiful"
+    },
+    {
+      "word": "な",
+      "reading": "な",
+      "type": "particle",
+      "meaning": "(connects adjective to noun)"
+    },
+    {
+      "word": "光",
+      "reading": "ひかり",
+      "type": "noun",
+      "meaning": "light"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "type": "particle",
+      "meaning": "(casual question marker)"
+    },
+    {
+      "word": "これ",
+      "reading": "これ",
+      "type": "pronoun",
+      "meaning": "this"
+    },
+    {
+      "word": "も",
+      "reading": "も",
+      "type": "particle",
+      "meaning": "also"
+    },
+    {
+      "word": "七耀石",
+      "reading": "しちようせき",
+      "type": "noun",
+      "meaning": "septium"
+    },
+    {
+      "word": "で",
+      "reading": "で",
+      "type": "particle",
+      "meaning": "(indicates means or method)"
+    },
+    {
+      "word": "できてる",
+      "reading": "できてる",
+      "type": "verb",
+      "form": "て-form",
+      "meaning": "is made of"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "type": "particle",
+      "meaning": "(explanatory or nominalizing particle)"
+    },
+    {
+      "word": "よ",
+      "reading": "よ",
+      "type": "particle",
+      "meaning": "(casual emphasis)"
+    }
+  ],
+  [
+    {
+      "word": "もう",
+      "reading": "もう",
+      "meaning": "already",
+      "type": "adverb"
+    },
+    {
+      "word": "、",
+      "reading": "、",
+      "meaning": "comma",
+      "type": "particle"
+    },
+    {
+      "word": "ヨシュア",
+      "reading": "ヨシュア",
+      "meaning": "Joshua",
+      "type": "noun"
+    },
+    {
+      "word": "って",
+      "reading": "って",
+      "meaning": "quoting particle",
+      "type": "particle"
+    },
+    {
+      "word": "ホント",
+      "reading": "ホント",
+      "meaning": "really",
+      "type": "adverb"
+    },
+    {
+      "word": "お堅い",
+      "reading": "おかたい",
+      "meaning": "serious",
+      "type": "i-adjective"
+    },
+    {
+      "word": "ん",
+      "reading": "ん",
+      "meaning": "casual speech",
+      "type": "particle"
+    },
+    {
+      "word": "だから",
+      "reading": "だから",
+      "meaning": "so",
+      "type": "conjunction"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "meaning": "period",
+      "type": "particle"
+    },
+    {
+      "word": "仕事",
+      "reading": "しごと",
+      "meaning": "work",
+      "type": "noun"
+    },
+    {
+      "word": "じゃなく",
+      "reading": "じゃなく",
+      "meaning": "not",
+      "type": "particle"
+    },
+    {
+      "word": "純粋",
+      "reading": "じゅんすい",
+      "meaning": "pure",
+      "type": "na-adjective"
+    },
+    {
+      "word": "な",
+      "reading": "な",
+      "meaning": "attributive",
+      "type": "particle"
+    },
+    {
+      "word": "好奇心",
+      "reading": "こうきしん",
+      "meaning": "curiosity",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "問題",
+      "reading": "もんだい",
+      "meaning": "problem",
+      "type": "noun"
+    },
+    {
+      "word": "よ",
+      "reading": "よ",
+      "meaning": "explanatory",
+      "type": "particle"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "meaning": "period",
+      "type": "particle"
+    },
+    {
+      "word": "ねえ",
+      "reading": "ねえ",
+      "meaning": "hey",
+      "type": "interjection"
+    },
+    {
+      "word": "、",
+      "reading": "、",
+      "meaning": "comma",
+      "type": "particle"
+    },
+    {
+      "word": "誰も",
+      "reading": "だれも",
+      "meaning": "nobody",
+      "type": "pronoun"
+    },
+    {
+      "word": "見て",
+      "reading": "みて",
+      "meaning": "see",
+      "type": "verb",
+      "form": "te-form",
+      "dictionary": "見る"
+    },
+    {
+      "word": "ない",
+      "reading": "ない",
+      "meaning": "not",
+      "type": "auxiliary verb"
+    },
+    {
+      "word": "し",
+      "reading": "し",
+      "meaning": "and",
+      "type": "conjunction"
+    },
+    {
+      "word": "ちょっと",
+      "reading": "ちょっと",
+      "meaning": "a little",
+      "type": "adverb"
+    },
+    {
+      "word": "開けて",
+      "reading": "あけて",
+      "meaning": "open",
+      "type": "verb",
+      "form": "te-form",
+      "dictionary": "開ける"
+    },
+    {
+      "word": "も",
+      "reading": "も",
+      "meaning": "also",
+      "type": "particle"
+    },
+    {
+      "word": "バレない",
+      "reading": "バレない",
+      "meaning": "not be exposed",
+      "type": "i-adjective"
+    },
+    {
+      "word": "わ",
+      "reading": "わ",
+      "meaning": "feminine sentence-ending particle",
+      "type": "particle"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "meaning": "right?",
+      "type": "particle"
+    },
+    {
+      "word": "？",
+      "reading": "？",
+      "meaning": "question mark",
+      "type": "symbol"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "asterisk"
+    },
+    {
+      "word": "回復",
+      "reading": "かいふく",
+      "meaning": "recovery",
+      "type": "noun"
+    },
+    {
+      "word": "ポイント",
+      "reading": null,
+      "meaning": "point",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "危険",
+      "reading": "きけん",
+      "meaning": "dangerous",
+      "type": "na-adjective"
+    },
+    {
+      "word": "な",
+      "reading": "な",
+      "meaning": "na-adjective connector",
+      "type": "na-adjective"
+    },
+    {
+      "word": "マップ",
+      "reading": null,
+      "meaning": "map",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "配置",
+      "reading": "はいち",
+      "meaning": "placement",
+      "type": "noun"
+    },
+    {
+      "word": "された",
+      "reading": "された",
+      "meaning": "was placed",
+      "type": "verb"
+    },
+    {
+      "word": "オーブメント",
+      "reading": null,
+      "meaning": "orbment",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "回復",
+      "reading": "かいふく",
+      "meaning": "recovery",
+      "type": "noun"
+    },
+    {
+      "word": "装置",
+      "reading": "そうち",
+      "meaning": "device",
+      "type": "noun"
+    },
+    {
+      "word": "です",
+      "reading": "です",
+      "meaning": "is",
+      "type": "verb"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "※",
+      "type": "particle"
+    },
+    {
+      "word": "魔獣",
+      "reading": "まじゅう",
+      "meaning": "magical beast",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "姿",
+      "reading": "すがた",
+      "meaning": "appearance",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "、",
+      "reading": "、",
+      "meaning": ",",
+      "type": "particle"
+    },
+    {
+      "word": "遠く",
+      "reading": "とおく",
+      "meaning": "far",
+      "type": "noun"
+    },
+    {
+      "word": "から",
+      "reading": "から",
+      "meaning": "from",
+      "type": "particle"
+    },
+    {
+      "word": "では",
+      "reading": "では",
+      "meaning": "not",
+      "type": "particle"
+    },
+    {
+      "word": "見えません",
+      "reading": "みえません",
+      "meaning": "cannot be seen",
+      "type": "verb"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "meaning": ".",
+      "type": "particle"
+    },
+    {
+      "word": "ある程度",
+      "reading": "あるていど",
+      "meaning": "to some extent",
+      "type": "noun"
+    },
+    {
+      "word": "近付く",
+      "reading": "ちかづく",
+      "meaning": "approach",
+      "type": "verb"
+    },
+    {
+      "word": "と",
+      "reading": "と",
+      "meaning": "if",
+      "type": "particle"
+    },
+    {
+      "word": "姿",
+      "reading": "すがた",
+      "meaning": "appearance",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "見える",
+      "reading": "みえる",
+      "meaning": "can be seen",
+      "type": "verb"
+    },
+    {
+      "word": "ように",
+      "reading": "ように",
+      "meaning": "as if",
+      "type": "particle"
+    },
+    {
+      "word": "なります",
+      "reading": "なります",
+      "meaning": "becomes",
+      "type": "verb"
+    }
+  ],
+  [
+    {
+      "word": "ふ～ん",
+      "reading": "ふ～ん",
+      "type": "interjection",
+      "meaning": "Hmm"
+    },
+    {
+      "word": "なるほど",
+      "reading": "なるほど",
+      "type": "interjection",
+      "meaning": "I see"
+    },
+    {
+      "word": "排水溝",
+      "reading": "はいすいこう",
+      "type": "noun",
+      "meaning": "drainage ditch"
+    },
+    {
+      "word": "から",
+      "reading": "から",
+      "type": "particle",
+      "meaning": "from"
+    },
+    {
+      "word": "見えた",
+      "reading": "みえた",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "見える",
+      "meaning": "was seen"
+    },
+    {
+      "word": "光",
+      "reading": "ひかり",
+      "type": "noun",
+      "meaning": "light"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "type": "particle",
+      "meaning": "topic marker"
+    },
+    {
+      "word": "どうも",
+      "reading": "どうも",
+      "type": "adverb",
+      "meaning": "somehow"
+    },
+    {
+      "word": "これ",
+      "reading": "これ",
+      "type": "pronoun",
+      "meaning": "this"
+    },
+    {
+      "word": "だった",
+      "reading": "だった",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "だ",
+      "meaning": "was"
+    },
+    {
+      "word": "みたい",
+      "reading": "みたい",
+      "type": "adjective",
+      "meaning": "seems like"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "type": "particle",
+      "meaning": "sentence-ending particle"
+    }
+  ],
+  [
+    {
+      "word": "あれ",
+      "meaning": "that",
+      "reading": "あれ",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "meaning": "subject marker",
+      "reading": "が",
+      "type": "particle"
+    },
+    {
+      "word": "目的",
+      "meaning": "objective",
+      "reading": "もくてき",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "meaning": "possessive marker",
+      "reading": "の",
+      "type": "particle"
+    },
+    {
+      "word": "宝箱",
+      "meaning": "treasure chest",
+      "reading": "たからばこ",
+      "type": "noun"
+    },
+    {
+      "word": "か",
+      "meaning": "question marker",
+      "reading": "か",
+      "type": "particle"
+    },
+    {
+      "word": "ここ",
+      "meaning": "here",
+      "reading": "ここ",
+      "type": "noun"
+    },
+    {
+      "word": "まで",
+      "meaning": "until",
+      "reading": "まで",
+      "type": "particle"
+    },
+    {
+      "word": "くれば",
+      "meaning": "if come",
+      "reading": "くれば",
+      "type": "verb",
+      "form": "conditional",
+      "dictionary": "くる"
+    },
+    {
+      "word": "もう",
+      "meaning": "already",
+      "reading": "もう",
+      "type": "adverb"
+    },
+    {
+      "word": "楽勝",
+      "meaning": "easy victory",
+      "reading": "らくしょう",
+      "type": "noun"
+    },
+    {
+      "word": "って",
+      "meaning": "quoting particle",
+      "reading": "って",
+      "type": "particle"
+    },
+    {
+      "word": "感じ",
+      "meaning": "feeling",
+      "reading": "かんじ",
+      "type": "noun"
+    },
+    {
+      "word": "ね",
+      "meaning": "sentence-ending particle",
+      "reading": "ね",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "ふ～ん",
+      "reading": "ふ～ん",
+      "meaning": "Hmm",
+      "type": "interjection"
+    },
+    {
+      "word": "宝箱",
+      "reading": "たからばこ",
+      "meaning": "treasure box",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "中",
+      "reading": "なか",
+      "meaning": "inside",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "in",
+      "type": "particle"
+    },
+    {
+      "word": "また",
+      "reading": "また",
+      "meaning": "again",
+      "type": "adverb"
+    },
+    {
+      "word": "箱",
+      "reading": "はこ",
+      "meaning": "box",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "しまって",
+      "reading": "しまって",
+      "meaning": "stored",
+      "type": "verb",
+      "form": "te-form"
+    },
+    {
+      "word": "ある",
+      "reading": "ある",
+      "meaning": "exist",
+      "type": "verb",
+      "dictionary": "ある"
+    },
+    {
+      "word": "なんて",
+      "reading": "なんて",
+      "meaning": "such as",
+      "type": "particle"
+    },
+    {
+      "word": "変",
+      "reading": "へん",
+      "meaning": "strange",
+      "type": "i-adjective"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "meaning": "right",
+      "type": "particle"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "meaning": "period",
+      "type": "symbol"
+    },
+    {
+      "word": "２つ",
+      "reading": "ふたつ",
+      "meaning": "two",
+      "type": "noun"
+    },
+    {
+      "word": "って",
+      "reading": "って",
+      "meaning": "quoting",
+      "type": "particle"
+    },
+    {
+      "word": "とこ",
+      "reading": "とこ",
+      "meaning": "place",
+      "type": "noun"
+    },
+    {
+      "word": "も",
+      "reading": "も",
+      "meaning": "also",
+      "type": "particle"
+    },
+    {
+      "word": "気になる",
+      "reading": "きになる",
+      "meaning": "be curious",
+      "type": "verb"
+    },
+    {
+      "word": "し",
+      "reading": "し",
+      "meaning": "and",
+      "type": "conjunction"
+    },
+    {
+      "word": "う～ん",
+      "reading": "う～ん",
+      "meaning": "Hmm",
+      "type": "interjection"
+    },
+    {
+      "word": "中",
+      "reading": "なか",
+      "meaning": "inside",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "in",
+      "type": "particle"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "何",
+      "reading": "なに",
+      "meaning": "what",
+      "type": "pronoun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "入ってる",
+      "reading": "はいってる",
+      "meaning": "is contained",
+      "type": "verb",
+      "form": "te-form"
+    },
+    {
+      "word": "ん",
+      "reading": "ん",
+      "meaning": "explanatory",
+      "type": "particle"
+    },
+    {
+      "word": "だろ",
+      "reading": "だろ",
+      "meaning": "I wonder",
+      "type": "expression"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "meaning": "period",
+      "type": "symbol"
+    }
+  ],
+  [
+    {
+      "word": "相手",
+      "reading": "あいて",
+      "meaning": "opponent",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "よっては",
+      "reading": "よっては",
+      "meaning": "depending on",
+      "type": "particle"
+    },
+    {
+      "word": "武器",
+      "reading": "ぶき",
+      "meaning": "weapon",
+      "type": "noun"
+    },
+    {
+      "word": "で",
+      "reading": "で",
+      "meaning": "with",
+      "type": "particle"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "攻撃",
+      "reading": "こうげき",
+      "meaning": "attack",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "通用",
+      "reading": "つうよう",
+      "meaning": "effective",
+      "type": "noun"
+    },
+    {
+      "word": "しない",
+      "reading": "しない",
+      "meaning": "not work",
+      "type": "verb"
+    },
+    {
+      "word": "こと",
+      "reading": "こと",
+      "meaning": "thing",
+      "type": "noun"
+    },
+    {
+      "word": "も",
+      "reading": "も",
+      "meaning": "also",
+      "type": "particle"
+    },
+    {
+      "word": "ある",
+      "reading": "ある",
+      "meaning": "exist",
+      "type": "verb"
+    },
+    {
+      "word": "よ",
+      "reading": "よ",
+      "meaning": "emphasis",
+      "type": "particle"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "meaning": "period",
+      "type": "particle"
+    },
+    {
+      "word": "通常",
+      "reading": "つうじょう",
+      "meaning": "normal",
+      "type": "noun"
+    },
+    {
+      "word": "攻撃",
+      "reading": "こうげき",
+      "meaning": "attack",
+      "type": "noun"
+    },
+    {
+      "word": "だけ",
+      "reading": "だけ",
+      "meaning": "only",
+      "type": "particle"
+    },
+    {
+      "word": "じゃなく",
+      "reading": "じゃなく",
+      "meaning": "not only",
+      "type": "particle"
+    },
+    {
+      "word": "アーツ",
+      "reading": "アーツ",
+      "meaning": "arts",
+      "type": "noun"
+    },
+    {
+      "word": "も",
+      "reading": "も",
+      "meaning": "also",
+      "type": "particle"
+    },
+    {
+      "word": "使って",
+      "reading": "つかって",
+      "meaning": "use",
+      "type": "verb"
+    },
+    {
+      "word": "いこう",
+      "reading": "いこう",
+      "meaning": "let's do",
+      "type": "verb"
+    }
+  ],
+  [
+    {
+      "word": "そういう",
+      "reading": "そういう",
+      "meaning": "such"
+    },
+    {
+      "word": "可能性",
+      "reading": "かのうせい",
+      "meaning": "possibility"
+    },
+    {
+      "word": "も",
+      "reading": "も",
+      "meaning": "also"
+    },
+    {
+      "word": "ある",
+      "reading": "ある",
+      "meaning": "to exist"
+    },
+    {
+      "word": "って",
+      "reading": "って",
+      "meaning": "quoting particle"
+    },
+    {
+      "word": "こと",
+      "reading": "こと",
+      "meaning": "thing"
+    },
+    {
+      "word": "もし",
+      "reading": "もし",
+      "meaning": "if"
+    },
+    {
+      "word": "これ",
+      "reading": "これ",
+      "meaning": "this"
+    },
+    {
+      "word": "本当",
+      "reading": "ほんとう",
+      "meaning": "true"
+    },
+    {
+      "word": "仕事",
+      "reading": "しごと",
+      "meaning": "job"
+    },
+    {
+      "word": "だったら",
+      "reading": "だったら",
+      "meaning": "if it was"
+    },
+    {
+      "word": "それ",
+      "reading": "それ",
+      "meaning": "that"
+    },
+    {
+      "word": "依頼者",
+      "reading": "いらいしゃ",
+      "meaning": "client"
+    },
+    {
+      "word": "持ち物",
+      "reading": "もちもの",
+      "meaning": "belongings"
+    },
+    {
+      "word": "だから",
+      "reading": "だから",
+      "meaning": "so"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "meaning": "right?"
+    },
+    {
+      "word": "非合法",
+      "reading": "ひごうほう",
+      "meaning": "illegal"
+    },
+    {
+      "word": "物",
+      "reading": "もの",
+      "meaning": "thing"
+    },
+    {
+      "word": "でも",
+      "reading": "でも",
+      "meaning": "but"
+    },
+    {
+      "word": "ない",
+      "reading": "ない",
+      "meaning": "not have"
+    },
+    {
+      "word": "かぎり",
+      "reading": "かぎり",
+      "meaning": "unless"
+    },
+    {
+      "word": "中身",
+      "reading": "なかみ",
+      "meaning": "contents"
+    },
+    {
+      "word": "確認",
+      "reading": "かくにん",
+      "meaning": "confirmation"
+    },
+    {
+      "word": "する",
+      "reading": "する",
+      "meaning": "to do"
+    },
+    {
+      "word": "権利",
+      "reading": "けんり",
+      "meaning": "right"
+    },
+    {
+      "word": "無い",
+      "reading": "ない",
+      "meaning": "not have"
+    },
+    {
+      "word": "はず",
+      "reading": "はず",
+      "meaning": "should be"
+    },
+    {
+      "word": "だ",
+      "reading": "だ",
+      "meaning": "is"
+    },
+    {
+      "word": "よ",
+      "reading": "よ",
+      "meaning": "emphasis"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "※",
+      "type": "particle"
+    },
+    {
+      "word": "ＣＰ",
+      "meaning": "CP (Craft Points)",
+      "type": "noun",
+      "reading": "シーエーピー"
+    },
+    {
+      "word": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "１００",
+      "meaning": "100",
+      "type": "noun",
+      "reading": "ひゃく"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "越える",
+      "meaning": "to exceed",
+      "type": "verb",
+      "form": "dictionary",
+      "reading": "こえる"
+    },
+    {
+      "word": "と",
+      "meaning": "if",
+      "type": "particle"
+    },
+    {
+      "word": "強力",
+      "meaning": "powerful",
+      "type": "na-adjective",
+      "reading": "きょうりょく"
+    },
+    {
+      "word": "な",
+      "meaning": "-",
+      "type": "particle"
+    },
+    {
+      "word": "戦技",
+      "meaning": "combat technique",
+      "type": "noun",
+      "reading": "せんぎ"
+    },
+    {
+      "word": "で",
+      "meaning": "by means of",
+      "type": "particle"
+    },
+    {
+      "word": "ある",
+      "meaning": "to be",
+      "type": "verb",
+      "form": "dictionary",
+      "reading": "ある"
+    },
+    {
+      "word": "Ｓ",
+      "meaning": "S",
+      "type": "noun",
+      "reading": "エス"
+    },
+    {
+      "word": "クラフト",
+      "meaning": "Craft",
+      "type": "noun",
+      "reading": "くらふと"
+    },
+    {
+      "word": "や",
+      "meaning": "and",
+      "type": "particle"
+    },
+    {
+      "word": "Ｓ",
+      "meaning": "S",
+      "type": "noun",
+      "reading": "エス"
+    },
+    {
+      "word": "ブレイク",
+      "meaning": "Break",
+      "type": "noun",
+      "reading": "ぶれいく"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "使う",
+      "meaning": "to use",
+      "type": "verb",
+      "form": "dictionary",
+      "reading": "つかう"
+    },
+    {
+      "word": "こと",
+      "meaning": "thing",
+      "type": "noun",
+      "reading": "こと"
+    },
+    {
+      "word": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "できます",
+      "meaning": "can",
+      "type": "verb",
+      "form": "dictionary",
+      "reading": "できます"
+    }
+  ],
+  [
+    {
+      "word": "ふう",
+      "reading": "ふう",
+      "meaning": "Hmm",
+      "type": "interjection"
+    },
+    {
+      "word": "やっぱり",
+      "reading": "やっぱり",
+      "meaning": "as I thought",
+      "type": "adverb"
+    },
+    {
+      "word": "まだ",
+      "reading": "まだ",
+      "meaning": "still",
+      "type": "adverb"
+    },
+    {
+      "word": "いた",
+      "reading": "いた",
+      "meaning": "was",
+      "type": "verb",
+      "form": "past",
+      "dictionary": "いる"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "indicates a question",
+      "type": "particle"
+    },
+    {
+      "word": "ね",
+      "reading": "ね",
+      "meaning": "right?",
+      "type": "particle"
+    },
+    {
+      "word": "面倒",
+      "reading": "めんどう",
+      "meaning": "troublesome",
+      "type": "na-adjective"
+    },
+    {
+      "word": "だし",
+      "reading": "だし",
+      "meaning": "because",
+      "type": "conjunction"
+    },
+    {
+      "word": "ぱぱっと",
+      "reading": "ぱぱっと",
+      "meaning": "quickly",
+      "type": "adverb"
+    },
+    {
+      "word": "片付け",
+      "reading": "かたづけ",
+      "meaning": "tidying up",
+      "type": "noun"
+    },
+    {
+      "word": "ちゃいたい",
+      "reading": "ちゃいたい",
+      "meaning": "want to do",
+      "type": "verb",
+      "form": "te-form",
+      "dictionary": "ちゃう"
+    },
+    {
+      "word": "わ",
+      "reading": "わ",
+      "meaning": "feminine sentence-ending particle",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "接触",
+      "reading": "せっしょく",
+      "meaning": "contact",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "仕方",
+      "reading": "しかた",
+      "meaning": "way",
+      "type": "noun"
+    },
+    {
+      "word": "によって",
+      "reading": "によって",
+      "meaning": "depending on",
+      "type": "particle"
+    },
+    {
+      "word": "戦闘",
+      "reading": "せんとう",
+      "meaning": "battle",
+      "type": "noun"
+    },
+    {
+      "word": "開始",
+      "reading": "かいし",
+      "meaning": "start",
+      "type": "noun"
+    },
+    {
+      "word": "時",
+      "reading": "とき",
+      "meaning": "time",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "状況",
+      "reading": "じょうきょう",
+      "meaning": "situation",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "変化",
+      "reading": "へんか",
+      "meaning": "change",
+      "type": "noun"
+    },
+    {
+      "word": "します",
+      "reading": "します",
+      "meaning": "will change",
+      "type": "verb"
+    },
+    {
+      "word": "魔獣",
+      "reading": "まじゅう",
+      "meaning": "demon beast",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "背後",
+      "reading": "はいご",
+      "meaning": "behind",
+      "type": "noun"
+    },
+    {
+      "word": "から",
+      "reading": "から",
+      "meaning": "from",
+      "type": "particle"
+    },
+    {
+      "word": "接触",
+      "reading": "せっしょく",
+      "meaning": "contact",
+      "type": "noun"
+    },
+    {
+      "word": "すれば",
+      "reading": "すれば",
+      "meaning": "if",
+      "type": "particle"
+    },
+    {
+      "word": "有利",
+      "reading": "ゆうり",
+      "meaning": "advantageous",
+      "type": "na-adjective"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "自分",
+      "reading": "じぶん",
+      "meaning": "oneself",
+      "type": "noun"
+    },
+    {
+      "word": "たち",
+      "reading": "たち",
+      "meaning": "plural marker",
+      "type": "particle"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "背後",
+      "reading": "はいご",
+      "meaning": "behind",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "取られる",
+      "reading": "とられる",
+      "meaning": "taken",
+      "type": "verb"
+    },
+    {
+      "word": "と",
+      "reading": "と",
+      "meaning": "if",
+      "type": "particle"
+    },
+    {
+      "word": "不利",
+      "reading": "ふり",
+      "meaning": "disadvantageous",
+      "type": "na-adjective"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "なります",
+      "reading": "なります",
+      "meaning": "will become",
+      "type": "verb"
+    }
+  ],
+  [
+    {
+      "word": "これら",
+      "reading": "これら",
+      "meaning": "these"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "type": "particle",
+      "meaning": "of"
+    },
+    {
+      "word": "ＡＴ",
+      "reading": "エーティー",
+      "meaning": "AT"
+    },
+    {
+      "word": "ボーナス",
+      "reading": "ボーナス",
+      "meaning": "bonus"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "type": "particle",
+      "meaning": "topic marker"
+    },
+    {
+      "word": "敵",
+      "reading": "てき",
+      "meaning": "enemy"
+    },
+    {
+      "word": "味方",
+      "reading": "みかた",
+      "meaning": "ally"
+    },
+    {
+      "word": "平等",
+      "reading": "びょうどう",
+      "meaning": "equal"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "type": "particle",
+      "meaning": "to"
+    },
+    {
+      "word": "効果",
+      "reading": "こうか",
+      "meaning": "effect"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "type": "particle",
+      "meaning": "object marker"
+    },
+    {
+      "word": "発揮",
+      "reading": "はっき",
+      "meaning": "demonstrate"
+    },
+    {
+      "word": "します",
+      "reading": "します",
+      "type": "verb",
+      "meaning": "to demonstrate"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "type": "punctuation",
+      "meaning": "period"
+    },
+    {
+      "word": "うまく",
+      "reading": "うまく",
+      "meaning": "skillfully"
+    },
+    {
+      "word": "行動",
+      "reading": "こうどう",
+      "meaning": "action"
+    },
+    {
+      "word": "順",
+      "reading": "じゅん",
+      "meaning": "order"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "type": "particle",
+      "meaning": "object marker"
+    },
+    {
+      "word": "ずらす",
+      "reading": "ずらす",
+      "type": "verb",
+      "meaning": "to shift"
+    },
+    {
+      "word": "こと",
+      "reading": "こと",
+      "type": "particle",
+      "meaning": "thing"
+    },
+    {
+      "word": "で",
+      "reading": "で",
+      "type": "particle",
+      "meaning": "by means of"
+    },
+    {
+      "word": "敵",
+      "reading": "てき",
+      "meaning": "enemy"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "type": "particle",
+      "meaning": "of"
+    },
+    {
+      "word": "ＡＴ",
+      "reading": "エーティー",
+      "meaning": "AT"
+    },
+    {
+      "word": "ボーナス",
+      "reading": "ボーナス",
+      "meaning": "bonus"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "type": "particle",
+      "meaning": "object marker"
+    },
+    {
+      "word": "横取り",
+      "reading": "よこどり",
+      "meaning": "to snatch"
+    },
+    {
+      "word": "する",
+      "reading": "する",
+      "type": "verb",
+      "meaning": "to do"
+    },
+    {
+      "word": "こと",
+      "reading": "こと",
+      "type": "particle",
+      "meaning": "thing"
+    },
+    {
+      "word": "も",
+      "reading": "も",
+      "type": "particle",
+      "meaning": "also"
+    },
+    {
+      "word": "できます",
+      "reading": "できます",
+      "type": "verb",
+      "meaning": "can do"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "type": "punctuation",
+      "meaning": "period"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "asterisk"
+    },
+    {
+      "word": "アーツ",
+      "meaning": "arts",
+      "reading": "あーつ",
+      "type": "noun",
+      "dictionary": "アーツ"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "使用",
+      "meaning": "use",
+      "reading": "しよう",
+      "type": "verb",
+      "dictionary": "使用する"
+    },
+    {
+      "word": "する",
+      "meaning": "to do",
+      "type": "verb",
+      "form": "plain form",
+      "dictionary": "する"
+    },
+    {
+      "word": "と",
+      "meaning": "if",
+      "type": "particle"
+    },
+    {
+      "word": "ＥＰ",
+      "meaning": "EP",
+      "reading": "いーぴー",
+      "type": "noun",
+      "dictionary": "ＥＰ"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "消費",
+      "meaning": "consume",
+      "reading": "しょうひ",
+      "type": "verb",
+      "dictionary": "消費する"
+    },
+    {
+      "word": "します",
+      "meaning": "will do",
+      "type": "verb",
+      "form": "polite form",
+      "dictionary": "する"
+    },
+    {
+      "word": "。",
+      "meaning": "period",
+      "type": "particle"
+    },
+    {
+      "word": "ＥＰ",
+      "meaning": "EP",
+      "reading": "いーぴー",
+      "type": "noun",
+      "dictionary": "ＥＰ"
+    },
+    {
+      "word": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "宿酒場",
+      "meaning": "inn",
+      "reading": "やどさかば",
+      "type": "noun",
+      "dictionary": "宿酒場"
+    },
+    {
+      "word": "・",
+      "meaning": "and",
+      "type": "particle"
+    },
+    {
+      "word": "ホテル",
+      "meaning": "hotel",
+      "reading": "ほてる",
+      "type": "noun",
+      "dictionary": "ホテル"
+    },
+    {
+      "word": "・",
+      "meaning": "and",
+      "type": "particle"
+    },
+    {
+      "word": "回復",
+      "meaning": "recovery",
+      "reading": "かいふく",
+      "type": "noun",
+      "dictionary": "回復"
+    },
+    {
+      "word": "ポイント",
+      "meaning": "point",
+      "reading": "ぽいんと",
+      "type": "noun",
+      "dictionary": "ポイント"
+    },
+    {
+      "word": "など",
+      "meaning": "etc.",
+      "type": "particle"
+    },
+    {
+      "word": "で",
+      "meaning": "at",
+      "type": "particle"
+    },
+    {
+      "word": "休憩",
+      "meaning": "rest",
+      "reading": "きゅうけい",
+      "type": "noun",
+      "dictionary": "休憩"
+    },
+    {
+      "word": "する",
+      "meaning": "to do",
+      "type": "verb",
+      "form": "plain form",
+      "dictionary": "する"
+    },
+    {
+      "word": "か",
+      "meaning": "or",
+      "type": "particle"
+    },
+    {
+      "word": "、",
+      "meaning": "comma",
+      "type": "particle"
+    },
+    {
+      "word": "ＥＰ",
+      "meaning": "EP",
+      "reading": "いーぴー",
+      "type": "noun",
+      "dictionary": "ＥＰ"
+    },
+    {
+      "word": "チャージ",
+      "meaning": "charge",
+      "reading": "ちゃーじ",
+      "type": "noun",
+      "dictionary": "チャージ"
+    },
+    {
+      "word": "など",
+      "meaning": "etc.",
+      "type": "particle"
+    },
+    {
+      "word": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "アイテム",
+      "meaning": "item",
+      "reading": "あいてむ",
+      "type": "noun",
+      "dictionary": "アイテム"
+    },
+    {
+      "word": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "使用",
+      "meaning": "use",
+      "reading": "しよう",
+      "type": "verb",
+      "dictionary": "使用する"
+    },
+    {
+      "word": "しない",
+      "meaning": "not do",
+      "type": "verb",
+      "form": "negative form",
+      "dictionary": "しない"
+    },
+    {
+      "word": "と",
+      "meaning": "if",
+      "type": "particle"
+    },
+    {
+      "word": "回復",
+      "meaning": "recovery",
+      "reading": "かいふく",
+      "type": "noun",
+      "dictionary": "回復"
+    },
+    {
+      "word": "し",
+      "meaning": "do",
+      "type": "verb",
+      "form": "stem",
+      "dictionary": "する"
+    },
+    {
+      "word": "ません",
+      "meaning": "will not do",
+      "type": "verb",
+      "form": "polite negative form",
+      "dictionary": "する"
+    },
+    {
+      "word": "。",
+      "meaning": "period",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "※",
+      "meaning": "mark"
+    },
+    {
+      "word": "回復",
+      "reading": "かいふく",
+      "meaning": "recovery"
+    },
+    {
+      "word": "ポイント",
+      "reading": "ぽいんと",
+      "meaning": "point"
+    },
+    {
+      "word": "に",
+      "type": "particle",
+      "meaning": "to"
+    },
+    {
+      "word": "近づく",
+      "reading": "ちかづく",
+      "meaning": "approach"
+    },
+    {
+      "word": "と",
+      "type": "particle",
+      "meaning": "if"
+    },
+    {
+      "word": "！",
+      "meaning": "exclamation mark"
+    },
+    {
+      "word": "マーク",
+      "reading": "まーく",
+      "meaning": "mark"
+    },
+    {
+      "word": "が",
+      "type": "particle",
+      "meaning": "subject marker"
+    },
+    {
+      "word": "出現",
+      "reading": "しゅつげん",
+      "meaning": "appear"
+    },
+    {
+      "word": "し",
+      "type": "verb",
+      "form": "ます",
+      "meaning": "do"
+    },
+    {
+      "word": "、",
+      "type": "particle",
+      "meaning": "and"
+    },
+    {
+      "word": "ボタン",
+      "reading": "ぼたん",
+      "meaning": "button"
+    },
+    {
+      "word": "で",
+      "type": "particle",
+      "meaning": "by"
+    },
+    {
+      "word": "選択肢",
+      "reading": "せんたくし",
+      "meaning": "choice"
+    },
+    {
+      "word": "が",
+      "type": "particle",
+      "meaning": "subject marker"
+    },
+    {
+      "word": "表示",
+      "reading": "ひょうじ",
+      "meaning": "display"
+    },
+    {
+      "word": "され",
+      "type": "verb",
+      "form": "passive",
+      "meaning": "be done"
+    },
+    {
+      "word": "ます",
+      "type": "verb",
+      "form": "ます",
+      "meaning": "do"
+    },
+    {
+      "word": "。",
+      "type": "particle",
+      "meaning": "period"
+    },
+    {
+      "word": "『",
+      "meaning": "quotation mark"
+    },
+    {
+      "word": "ここ",
+      "meaning": "here"
+    },
+    {
+      "word": "で",
+      "type": "particle",
+      "meaning": "at"
+    },
+    {
+      "word": "休憩",
+      "reading": "きゅうけい",
+      "meaning": "rest"
+    },
+    {
+      "word": "する",
+      "type": "verb",
+      "meaning": "do"
+    },
+    {
+      "word": "』",
+      "meaning": "quotation mark"
+    },
+    {
+      "word": "を",
+      "type": "particle",
+      "meaning": "object marker"
+    },
+    {
+      "word": "選ぶ",
+      "reading": "えらぶ",
+      "meaning": "choose"
+    },
+    {
+      "word": "と",
+      "type": "particle",
+      "meaning": "if"
+    },
+    {
+      "word": "ＨＰ",
+      "meaning": "HP"
+    },
+    {
+      "word": "、",
+      "type": "particle",
+      "meaning": "and"
+    },
+    {
+      "word": "ＥＰ",
+      "meaning": "EP"
+    },
+    {
+      "word": "が",
+      "type": "particle",
+      "meaning": "subject marker"
+    },
+    {
+      "word": "全",
+      "reading": "ぜん",
+      "meaning": "all"
+    },
+    {
+      "word": "回復",
+      "reading": "かいふく",
+      "meaning": "recovery"
+    },
+    {
+      "word": "し",
+      "type": "verb",
+      "form": "ます",
+      "meaning": "do"
+    },
+    {
+      "word": "ます",
+      "type": "verb",
+      "form": "ます",
+      "meaning": "do"
+    },
+    {
+      "word": "。",
+      "type": "particle",
+      "meaning": "period"
+    }
+  ],
+  [
+    {
+      "word": "そう",
+      "meaning": "so",
+      "reading": "そう",
+      "type": "na-adjective"
+    },
+    {
+      "word": "みたい",
+      "meaning": "seems like",
+      "reading": "みたい",
+      "type": "na-adjective"
+    },
+    {
+      "word": "だ",
+      "meaning": "is",
+      "reading": "だ",
+      "type": "verb",
+      "form": "plain"
+    },
+    {
+      "word": "ね",
+      "meaning": "right?",
+      "reading": "ね",
+      "type": "particle"
+    },
+    {
+      "word": "クオーツ",
+      "meaning": "quartz",
+      "reading": "クオーツ",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "meaning": "of",
+      "reading": "の",
+      "type": "particle"
+    },
+    {
+      "word": "欠片",
+      "meaning": "fragment",
+      "reading": "かけら",
+      "type": "noun"
+    },
+    {
+      "word": "か",
+      "meaning": "question marker",
+      "reading": "か",
+      "type": "particle"
+    },
+    {
+      "word": "道理",
+      "meaning": "reason",
+      "reading": "どうり",
+      "type": "noun"
+    },
+    {
+      "word": "で",
+      "meaning": "due to",
+      "reading": "で",
+      "type": "particle"
+    },
+    {
+      "word": "よく",
+      "meaning": "well",
+      "reading": "よく",
+      "type": "adverb"
+    },
+    {
+      "word": "光る",
+      "meaning": "shine",
+      "reading": "ひかる",
+      "type": "verb",
+      "form": "dictionary"
+    },
+    {
+      "word": "はず",
+      "meaning": "should",
+      "reading": "はず",
+      "type": "noun"
+    },
+    {
+      "word": "だ",
+      "meaning": "is",
+      "reading": "だ",
+      "type": "verb",
+      "form": "plain"
+    },
+    {
+      "word": "よ",
+      "meaning": "emphasis",
+      "reading": "よ",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "相手",
+      "reading": "あいて",
+      "meaning": "opponent",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "よっては",
+      "reading": "よっては",
+      "meaning": "depending on",
+      "type": "particle"
+    },
+    {
+      "word": "武器",
+      "reading": "ぶき",
+      "meaning": "weapon",
+      "type": "noun"
+    },
+    {
+      "word": "で",
+      "reading": "で",
+      "meaning": "with",
+      "type": "particle"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "攻撃",
+      "reading": "こうげき",
+      "meaning": "attack",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "通用",
+      "reading": "つうよう",
+      "meaning": "effective",
+      "type": "noun"
+    },
+    {
+      "word": "しない",
+      "reading": "しない",
+      "meaning": "not work",
+      "type": "verb"
+    },
+    {
+      "word": "こと",
+      "reading": "こと",
+      "meaning": "thing",
+      "type": "noun"
+    },
+    {
+      "word": "も",
+      "reading": "も",
+      "meaning": "also",
+      "type": "particle"
+    },
+    {
+      "word": "ある",
+      "reading": "ある",
+      "meaning": "exist",
+      "type": "verb"
+    },
+    {
+      "word": "よ",
+      "reading": "よ",
+      "meaning": "emphasis",
+      "type": "particle"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "meaning": "period",
+      "type": "particle"
+    },
+    {
+      "word": "この",
+      "reading": "この",
+      "meaning": "this",
+      "type": "noun"
+    },
+    {
+      "word": "先",
+      "reading": "さき",
+      "meaning": "ahead",
+      "type": "noun"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "進む",
+      "reading": "すすむ",
+      "meaning": "advance",
+      "type": "verb"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "攻撃",
+      "reading": "こうげき",
+      "meaning": "attack",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "アーツ",
+      "reading": "アーツ",
+      "meaning": "arts",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "準備",
+      "reading": "じゅんび",
+      "meaning": "preparation",
+      "type": "noun"
+    },
+    {
+      "word": "して",
+      "reading": "して",
+      "meaning": "do",
+      "type": "verb"
+    },
+    {
+      "word": "から",
+      "reading": "から",
+      "meaning": "from",
+      "type": "particle"
+    },
+    {
+      "word": "に",
+      "reading": "に",
+      "meaning": "to",
+      "type": "particle"
+    },
+    {
+      "word": "しよう",
+      "reading": "しよう",
+      "meaning": "let's do",
+      "type": "verb"
+    },
+    {
+      "word": "。",
+      "reading": "。",
+      "meaning": "period",
+      "type": "particle"
+    }
+  ],
+  [
+    {
+      "word": "Ｓクラフト",
+      "reading": "エスクラフト",
+      "meaning": "S Craft",
+      "type": "noun"
+    },
+    {
+      "word": "や",
+      "reading": "や",
+      "meaning": "and",
+      "type": "particle"
+    },
+    {
+      "word": "Ｓブレイク",
+      "reading": "エスブレイク",
+      "meaning": "S Break",
+      "type": "noun"
+    },
+    {
+      "word": "を",
+      "reading": "を",
+      "meaning": "object marker",
+      "type": "particle"
+    },
+    {
+      "word": "使えば",
+      "reading": "つかえば",
+      "meaning": "if use",
+      "type": "verb",
+      "form": "conditional",
+      "dictionary": "使う"
+    },
+    {
+      "word": "大抵",
+      "reading": "たいてい",
+      "meaning": "mostly",
+      "type": "noun"
+    },
+    {
+      "word": "の",
+      "reading": "の",
+      "meaning": "of",
+      "type": "particle"
+    },
+    {
+      "word": "魔獣",
+      "reading": "まじゅう",
+      "meaning": "magical beast",
+      "type": "noun"
+    },
+    {
+      "word": "は",
+      "reading": "は",
+      "meaning": "topic marker",
+      "type": "particle"
+    },
+    {
+      "word": "一撃",
+      "reading": "いちげき",
+      "meaning": "one hit",
+      "type": "noun"
+    },
+    {
+      "word": "だ",
+      "reading": "だ",
+      "meaning": "is",
+      "type": "verb",
+      "form": "plain",
+      "dictionary": "だ"
+    },
+    {
+      "word": "と",
+      "reading": "と",
+      "meaning": "if",
+      "type": "particle"
+    },
+    {
+      "word": "思う",
+      "reading": "おもう",
+      "meaning": "think",
+      "type": "verb",
+      "form": "plain",
+      "dictionary": "思う"
+    },
+    {
+      "word": "よ",
+      "reading": "よ",
+      "meaning": "emphasis",
+      "type": "particle"
+    },
+    {
+      "word": "ただ",
+      "reading": "ただ",
+      "meaning": "but",
+      "type": "particle"
+    },
+    {
+      "word": "ＣＰ",
+      "reading": "シーピー",
+      "meaning": "CP",
+      "type": "noun"
+    },
+    {
+      "word": "が",
+      "reading": "が",
+      "meaning": "subject marker",
+      "type": "particle"
+    },
+    {
+      "word": "１００",
+      "reading": "ひゃく",
+      "meaning": "100",
+      "type": "noun"
+    },
+    {
+      "word": "以上",
+      "reading": "いじょう",
+      "meaning": "or more",
+      "type": "particle"
+    },
+    {
+      "word": "ない",
+      "reading": "ない",
+      "meaning": "not",
+      "type": "verb",
+      "form": "plain",
+      "dictionary": "ない"
+    },
+    {
+      "word": "と",
+      "reading": "と",
+      "meaning": "if",
+      "type": "particle"
+    },
+    {
+      "word": "使えない",
+      "reading": "つかえない",
+      "meaning": "cannot use",
+      "type": "verb",
+      "form": "plain",
+      "dictionary": "使う"
+    },
+    {
+      "word": "から",
+      "reading": "から",
+      "meaning": "because",
+      "type": "particle"
+    },
+    {
+      "word": "気を付けて",
+      "reading": "きをつけて",
+      "meaning": "be careful",
+      "type": "verb",
+      "form": "te-form",
+      "dictionary": "気を付ける"
+    }
+  ]
+]

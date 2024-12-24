@@ -45,7 +45,10 @@ const searchWanikani = async (texts: string[]): Promise<Entry[]> => {
   }
 };
 
-export const search = async (text: string): Promise<Entry[]> => {
+export const search = async (
+  text: string
+  // { kanji = false }: { kanji?: boolean } = {}
+): Promise<Entry[]> => {
   console.log("[search] Searching for", text);
 
   let results = await searchWanikani([text]);
@@ -55,6 +58,12 @@ export const search = async (text: string): Promise<Entry[]> => {
   }
 
   console.log("[search] Searching via jisho...");
+
+  /* if (kanji) {
+    const response = await jisho.searchForKanji(text);
+    return response.
+  } */
+
   const { data } = await jisho.searchForPhrase(text);
   const matches = data.filter(
     (entry) =>

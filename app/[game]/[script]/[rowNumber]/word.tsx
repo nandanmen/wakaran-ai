@@ -10,6 +10,7 @@ import { useFormStatus } from "react-dom";
 
 export function Word({ word }: { word: Word }) {
   const [open, setOpen] = useState(false);
+  if (!word.meaning) return null;
   return (
     <li className={clsx(open && "bg-sand-3 rounded-md")}>
       <button

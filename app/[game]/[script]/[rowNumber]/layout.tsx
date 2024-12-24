@@ -21,7 +21,7 @@ export default async function RowLayout({
           <RowLoader params={params} />
         </Suspense>
       </div>
-      <div className="hidden lg:block">
+      <div className="hidden lg:block h-full">
         <DesktopPage params={params}>{children}</DesktopPage>
       </div>
     </>

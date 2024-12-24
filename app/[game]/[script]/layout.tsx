@@ -2,7 +2,7 @@ import { Game, getAudioFromRow, getScript, toGameId } from "@/app/_lib/script";
 import { notFound } from "next/navigation";
 import { ReactNode, Suspense } from "react";
 import { LineLink } from "./line-link";
-import Link from "next/link";
+import { Sidebar } from "./sidebar";
 
 export default function ScriptLayout({
   params,
@@ -15,20 +15,24 @@ export default function ScriptLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="lg:grid grid-cols-[300px_1fr] gap-4 bg-sand-1 lg:bg-sand-2 dark:bg-sand-1 lg:p-4">
-      <div className="hidden lg:block -mt-4">
-        <header className="sticky top-0 py-4 bg-sand-2 dark:bg-sand-1">
-          <h1 className="font-medium">
-            <Link className="hover:underline" href={`/${params.game}`}>
-              Trails in the Sky
-            </Link>
-          </h1>
-        </header>
-        <Suspense fallback={<div>Loading...</div>}>
+    <div className="grid grid-cols-[150px_1fr_max-content]">
+      <div className="col-start-1 row-start-1 col-span-3 border-b border-dashed border-gray-6" />
+      <nav className="col-start-2 row-start-1 h-12 flex items-center px-4">
+        <h1 className="text-sm font-medium text-gray11">Trails in the Sky</h1>
+      </nav>
+      <div className="col-start-1 row-start-1 row-span-2 border-r border-dashed border-gray-6" />
+      <div className="col-start-3 row-start-1 row-span-2 border-l border-dashed border-gray-6" />
+      <aside className="col-start-1 row-start-2 h-[calc(100vh-theme(space.12))] overflow-y-auto">
+        <Suspense>
           <Lines game={params.game} scriptId={params.script} />
         </Suspense>
-      </div>
-      {children}
+      </aside>
+      <main className="col-start-2 row-start-2 h-[calc(100vh-theme(space.12))]  overflow-y-auto p-4">
+        {children}
+      </main>
+      <aside className="col-start-3 row-start-2 p-4">
+        <Sidebar />
+      </aside>
     </div>
   );
 }
@@ -37,12 +41,11 @@ async function Lines({ game, scriptId }: { game: Game; scriptId: string }) {
   const script = await getScript({ gameId: toGameId(game), scriptId });
   if (!script) notFound();
   return (
-    <ul className="divide-y divide-gray-6 divide-dashed">
+    <ul className="p-4">
       {script.map((row) => {
-        const audio = getAudioFromRow(row);
         return (
-          <li className="first:-mt-4" key={row.row}>
-            <LineLink row={row} hasAudio={Boolean(audio)} />
+          <li key={row.row}>
+            <LineLink row={row} />
           </li>
         );
       })}
