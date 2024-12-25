@@ -8,12 +8,70 @@ import { motion } from "framer-motion";
 import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { Speaker } from "../icons";
+import { atom, useAtom, useAtomValue } from "jotai";
 
 export function RowCardPlaceholder() {
   return (
     <div className="grid grid-cols-[1fr_300px] gap-4 h-full">
       <main className="flex items-center justify-center h-full relative bg-sand-1 dark:bg-sand-2 rounded-lg border border-sand-6 shadow-sm" />
     </div>
+  );
+}
+
+const settingsAtom = atom({
+  open: false,
+  translation: false,
+});
+
+function Settings() {
+  const [settings, setSettings] = useAtom(settingsAtom);
+  return (
+    <div className="flex items-center gap-2 text-sm">
+      <Switch
+        label="Furigana"
+        checked={settings.open}
+        onChange={(c) => setSettings({ ...settings, open: c })}
+      />
+      <Switch
+        label="Translation"
+        checked={settings.translation}
+        onChange={(c) => setSettings({ ...settings, translation: c })}
+      />
+    </div>
+  );
+}
+
+function Switch({
+  label,
+  checked,
+  onChange,
+}: {
+  label: string;
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+}) {
+  return (
+    <button
+      className="flex items-center gap-2"
+      onClick={() => onChange(!checked)}
+    >
+      <span className="text-gray-11 font-medium">{label}</span>
+      <span className="p-[2px] h-fit inline-flex border border-gray-6 rounded-full">
+        <span
+          className={clsx(
+            "w-6 inline-flex bg-gray-1 rounded-full transition-colors",
+            checked ? "bg-gray-8" : "bg-gray-1"
+          )}
+        >
+          <span
+            className="w-2.5 h-2.5 rounded-full bg-gray-12 transition-transform"
+            style={{
+              transform: checked ? "translateX(14px)" : "translateX(0)",
+            }}
+          />
+        </span>
+      </span>
+    </button>
   );
 }
 
@@ -26,8 +84,9 @@ export function RowCard({ row, children }: { row: Row; children: ReactNode }) {
   const pathname = usePathname();
   const last = pathname.split("/").at(-1);
   const active = last === params.rowNumber ? "words" : last;
-  const [open, setOpen] = useState(false);
-  const baseUrl = `/${params.game}/${params.script}/${params.rowNumber}`;
+
+  const { open, translation } = useAtomValue(settingsAtom);
+
   return (
     <div className="h-full grid grid-cols-[1fr_300px] gap-4">
       <main className="flex items-center justify-center h-full relative bg-sand-1 dark:bg-sand-2 rounded-lg border border-sand-6 shadow-sm">
@@ -49,7 +108,7 @@ export function RowCard({ row, children }: { row: Row; children: ReactNode }) {
               filter: "blur(10px)",
             }}
             animate={
-              open
+              translation
                 ? {
                     y: 0,
                     opacity: 1,
@@ -69,17 +128,12 @@ export function RowCard({ row, children }: { row: Row; children: ReactNode }) {
           </motion.div>
         </div>
         {row.audio && <AudioButton audio={row.audio} />}
-        <div className="absolute top-4 right-4 bg-sand-3 dark:bg-sand-1 rounded-full p-1">
-          <ButtonTab active={!open} onClick={() => setOpen(false)}>
-            <span className="font-jp font-medium">日</span>
-          </ButtonTab>
-          <ButtonTab active={open} onClick={() => setOpen(true)}>
-            <span className="font-medium">A</span>
-          </ButtonTab>
+        <div className="absolute top-4 right-4 flex items-center gap-2 text-sm">
+          <Settings />
         </div>
       </main>
       <aside className="h-full overflow-y-auto flex flex-col">
-        <header className="sticky top-0 bg-sand-2 dark:bg-sand-1">
+        <header className="sticky top-0 bg-sand-2">
           <h2 className="text-sm font-medium text-gray-11 capitalize px-2">
             {active}
           </h2>

@@ -17,7 +17,9 @@ export function LineLink({ row }: { row: RawRow }) {
     <Link
       className={clsx(
         "overflow-hidden p-2 h-9 flex items-center hover:bg-gray-3 rounded-md border border-transparent",
-        active ? "border-gray-6 bg-gray-1 shadow-sm" : "text-gray-9"
+        active
+          ? "border-gray-6 bg-gray-1 dark:bg-gray-3 shadow-sm"
+          : "text-gray-9"
       )}
       href={`/${params.game}/${params.script}/${row.row}`}
       scroll={false}

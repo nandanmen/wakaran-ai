@@ -89,7 +89,7 @@ function ButtonTab({
         className={clsx(
           "flex items-center justify-center w-9 h-9 rounded-md border border-transparent",
           active
-            ? "bg-gray-1 border-gray-6 shadow-sm"
+            ? "bg-gray-1 dark:bg-gray-3 border-gray-6 shadow-sm"
             : "hover:bg-gray-3 text-gray-10"
         )}
         scroll={false}
