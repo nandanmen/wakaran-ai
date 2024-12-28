@@ -18,25 +18,29 @@ export function QuizController({ words }: { words: WordsWithKanjis[] }) {
   const [index, setIndex] = React.useState(0);
   const currentWord = questions[index];
   return (
-    <>
-      <div
-        className="h-2 bg-green-6 fixed top-0 w-screen left-0 origin-left transition-transform"
-        style={{ transform: `scaleX(${index / questions.length})` }}
-      />
-      <Question
-        key={index}
-        word={currentWord}
-        onSubmit={(word, isCorrect) => {
-          if (!isCorrect) {
-            setQuestions([...questions, word]);
-          }
-          if (index < questions.length - 1) {
-            return setIndex(index + 1);
-          }
-          router.push("/words");
-        }}
-      />
-    </>
+    <div className="flex h-full gap-4">
+      <div className="rounded-full w-3 h-full bg-gray-3 overflow-hidden">
+        <div
+          className="w-full h-full bg-gray-12 origin-top transition-transform rounded-full"
+          style={{ transform: `scaleY(${index / questions.length})` }}
+        />
+      </div>
+      <div className="h-full grow">
+        <Question
+          key={index}
+          word={currentWord}
+          onSubmit={(word, isCorrect) => {
+            if (!isCorrect) {
+              setQuestions([...questions, word]);
+            }
+            if (index < questions.length - 1) {
+              return setIndex(index + 1);
+            }
+            router.push("/words");
+          }}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -79,83 +83,90 @@ export function Question({
   }, [word.text]);
 
   return (
-    <form className="flex flex-col px-8 space-y-4" onSubmit={next}>
-      <p className="text-4xl text-center font-jp">{word.text}</p>
-      <div className="space-y-4">
-        <label className="flex flex-col gap-2 relative">
-          <span className="text-sm text-gray-11">Meaning</span>
-          <input
-            className="bg-gray-2 border-b border-gray-7 py-2"
-            type="text"
-            name="meaning"
-          />
+    <div className="grid grid-cols-[1fr,250px] h-full gap-4">
+      <form
+        className="flex flex-col space-y-4 rounded-lg border border-gray-6 shadow-sm bg-gray-1 dark:bg-gray-3 h-full"
+        onSubmit={next}
+      >
+        <div className="flex justify-center items-center grow border-b border-gray-6">
+          <p className="text-[72px] text-center font-jp">{word.text}</p>
+        </div>
+        <div className="space-y-4">
+          <label className="flex flex-col gap-2 relative">
+            <span className="text-sm text-gray-11">Meaning</span>
+            <input
+              className="bg-gray-2 border-b border-gray-7 py-2"
+              type="text"
+              name="meaning"
+            />
+            {submitted && (
+              <>
+                <p className="flex justify-between items-center">
+                  <span>{word.meanings.join(", ")}</span>
+                  {!submitted.meaning && (
+                    <button
+                      className="text-sm py-1 px-2 bg-gray-3 rounded-md"
+                      type="button"
+                      onClick={() =>
+                        setSubmitted((s) => {
+                          invariant(s !== null, "submitted should be defined");
+                          return { ...s, meaning: true };
+                        })
+                      }
+                    >
+                      Is Correct
+                    </button>
+                  )}
+                </p>
+                <span className="absolute right-1 bottom-11">
+                  {submitted.meaning ? <CheckCircle /> : <CloseCircle />}
+                </span>
+              </>
+            )}
+          </label>
+          <label className="flex flex-col gap-2 relative">
+            <span className="text-sm text-gray-11">Reading</span>
+            <HiraganaInput />
+            {submitted && (
+              <>
+                <p className="flex justify-between items-center">
+                  <span className="font-jp">{word.readings.join(", ")}</span>
+                  {!submitted.reading && (
+                    <button
+                      className="text-sm py-1 px-2 bg-gray-3 rounded-md"
+                      type="button"
+                      onClick={() =>
+                        setSubmitted((s) => {
+                          invariant(s !== null, "submitted should be defined");
+                          return { ...s, reading: true };
+                        })
+                      }
+                    >
+                      Is Correct
+                    </button>
+                  )}
+                </p>
+                <span className="absolute right-1 bottom-11">
+                  {submitted.reading ? <CheckCircle /> : <CloseCircle />}
+                </span>
+              </>
+            )}
+          </label>
           {submitted && (
-            <>
-              <p className="flex justify-between items-center">
-                <span>{word.meanings.join(", ")}</span>
-                {!submitted.meaning && (
-                  <button
-                    className="text-sm py-1 px-2 bg-gray-3 rounded-md"
-                    type="button"
-                    onClick={() =>
-                      setSubmitted((s) => {
-                        invariant(s !== null, "submitted should be defined");
-                        return { ...s, meaning: true };
-                      })
-                    }
-                  >
-                    Is Correct
-                  </button>
-                )}
-              </p>
-              <span className="absolute right-1 bottom-11">
-                {submitted.meaning ? <CheckCircle /> : <CloseCircle />}
-              </span>
-            </>
+            <a
+              className="underline"
+              target="_blank"
+              rel="noreferrer"
+              href={`https://jisho.org/search/${word.text}`}
+            >{`Jisho ->`}</a>
           )}
-        </label>
-        <label className="flex flex-col gap-2 relative">
-          <span className="text-sm text-gray-11">Reading</span>
-          <HiraganaInput />
-          {submitted && (
-            <>
-              <p className="flex justify-between items-center">
-                <span>{word.readings.join(", ")}</span>
-                {!submitted.reading && (
-                  <button
-                    className="text-sm py-1 px-2 bg-gray-3 rounded-md"
-                    type="button"
-                    onClick={() =>
-                      setSubmitted((s) => {
-                        invariant(s !== null, "submitted should be defined");
-                        return { ...s, reading: true };
-                      })
-                    }
-                  >
-                    Is Correct
-                  </button>
-                )}
-              </p>
-              <span className="absolute right-1 bottom-11">
-                {submitted.reading ? <CheckCircle /> : <CloseCircle />}
-              </span>
-            </>
-          )}
-        </label>
-        {submitted && (
-          <a
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-            href={`https://jisho.org/search/${word.text}`}
-          >{`Jisho ->`}</a>
-        )}
-      </div>
-      <button className="w-full bg-gray-3 rounded-lg py-2">
-        {submitted ? "Next" : "Submit"}
-      </button>
+        </div>
+        <button className="w-full bg-gray-3 rounded-lg py-2">
+          {submitted ? "Next" : "Submit"}
+        </button>
+      </form>
       {submitted && (
-        <ul className="grid grid-cols-2 gap-4">
+        <ul className="px-2 border border-gray-6 rounded-lg">
           {entries.map((entry) => (
             <li key={entry.id}>
               <a
@@ -166,7 +177,7 @@ export function Question({
               >
                 <p className="text-[40px] font-jp">{entry.text}</p>
                 <div className="text-sm text-gray-11">
-                  <p className="font-jp ">{entry.readings.join(", ")}</p>
+                  <p className="font-jp">{entry.readings.join(", ")}</p>
                   <p>{entry.meanings.slice(0, 2).join(", ")}</p>
                 </div>
               </a>
@@ -174,7 +185,7 @@ export function Question({
           ))}
         </ul>
       )}
-    </form>
+    </div>
   );
 }
 
@@ -182,7 +193,7 @@ function HiraganaInput() {
   const [value, setValue] = React.useState("");
   return (
     <input
-      className="bg-gray-2 border-b border-gray-7 py-2"
+      className="bg-gray-2 border-b border-gray-7 py-2 font-jp"
       type="text"
       name="reading"
       value={value}

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { CSSProperties } from "react";
+import { Provider } from "jotai";
+import { Navbar } from "./[game]/navbar";
 
 export const metadata: Metadata = {
   title: "Wakaranai",
@@ -15,45 +18,6 @@ const jp = Noto_Sans_JP({
   subsets: ["latin"],
 });
 
-function Nav() {
-  return (
-    <nav className="p-8 pb-0">
-      <div className="flex rounded-xl">
-        <div className="w-[70px] h-16 relative flex items-center justify-center text-4xl font-medium text-sand-9 bg-sand-3 border border-sand-4 rounded-tl-xl rounded-bl-xl pr-2.5 -mr-2.5 overflow-hidden">
-          {/* <div className="absolute inset-0">
-              <svg width="100%" viewBox="0 0 100 100">
-                <defs>
-                  <pattern
-                    id={id}
-                    patternUnits="userSpaceOnUse"
-                    width="5"
-                    height="5"
-                  >
-                    <circle cx="2.5" cy="2.5" r="1" className="fill-sand-6" />
-                  </pattern>
-                </defs>
-                <rect width="100" height="100" fill={`url(#${id})`} />
-              </svg>
-            </div> */}
-          <p className="relative">分</p>
-        </div>
-        <div className="bg-sand-2 border border-sand-4 rounded-bl-xl rounded-tl-xl grow font-medium text-sand-11 flex items-center justify-center text-lg -mr-2.5 relative">
-          <p>Trails in the Sky FC</p>
-        </div>
-        <div className="w-16 bg-sand-1 border border-sand-4 flex items-center justify-center rounded-xl text-lg font-medium text-sand-11 shrink-0 relative">
-          <p
-            style={{
-              fontFeatureSettings: "'ss09' 1",
-            }}
-          >
-            001
-          </p>
-        </div>
-      </div>
-    </nav>
-  );
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -64,7 +28,26 @@ export default function RootLayout({
       <body
         className={`${geist.variable} ${jp.variable} font-sans antialiased`}
       >
-        {children}
+        <div
+          className="grid grid-cols-[--grid]"
+          style={
+            {
+              "--grid": "180px 1fr 180px",
+            } as CSSProperties
+          }
+        >
+          <Provider>
+            <div className="col-start-1 row-start-1 col-span-3 border-b border-dashed border-gray-6" />
+            <nav className="col-start-2 row-start-1 h-12 flex items-center justify-between px-4 text-sm">
+              <Navbar />
+            </nav>
+            <div className="col-start-1 row-start-1 row-span-2 border-r border-dashed border-gray-6" />
+            <div className="col-start-3 row-start-1 row-span-2 border-l border-dashed border-gray-6" />
+            <div className="col-start-1 row-start-2 col-span-3 h-[calc(100vh-theme(space.12))]">
+              {children}
+            </div>
+          </Provider>
+        </div>
       </body>
     </html>
   );

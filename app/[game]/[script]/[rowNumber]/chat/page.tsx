@@ -19,6 +19,6 @@ async function ChatLoader({ params }: { params: Params }) {
     scriptId: script,
     rowNumber: Number(rowNumber),
   });
-  if (!row) notFound();
+  if (!row) return null;
   return <Chat sentence={row.jp.text} />;
 }

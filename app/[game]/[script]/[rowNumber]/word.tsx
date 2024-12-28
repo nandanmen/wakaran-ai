@@ -21,12 +21,12 @@ export function Word({ word }: { word: Word }) {
         )}
       >
         <span className="flex items-center gap-2">
-          <motion.span layout="position" className="font-medium">
+          <motion.span layout="position" className="font-medium font-jp">
             {word.word}
           </motion.span>
-          <span className="text-xs text-gray-10">{word.reading}</span>
+          <span className="text-sm text-gray-10 font-jp">{word.reading}</span>
         </span>
-        <motion.p layout="position" className="text-xs text-gray-10">
+        <motion.p layout="position" className="text-sm text-gray-10">
           {word.meaning}
         </motion.p>
       </button>
@@ -42,7 +42,7 @@ export function Word({ word }: { word: Word }) {
               type="text"
               defaultValue={word.dictionary || word.word}
             />
-            <p className="text-xs text-sand-11 p-1 pb-0">
+            <p className="text-sm text-sand-11 p-1 pb-0">
               This word should exist in Jisho and/or Wanikani.
             </p>
           </div>

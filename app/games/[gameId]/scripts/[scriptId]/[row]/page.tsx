@@ -39,7 +39,7 @@ export default async function RowPage({
   params: { gameId: string; scriptId: string; row: string };
 }) {
   const row = await getRow(params);
-  if (!row) notFound();
+  if (!row) return null;
 
   const translation = await getTranslation(row.jpnSearchText, {
     ...params,

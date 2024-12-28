@@ -23,7 +23,7 @@ export default async function ScriptPage({
   searchParams?: { row: string };
 }) {
   const script = await getScript({ gameId, scriptId });
-  if (!script) notFound();
+  if (!script) return null;
   const rowNumber = parseInt(searchParams?.row ?? "");
   return (
     <div className="p-8 lg:px-12 flex gap-8">

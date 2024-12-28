@@ -25,7 +25,7 @@ export default async function WordPage({
 async function getKanjisForWord(word: string): Promise<unknown[]> {
   const kanjiChars = new Set<string>([...word].filter(isKanji));
 
-  const kanjis: Promise<unknown[]>[] = [];
+  const kanjis: Promise<unknown>[] = [];
   kanjiChars.forEach((char) => {
     kanjis.push(jisho.searchForKanji(char));
   });

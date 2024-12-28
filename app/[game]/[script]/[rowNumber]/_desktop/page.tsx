@@ -1,5 +1,4 @@
-import { getRow, type Game } from "@/app/_lib/script";
-import { notFound } from "next/navigation";
+import { getRow } from "@/app/_lib/script";
 import { ReactNode, Suspense } from "react";
 import { RowCard, RowCardPlaceholder } from "./row-card";
 import { Params } from "../types";
@@ -32,6 +31,11 @@ async function Translation({
     scriptId,
     rowNumber: Number(rowNumber),
   });
-  if (!row) notFound();
+  if (!row)
+    return (
+      <div className="h-full flex items-center justify-center text-gray-11">
+        <p>No translation found for row {rowNumber}.</p>
+      </div>
+    );
   return <RowCard row={row}>{children}</RowCard>;
 }

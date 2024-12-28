@@ -21,7 +21,7 @@ export function Sidebar() {
       <ButtonTab href={baseUrl} active={active === "words"}>
         <svg
           className="translate-y-[2px]"
-          width="20"
+          width="22"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export function Sidebar() {
       </ButtonTab>
       <ButtonTab href={`${baseUrl}/notes`} active={active === "notes"}>
         <svg
-          width="18"
+          width="22"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export function Sidebar() {
       </ButtonTab>
       <ButtonTab href={`${baseUrl}/chat`} active={active === "chat"}>
         <svg
-          width="18"
+          width="22"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -87,10 +87,10 @@ function ButtonTab({
       <Link
         href={href}
         className={clsx(
-          "flex items-center justify-center w-9 h-9 rounded-md border border-transparent",
+          "flex items-center justify-center w-10 h-10 rounded-md border",
           active
             ? "bg-gray-1 dark:bg-gray-3 border-gray-6 shadow-sm"
-            : "hover:bg-gray-3 text-gray-10"
+            : "hover:bg-gray-3 text-gray-10 border-transparent"
         )}
         scroll={false}
       >

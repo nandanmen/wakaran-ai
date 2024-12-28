@@ -1,4 +1,4 @@
-import { Game, getRow } from "@/app/_lib/script";
+import { getRow } from "@/app/_lib/script";
 import { notFound } from "next/navigation";
 import { Toaster } from "sonner";
 import { RowText } from "./row-text";
@@ -14,7 +14,7 @@ export default async function RowLayout({
   children: ReactNode;
 }) {
   return (
-    <>
+    <div className="h-full">
       <Toaster />
       <div className="block lg:hidden">
         <Suspense fallback={null}>
@@ -24,7 +24,7 @@ export default async function RowLayout({
       <div className="hidden lg:block h-full">
         <DesktopPage params={params}>{children}</DesktopPage>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -35,7 +35,7 @@ async function RowLoader({ params }: { params: Params }) {
     scriptId: script,
     rowNumber: Number(rowNumber),
   });
-  if (!data) notFound();
+  if (!data) return <p>No translation found for row {rowNumber}</p>;
   const [nextRow, previousRow] = await Promise.all([
     getRow({ game, scriptId: script, rowNumber: Number(rowNumber) + 1 }),
     getRow({ game, scriptId: script, rowNumber: Number(rowNumber) - 1 }),

@@ -5,14 +5,14 @@ import { Furigana } from "../row-text";
 import { ReactNode, useId, useState } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { useParams, usePathname } from "next/navigation";
-import Link from "next/link";
-import { Speaker } from "../icons";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { Loader, Speaker } from "../icons";
 import { atom, useAtom, useAtomValue } from "jotai";
+import { markCompleteAction } from "./actions";
 
 export function RowCardPlaceholder() {
   return (
-    <div className="grid grid-cols-[1fr_300px] gap-4 h-full">
+    <div className="grid grid-cols-[1fr_300px] gap-4 h-full p-4">
       <main className="flex items-center justify-center h-full relative bg-sand-1 dark:bg-sand-2 rounded-lg border border-sand-6 shadow-sm" />
     </div>
   );
@@ -23,7 +23,7 @@ const settingsAtom = atom({
   translation: false,
 });
 
-function Settings() {
+function Settings({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useAtom(settingsAtom);
   return (
     <div className="flex items-center gap-2 text-sm">
@@ -37,6 +37,7 @@ function Settings() {
         checked={settings.translation}
         onChange={(c) => setSettings({ ...settings, translation: c })}
       />
+      {children}
     </div>
   );
 }
@@ -82,14 +83,16 @@ export function RowCard({ row, children }: { row: Row; children: ReactNode }) {
     rowNumber: string;
   }>();
   const pathname = usePathname();
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const last = pathname.split("/").at(-1);
   const active = last === params.rowNumber ? "words" : last;
 
   const { open, translation } = useAtomValue(settingsAtom);
 
   return (
-    <div className="h-full grid grid-cols-[1fr_300px] gap-4">
-      <main className="flex items-center justify-center h-full relative bg-sand-1 dark:bg-sand-2 rounded-lg border border-sand-6 shadow-sm">
+    <div className="h-[calc(100vh-48px)] p-4 grid grid-cols-[1fr_350px] gap-4">
+      <main className="flex items-center justify-center p-6 h-full relative bg-gray-1 dark:bg-gray-3 rounded-lg border border-sand-6 shadow-sm">
         <div className="max-w-[600px] space-y-2">
           <motion.p layout="position" className="font-jp text-lg">
             {row.jp.name}
@@ -100,36 +103,58 @@ export function RowCard({ row, children }: { row: Row; children: ReactNode }) {
             translation={row.translation}
             open={open}
           />
-          <motion.div
-            style={{ x: "-50%" }}
-            initial={{
-              y: 0,
-              opacity: 0,
-              filter: "blur(10px)",
-            }}
-            animate={
+          <div
+            style={
               translation
                 ? {
-                    y: 0,
+                    transform: "translate(-50%, 0px)",
                     opacity: 1,
                     filter: "blur(0px)",
                   }
                 : {
-                    y: 16,
+                    transform: "translate(-50%, 16px)",
                     opacity: 0,
                     filter: "blur(10px)",
                   }
             }
-            transition={{ y: { type: "spring", bounce: 0 } }}
-            className="absolute bottom-6 w-full max-w-[600px] text-sand-11 left-1/2 text-sm space-y-2"
+            className="absolute bottom-6 max-w-[600px] w-max text-sand-11 left-1/2 text-sm space-y-2 px-6 transition-all duration-500"
           >
             <p>{row.en.name}</p>
             <p>{row.en.text}</p>
-          </motion.div>
+          </div>
         </div>
-        {row.audio && <AudioButton audio={row.audio} />}
-        <div className="absolute top-4 right-4 flex items-center gap-2 text-sm">
-          <Settings />
+        <div className="absolute top-4 left-6 right-4">
+          <Settings>
+            <div className="ml-auto flex items-center gap-2">
+              {row.audio && <AudioButton audio={row.audio} />}
+              <button
+                className={clsx(
+                  "rounded-full bg-gray-12 text-gray-1 py-1 font-medium flex items-center gap-1",
+                  loading ? "pl-3 pr-2" : "px-3"
+                )}
+                onClick={() => {
+                  setLoading(true);
+                  const number = Number(params.rowNumber);
+                  markCompleteAction({
+                    game: params.game,
+                    scriptId: params.script,
+                    rowNumber: number,
+                  }).then(() => {
+                    router.push(
+                      `/${params.game}/${params.script}/${number + 1}`
+                    );
+                  });
+                }}
+              >
+                <span>Mark Complete</span>
+                {loading && (
+                  <span className="animate-spin">
+                    <Loader />
+                  </span>
+                )}
+              </button>
+            </div>
+          </Settings>
         </div>
       </main>
       <aside className="h-full overflow-y-auto flex flex-col">
@@ -153,7 +178,7 @@ function AudioButton({ audio }: { audio: string[] }) {
   };
 
   return (
-    <div className="absolute top-4 left-4">
+    <>
       {audio.map((href, index) => {
         return (
           <audio
@@ -170,49 +195,11 @@ function AudioButton({ audio }: { audio: string[] }) {
         );
       })}
       <button
-        className="w-8 h-8 flex items-center justify-center rounded-full bg-sand-1 text-sand-10"
+        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-3 text-gray-11"
         onClick={() => playIndex(0)}
       >
-        <Speaker size={20} />
+        <Speaker size={16} />
       </button>
-    </div>
-  );
-}
-
-function ButtonTab({
-  onClick,
-  href,
-  active,
-  children,
-}: {
-  onClick?: () => void;
-  href?: string;
-  active?: boolean;
-  children?: ReactNode;
-}) {
-  if (href) {
-    return (
-      <Link
-        href={href}
-        className={clsx(
-          "flex items-center justify-center w-8 h-8 rounded-md first:rounded-t-[20px] last:rounded-b-[20px]",
-          active ? "bg-green-10 text-sand-1" : "hover:bg-sand-4 text-sand-11"
-        )}
-        scroll={false}
-      >
-        {children}
-      </Link>
-    );
-  }
-  return (
-    <button
-      onClick={onClick}
-      className={clsx(
-        "flex items-center justify-center w-8 h-8 rounded-md first:rounded-t-[20px] last:rounded-b-[20px]",
-        active ? "bg-green-10 text-sand-1" : "hover:bg-sand-4 text-sand-11"
-      )}
-    >
-      {children}
-    </button>
+    </>
   );
 }

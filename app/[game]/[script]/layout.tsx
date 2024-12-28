@@ -1,54 +1,42 @@
-import { Game, getAudioFromRow, getScript, toGameId } from "@/app/_lib/script";
-import { notFound } from "next/navigation";
-import { ReactNode, Suspense } from "react";
-import { LineLink } from "./line-link";
-import { Sidebar } from "./sidebar";
-import { Provider } from "jotai";
+import { ReactNode } from "react";
+import { Params } from "./[rowNumber]/types";
+import { Game, getScript, toGameId } from "@/app/_lib/script";
+import { LineLink } from "./[rowNumber]/_desktop/line-link";
+import { Sidebar } from "./[rowNumber]/_desktop/sidebar";
+import { getProgress } from "@/app/_lib/progress";
 
 export default function ScriptLayout({
   params,
   children,
 }: {
-  params: {
-    game: Game;
-    script: string;
-  };
+  params: Params;
   children: ReactNode;
 }) {
   return (
-    <div className="grid grid-cols-[150px_1fr_max-content]">
-      <Provider>
-        <div className="col-start-1 row-start-1 col-span-3 border-b border-dashed border-gray-6" />
-        <nav className="col-start-2 row-start-1 h-12 flex items-center justify-between px-4 text-sm">
-          <h1 className="font-medium text-gray11">Trails in the Sky</h1>
-        </nav>
-        <div className="col-start-1 row-start-1 row-span-2 border-r border-dashed border-gray-6" />
-        <div className="col-start-3 row-start-1 row-span-2 border-l border-dashed border-gray-6" />
-        <aside className="col-start-1 row-start-2 h-[calc(100vh-theme(space.12))] overflow-y-auto">
-          <Suspense>
-            <Lines game={params.game} scriptId={params.script} />
-          </Suspense>
-        </aside>
-        <main className="col-start-2 row-start-2 h-[calc(100vh-theme(space.12))]  overflow-y-auto p-4">
-          {children}
-        </main>
-        <aside className="col-start-3 row-start-2 p-4">
-          <Sidebar />
-        </aside>
-      </Provider>
+    <div className="grid grid-cols-[--grid] h-full">
+      <aside className="h-full overflow-y-auto">
+        <Lines game={params.game} scriptId={params.script} />
+      </aside>
+      <div className="h-full">{children}</div>
+      <aside className="p-4">
+        <Sidebar />
+      </aside>
     </div>
   );
 }
 
 async function Lines({ game, scriptId }: { game: Game; scriptId: string }) {
-  const script = await getScript({ gameId: toGameId(game), scriptId });
-  if (!script) notFound();
+  const gameId = toGameId(game);
+  const script = await getScript({ gameId, scriptId });
+  if (!script) return null;
+
+  const progress = await getProgress({ gameId, scriptId });
   return (
     <ul className="p-4">
       {script.map((row) => {
         return (
           <li key={row.row}>
-            <LineLink row={row} />
+            <LineLink row={row} isCompleted={progress.includes(row.row)} />
           </li>
         );
       })}
