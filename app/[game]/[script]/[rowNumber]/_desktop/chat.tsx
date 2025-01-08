@@ -4,7 +4,9 @@ import { useChat } from "ai/react";
 import clsx from "clsx";
 
 export function Chat({ sentence }: { sentence: string }) {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, data } = useChat();
+  // @ts-ignore
+  const citations = data?.at(0)?.citations;
   return (
     <div className="flex flex-col h-full text-sm">
       <div className="divide-y divide-dashed divide-sand-6">
@@ -16,7 +18,20 @@ export function Chat({ sentence }: { sentence: string }) {
               m.role === "user" ? "" : "pl-4"
             )}
           >
-            {m.content}
+            <p>{m.content}</p>
+            {citations && m.role !== "user" && (
+              <ol className="list-decimal pl-4">
+                {citations.map((c: string) => {
+                  return (
+                    <li key={c}>
+                      <a href={c} target="_blank" rel="noopener noreferrer">
+                        {c}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ol>
+            )}
           </div>
         ))}
       </div>
