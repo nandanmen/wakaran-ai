@@ -10,11 +10,12 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.48",
+    "@ai-sdk/openai-compatible": "^0.0.14",
     "@radix-ui/react-tooltip": "^1.1.2",
     "@vercel/kv": "^1.0.0",
-    "ai": "^3.3.9",
+    "ai": "^4.0.29",
     "clsx": "^2.1.1",
+    "eventsource-parser": "^3.0.0",
     "framer-motion": "^11.2.10",
     "geist": "^1.1.0",
     "jotai": "^2.11.0",
@@ -32,7 +33,6 @@
   },
   "devDependencies": {
     "@radix-ui/colors": "^3.0.0",
-    "@types/marked": "^6.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -44,5 +44,10 @@
     "typescript": "^5",
     "vitest": "^2.1.1",
     "windy-radix-palette": "2.0.0-beta.7"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@ai-sdk/openai-compatible@0.0.14": "patches/@ai-sdk__openai-compatible@0.0.14.patch"
+    }
   }
 }
