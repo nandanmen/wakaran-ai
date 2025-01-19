@@ -24,3 +24,7 @@ export async function saveToDatabase(data: FormData) {
     return;
   }
 }
+
+export async function getWord(text: string) {
+  return search(text);
+}

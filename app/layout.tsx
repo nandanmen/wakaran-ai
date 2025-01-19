@@ -32,7 +32,7 @@ export default function RootLayout({
           className="grid grid-cols-[--grid]"
           style={
             {
-              "--grid": "180px 1fr 180px",
+              "--grid": "180px 1fr 72px",
             } as CSSProperties
           }
         >

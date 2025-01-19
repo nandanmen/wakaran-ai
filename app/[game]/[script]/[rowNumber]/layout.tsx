@@ -1,5 +1,4 @@
 import { getRow } from "@/app/_lib/script";
-import { notFound } from "next/navigation";
 import { Toaster } from "sonner";
 import { RowText } from "./row-text";
 import DesktopPage from "./_desktop/page";
