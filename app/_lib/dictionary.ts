@@ -1,4 +1,6 @@
 import JishoAPI from "unofficial-jisho-api";
+import { get, set } from "./kv";
+import { profile } from "./utils";
 
 const jisho = new JishoAPI();
 
@@ -43,6 +45,35 @@ const searchWanikani = async (texts: string[]): Promise<Entry[]> => {
     console.log(`Could not find wanikani results for ${texts.join(", ")}`);
     return [];
   }
+};
+
+export interface KanjiEntry {
+  text: string;
+  meanings: string[];
+  kunyomi: string[];
+  onyomi: string[];
+  frequencyRank: number;
+  jlptLevel: "N5" | "N4" | "N3" | "N2" | "N1";
+}
+
+export const searchForKanji = async (
+  text: string
+): Promise<KanjiEntry | null> => {
+  const key = `kanji:${text}`;
+  const cached = await profile("get cf kv", () => get<KanjiEntry>(key));
+  if (cached) return cached;
+  const result = await profile("get jisho", () => jisho.searchForKanji(text));
+  if (!result.found) return null;
+  const parsed = {
+    text,
+    meanings: result.meaning.split(", "),
+    kunyomi: result.kunyomi,
+    onyomi: result.onyomi,
+    frequencyRank: Number(result.newspaperFrequencyRank),
+    jlptLevel: result.jlptLevel as KanjiEntry["jlptLevel"],
+  };
+  await profile("set cf kv", () => set(key, parsed));
+  return parsed;
 };
 
 export const search = async (

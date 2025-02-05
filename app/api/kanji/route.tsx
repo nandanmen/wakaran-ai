@@ -1,4 +1,4 @@
-import { search } from "@/app/_lib/dictionary";
+import { search, searchForKanji } from "@/app/_lib/dictionary";
 import { NextResponse } from "next/server";
 import { isKanji } from "wanakana";
 
@@ -12,7 +12,7 @@ export async function GET(req: Request) {
   if (!kanjis.length) {
     return NextResponse.json({ kanjis: [] }, { status: 200 });
   }
-  const results = await Promise.all(kanjis.map(search));
+  const results = await Promise.all(kanjis.map(searchForKanji));
   return NextResponse.json(
     {
       kanjis: results.flat(),
