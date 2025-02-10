@@ -1,9 +1,8 @@
 lockfileVersion: '9.0'
 
-patchedDependencies:
-  '@ai-sdk/openai-compatible@0.0.14':
-    hash: 0ed5fa829cc1d481e795d613896ff69a6b9c5a2bebe532c9ae9dbf157cda36ef
-    path: patches/@ai-sdk__openai-compatible@0.0.14.patch
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 importers:
 
@@ -11,7 +10,7 @@ importers:
     dependencies:
       '@ai-sdk/openai-compatible':
         specifier: ^0.0.14
-        version: 0.0.14(patch_hash=0ed5fa829cc1d481e795d613896ff69a6b9c5a2bebe532c9ae9dbf157cda36ef)(zod@3.24.1)
+        version: 0.0.14(zod@3.24.1)
       '@radix-ui/react-tooltip':
         specifier: ^1.1.2
         version: 1.1.8(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@19.0.0-rc-cc1ec60d0d-20240607(react@19.0.0-rc-cc1ec60d0d-20240607))(react@19.0.0-rc-cc1ec60d0d-20240607)
@@ -2899,7 +2898,7 @@ packages:
 
 snapshots:
 
-  '@ai-sdk/openai-compatible@0.0.14(patch_hash=0ed5fa829cc1d481e795d613896ff69a6b9c5a2bebe532c9ae9dbf157cda36ef)(zod@3.24.1)':
+  '@ai-sdk/openai-compatible@0.0.14(zod@3.24.1)':
     dependencies:
       '@ai-sdk/provider': 1.0.4
       '@ai-sdk/provider-utils': 2.0.6(zod@3.24.1)
