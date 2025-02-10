@@ -10,7 +10,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { isKanji, toHiragana } from "wanakana";
+import { toHiragana } from "wanakana";
 import type { Entry } from "../_lib/dictionary";
 import { checkCorrect } from "./check-correct";
 import { QuizSidebar } from "./sidebar";
@@ -60,7 +60,7 @@ function BackgroundStripes({
 }) {
   const id = useId();
   return (
-    <svg width="100%" height="100%">
+    <svg aria-hidden="true" width="100%" height="100%">
       <StripePattern id={id} {...patternProps} />
       <rect width="100%" height="100%" fill={`url(#${id})`} />
     </svg>
@@ -79,7 +79,7 @@ export function QuizController({ words }: { words: WordsWithKanjis[] }) {
   }, [index]);
 
   return (
-    <div className="h-screen p-8 relative">
+    <div className="h-screen p-4 relative">
       <div className="absolute inset-0 text-gray-3">
         <BackgroundStripes />
       </div>
@@ -244,6 +244,7 @@ export function Question({
               </>
             )}
           </label>
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: input is in the sub-component */}
           <label className="flex flex-col gap-2 relative">
             <span className="text-sm text-gray-11">Reading</span>
             <HiraganaInput key={word.text} />
@@ -278,10 +279,10 @@ export function Question({
               target="_blank"
               rel="noreferrer"
               href={`https://jisho.org/search/${word.text}`}
-            >{`Jisho ->`}</a>
+            >Jisho -{'>'}</a>
           )}
         </div>
-        <button className="w-full bg-gray-3 rounded-lg py-2">
+        <button type="submit" className="w-full bg-gray-3 rounded-lg py-2">
           {submitted ? "Next" : "Submit"}
         </button>
       </form>
@@ -319,6 +320,8 @@ const Check = () => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-label="Check"
+      role="img"
     >
       <path
         fillRule="evenodd"
@@ -338,6 +341,8 @@ const Close = () => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-label="Close"
+	  			role="img"
     >
       <path
         d="M8 8L16 16M16 8L8 16"
@@ -351,49 +356,49 @@ const Close = () => {
 
 const CheckCircle = () => {
   return (
-    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" aria-label="Check" role="img">
       <path
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"
         d="M4.75 12C4.75 7.99594 7.99594 4.75 12 4.75V4.75C16.0041 4.75 19.25 7.99594 19.25 12V12C19.25 16.0041 16.0041 19.25 12 19.25V19.25C7.99594 19.25 4.75 16.0041 4.75 12V12Z"
-      ></path>
+      />
       <path
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"
         d="M9.75 12.75L10.1837 13.6744C10.5275 14.407 11.5536 14.4492 11.9564 13.7473L14.25 9.75"
-      ></path>
+      />
     </svg>
   );
 };
 
 const CloseCircle = () => {
   return (
-    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" aria-label="Close" role="img">
       <path
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"
         d="M4.75 12C4.75 7.99594 7.99594 4.75 12 4.75V4.75C16.0041 4.75 19.25 7.99594 19.25 12V12C19.25 16.0041 16.0041 19.25 12 19.25V19.25C7.99594 19.25 4.75 16.0041 4.75 12V12Z"
-      ></path>
+      />
       <path
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"
         d="M9.75 9.75L14.25 14.25"
-      ></path>
+      />
       <path
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"
         d="M14.25 9.75L9.75 14.25"
-      ></path>
+      />
     </svg>
   );
 };
