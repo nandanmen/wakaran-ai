@@ -1,6 +1,6 @@
+import { type Game, toGameId } from "@/app/_lib/script";
 import { kv } from "@vercel/kv";
 import Link from "next/link";
-import { type Game, toGameId } from "../_lib/script";
 
 async function getScripts(game: string) {
   const allKeys = await kv.keys("*");

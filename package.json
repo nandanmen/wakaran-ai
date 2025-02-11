@@ -33,7 +33,8 @@
     "sonner": "^1.5.0",
     "swr": "^2.3.0",
     "use-debounce": "^10.0.1",
-    "wanakana": "^5.3.1"
+    "wanakana": "^5.3.1",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -48,7 +49,7 @@
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
-    "vitest": "^2.1.1",
+    "vitest": "^2.1.9",
     "windy-radix-palette": "2.0.0-beta.7"
   },
   "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"

@@ -1,10 +1,9 @@
 import { getRow } from "@/app/_lib/script";
-import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Chat } from "../_desktop/chat";
 import type { Params } from "../types";
 
-export default function ChatPage({ params }: { params: Params }) {
+export default function ChatPage({ params }: { params: Promise<Params> }) {
   return (
     <Suspense fallback={null}>
       <ChatLoader params={params} />
@@ -12,8 +11,8 @@ export default function ChatPage({ params }: { params: Params }) {
   );
 }
 
-async function ChatLoader({ params }: { params: Params }) {
-  const { game, script, rowNumber } = params;
+async function ChatLoader({ params }: { params: Promise<Params> }) {
+  const { game, script, rowNumber } = await params;
   const row = await getRow({
     game,
     scriptId: script,
