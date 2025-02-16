@@ -53,7 +53,7 @@ function WordCard({ word }: { word: WordType }) {
   );
   return (
     <>
-      <div className="mx-2 bg-gray-3 rounded-lg border border-gray-6 divide-y divide-dashed divide-gray-6">
+      <div className="mx-2 bg-gray-1 dark:bg-gray-3 rounded-lg border border-gray-6 divide-y divide-dashed divide-gray-6">
         <div className="font-jp flex justify-center items-end p-6">
           {word.data.reading.map((r) => {
             return (
@@ -81,7 +81,9 @@ function WordCard({ word }: { word: WordType }) {
             type="button"
             className={clsx(
               "py-1 px-3 font-medium text-gray-1 rounded-full flex items-center",
-              loading || isSaved ? "bg-gray-9 pr-2" : "bg-gray-12",
+              loading || isSaved
+                ? "bg-gray-10 dark:bg-gray-9 pr-2"
+                : "bg-gray-12",
             )}
             disabled={loading || isSaved}
             onClick={async () => {

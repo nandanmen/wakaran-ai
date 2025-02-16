@@ -1,8 +1,5 @@
-"use client";
-
 import type { Word as WordType } from "@/app/_lib/translation";
 import clsx from "clsx";
-import { useParams } from "next/navigation";
 
 export function Word({
   word,
@@ -23,13 +20,13 @@ export function Word({
         onClick={onClick}
         type="button"
       >
-        <span className="flex items-center gap-2">
+        <span className="flex items-center gap-2 shrink-0">
           <span className="font-medium font-jp">{word.word}</span>
-          <span className="text-sm text-gray-10 font-jp shrink-0">
-            {word.reading}
-          </span>
+          <span className="text-sm text-gray-10 font-jp">{word.reading}</span>
         </span>
-        <span className="text-sm text-right text-gray-10">{word.meaning}</span>
+        <span className="text-sm text-right text-gray-10 min-w-0 shrink">
+          {word.meaning}
+        </span>
       </button>
     </li>
   );
