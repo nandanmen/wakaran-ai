@@ -1,9 +1,6 @@
-import { useRouter } from "next/navigation";
 import { useEffect, useId, useState } from "react";
-import type React from "react";
 import { isKanji } from "wanakana";
-import { Entry, type KanjiEntry } from "../_lib/dictionary";
-import { Question, StripePattern, WordsWithKanjis } from "./quiz-controller";
+import type { KanjiEntry } from "../_lib/dictionary";
 
 export function QuizSidebar({
   submitted,
@@ -33,7 +30,7 @@ export function QuizSidebar({
   }
   return (
     <ul className="grid grid-cols-2">
-      {entries.map((entry) => (
+      {entries.filter(Boolean).map((entry) => (
         <li key={entry.text}>
           <a
             className="flex flex-col hover:bg-gray-3"
@@ -64,7 +61,7 @@ function BackgroundDots({
 }) {
   const id = useId();
   return (
-    <svg width="100%" height="100%">
+    <svg aria-hidden="true" width="100%" height="100%">
       <defs>
         <pattern
           id={id}

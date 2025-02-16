@@ -5,13 +5,14 @@ import { LineLink } from "./[rowNumber]/_desktop/line-link";
 import { Sidebar } from "./[rowNumber]/_desktop/sidebar";
 import type { Params } from "./[rowNumber]/types";
 
-export default function ScriptLayout({
-  params,
+export default async function ScriptLayout({
+  params: p,
   children,
 }: {
-  params: Params;
+  params: Promise<Params>;
   children: ReactNode;
 }) {
+  const params = await p;
   return (
     <div className="grid grid-cols-[--grid] h-full">
       <aside className="h-full overflow-y-auto">

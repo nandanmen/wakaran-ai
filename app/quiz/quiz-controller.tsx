@@ -9,18 +9,17 @@ import type { Entry } from "../_lib/dictionary";
 import { checkCorrect } from "./check-correct";
 import { QuizSidebar } from "./sidebar";
 import { Check, Close, CheckCircle, CloseCircle } from "../_components/icons";
+import type { SavedWord } from "./types";
 
 function invariant(condition: boolean, message: string): asserts condition {
   if (!condition) throw new Error(message);
 }
 
-export type WordsWithKanjis = Entry & { kanjis?: Record<string, string> };
-
-type Question = WordsWithKanjis & {
+type Question = SavedWord & {
   correct?: boolean;
 };
 
-export function QuizController({ words }: { words: WordsWithKanjis[] }) {
+export function QuizController({ words }: { words: SavedWord[] }) {
   const router = useRouter();
   const [questions, setQuestions] = React.useState<Question[]>(words);
   const [expanded, setExpanded] = useState(false);
@@ -64,7 +63,7 @@ export function QuizController({ words }: { words: WordsWithKanjis[] }) {
                       )}
                       key={w.id}
                     >
-                      {w.text}
+                      {w.word}
                       {w.correct === undefined ? null : w.correct ? (
                         <Check />
                       ) : (
@@ -111,13 +110,22 @@ export function QuizController({ words }: { words: WordsWithKanjis[] }) {
   );
 }
 
-const getGrade = (form: HTMLFormElement, word: Entry) => {
+const getGrade = (form: HTMLFormElement, word: SavedWord) => {
   const data = new FormData(form);
   const responses = {
     meaning: (data.get("meaning") as string).toLowerCase().trim(),
     reading: (data.get("reading") as string).toLowerCase().trim(),
   };
-  return checkCorrect(word, responses);
+  return checkCorrect(
+    {
+      text: word.word,
+      readings: [
+        word.metadata.reading.map((r) => r.reading ?? r.text).join(""),
+      ],
+      meanings: word.metadata.meanings.flatMap((m) => m.split(";")),
+    },
+    responses,
+  );
 };
 
 export function Question({
@@ -125,9 +133,9 @@ export function Question({
   onNext,
   onSubmit,
 }: {
-  word: WordsWithKanjis;
-  onSubmit: (word: WordsWithKanjis, isCorrect: boolean) => void;
-  onNext: (word: WordsWithKanjis, isCorrect: boolean) => void;
+  word: SavedWord;
+  onSubmit: (word: SavedWord, isCorrect: boolean) => void;
+  onNext: (word: SavedWord, isCorrect: boolean) => void;
 }) {
   const [submitted, setSubmitted] = React.useState<{
     reading: boolean;
@@ -162,7 +170,7 @@ export function Question({
       >
         <div className="flex grow justify-center items-center">
           <p className="text-[56px] font-medium text-center font-jp">
-            {word.text}
+            {word.word}
           </p>
         </div>
         <div className="space-y-4">
@@ -177,7 +185,12 @@ export function Question({
             {submitted && (
               <>
                 <p className="flex justify-between items-center">
-                  <span>{word.meanings.join(", ")}</span>
+                  <span>
+                    {word.metadata.meanings
+                      .flatMap((m) => m.split(";"))
+                      .slice(0, 3)
+                      .join(", ")}
+                  </span>
                   {!submitted.meaning && (
                     <button
                       className="text-sm py-1 px-2 bg-gray-3 rounded-md"
@@ -202,11 +215,15 @@ export function Question({
           {/* biome-ignore lint/a11y/noLabelWithoutControl: input is in the sub-component */}
           <label className="flex flex-col gap-2 relative">
             <span className="text-sm text-gray-11">Reading</span>
-            <HiraganaInput key={word.text} />
+            <HiraganaInput key={word.word} />
             {submitted && (
               <>
                 <p className="flex justify-between items-center">
-                  <span className="font-jp">{word.readings.join(", ")}</span>
+                  <span className="font-jp">
+                    {word.metadata.reading
+                      .map((r) => r.reading ?? r.text)
+                      .join("")}
+                  </span>
                   {!submitted.reading && (
                     <button
                       className="text-sm py-1 px-2 bg-gray-3 rounded-md"
@@ -243,7 +260,7 @@ export function Question({
           {submitted ? "Next" : "Submit"}
         </button>
       </form>
-      <QuizSidebar submitted={Boolean(submitted)} word={word.text} />
+      <QuizSidebar submitted={Boolean(submitted)} word={word.word} />
     </>
   );
 }

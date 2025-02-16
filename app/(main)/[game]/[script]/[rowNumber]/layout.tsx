@@ -6,12 +6,13 @@ import { RowText } from "./row-text";
 import type { Params } from "./types";
 
 export default async function RowLayout({
-  params,
+  params: p,
   children,
 }: {
-  params: Params;
+  params: Promise<Params>;
   children: ReactNode;
 }) {
+  const params = await p;
   return (
     <div className="h-full">
       <Toaster />

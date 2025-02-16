@@ -1,31 +1,25 @@
 import { getRow } from "@/app/_lib/script";
-import clsx from "clsx";
 import { Suspense } from "react";
-import { getWord } from "./actions";
 import type { Params } from "./types";
 import { WordList } from "./word-list";
-import { WordSearch } from "./word-search";
 
-export default function RowPage({
-  params,
-  searchParams,
+export default async function RowPage({
+  params: p,
 }: {
-  params: Params;
-  searchParams: Promise<{ word: string }>;
+  params: Promise<Params>;
 }) {
+  const params = await p;
   return (
     <Suspense fallback={null}>
-      <WordsLoader params={params} searchParams={searchParams} />
+      <WordsLoader params={params} />
     </Suspense>
   );
 }
 
 async function WordsLoader({
   params,
-  searchParams,
 }: {
   params: Params;
-  searchParams: Promise<{ word: string }>;
 }) {
   const { game, script, rowNumber } = params;
   const row = await getRow({
