@@ -40,11 +40,11 @@ export const Close = () => {
   );
 };
 
-export const CheckCircle = () => {
+export const CheckCircle = ({ size = 24 }: { size?: number }) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       fill="none"
       viewBox="0 0 24 24"
       aria-label="Check"

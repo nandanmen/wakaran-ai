@@ -12,6 +12,7 @@
   "dependencies": {
     "@ai-sdk/openai-compatible": "^0.0.14",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "@supabase/supabase-js": "^2.48.1",
     "@vercel/kv": "^1.0.0",
     "ai": "^4.0.29",
     "axios": "^1.7.9",

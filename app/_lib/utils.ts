@@ -1,6 +1,6 @@
 export const profile = async <T>(
   name: string,
-  fn: () => Promise<T>,
+  fn: () => PromiseLike<T>,
 ): Promise<T> => {
   const start = Date.now();
   const result = await fn();

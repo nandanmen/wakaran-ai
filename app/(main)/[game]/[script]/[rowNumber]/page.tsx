@@ -34,21 +34,9 @@ async function WordsLoader({
     rowNumber: Number(rowNumber),
   });
   if (!row?.translation) return null;
-  const activeWord = (await searchParams).word;
   return (
-    <div
-      className={clsx(
-        "shrink min-h-0 grid",
-        activeWord ? "grid-rows-3" : "grid-rows-2",
-      )}
-    >
-      <WordList words={row.translation} activeWord={activeWord} />
-      {activeWord && <WordSearchLoader word={activeWord} />}
+    <div className="h-full flex flex-col">
+      <WordList words={row.translation} />
     </div>
   );
-}
-
-async function WordSearchLoader({ word }: { word: string }) {
-  const entries = await getWord(word);
-  return <WordSearch word={word} entries={entries} />;
 }

@@ -16,8 +16,11 @@ export function WordSearch({
 }) {
   const id = useId();
   return (
-    <div className="mt-2 border-t border-gray-6 px-2 py-4 border-dashed">
-      <Form action="" className="text-sm flex items-center gap-1.5">
+    <div className="mt-2 border-t border-gray-6 px-2 py-4 border-dashed overflow-auto">
+      <Form
+        action=""
+        className="text-sm flex items-center gap-1.5 sticky top-0 bg-gray-2"
+      >
         <label htmlFor={id} className="text-gray-11 font-medium">
           Search:
         </label>

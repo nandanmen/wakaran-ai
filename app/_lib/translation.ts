@@ -1,4 +1,5 @@
 import { shouldFetchLocal } from "./config";
+import type { Vocabulary } from "./jpdb/types";
 import * as local from "./local";
 
 export const getKey = ({
@@ -34,6 +35,8 @@ export type Word = {
   type: string;
   form: string;
   dictionary: string;
+  id: string;
+  data: Vocabulary;
 };
 
 export async function getTranslation({

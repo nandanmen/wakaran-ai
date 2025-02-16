@@ -41,6 +41,7 @@ export interface VocabularyToken {
   literal: string;
   dictionary: string;
   reading: Array<{ text: string; reading: string | null }>;
+  offset: number;
 }
 
 export interface TextToken {

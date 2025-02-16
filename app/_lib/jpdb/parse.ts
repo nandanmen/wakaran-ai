@@ -14,7 +14,11 @@ interface ParseTextResponse {
   tokens: Token[];
 }
 
+const cache = new Map<string, ParseTextResponse>();
+
 export async function parseText(text: string): Promise<ParseTextResponse> {
+  const cached = cache.get(text);
+  if (cached) return cached;
   const response = await fetch(`${API_BASE_URL}/parse`, {
     method: "POST",
     headers: {
@@ -37,7 +41,9 @@ export async function parseText(text: string): Promise<ParseTextResponse> {
     }),
   });
   const data = await response.json();
-  return parseResponse(text, responseSchema.parse(data));
+  const parsed = parseResponse(text, responseSchema.parse(data));
+  cache.set(text, parsed);
+  return parsed;
 }
 
 export function parseResponse(
@@ -93,6 +99,7 @@ export function parseResponse(
         literal,
         dictionary: vocabulary.dictionary,
         reading: literalReading,
+        offset: position,
       },
       vocabulary,
     };

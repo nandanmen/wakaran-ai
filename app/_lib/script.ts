@@ -2,9 +2,26 @@ import { parse } from "node-html-parser";
 import { cache } from "react";
 import { shouldFetchLocal } from "./config";
 import * as local from "./local";
-import { type Word, getTranslation } from "./translation";
+import type { Word } from "./translation";
+import { parseText } from "./jpdb/parse";
+import { profile } from "./utils";
+import type { Vocabulary } from "./jpdb/types";
+import { createClient } from "@supabase/supabase-js";
 
-const BASE_URL = `https://trailsinthedatabase.com`;
+const assertEnv = (key: string) => {
+  const value = process.env[key];
+  if (!value) {
+    throw new Error(`Environment variable ${key} is not set`);
+  }
+  return value;
+};
+
+const sb = createClient(
+  assertEnv("SUPABASE_URL"),
+  assertEnv("SUPABASE_ANON_KEY"),
+);
+
+const BASE_URL = "https://trailsinthedatabase.com";
 const API_BASE_URL = `${BASE_URL}/api/script/detail`;
 
 export type RawRow = {
@@ -72,6 +89,107 @@ export const getAudioFromRow = (row: RawRow) => {
   return sources.map((el) => `${BASE_URL}/${el.attributes.src}`);
 };
 
+const translationCache = new Map<string, { row: RawRow; words: Word[] }>();
+
+async function getJpdbTranslation({
+  gameId,
+  scriptId,
+  rowNumber,
+}: {
+  gameId: string;
+  scriptId: string;
+  rowNumber: number;
+}): Promise<{ row: RawRow; words: Word[] } | undefined> {
+  const id = `${gameId}:${scriptId}:${rowNumber}`;
+  const cached = translationCache.get(id);
+  if (cached) return cached;
+
+  const script = await getScript({ gameId, scriptId });
+  const row = script?.at(rowNumber - 1);
+  if (!row) return;
+  const maybeWords = await profile("sb get sentence", () =>
+    sb
+      .from("sentences")
+      .select("translation_blob")
+      .eq("id", id)
+      .single()
+      .then((r) => r.data?.translation_blob as Word[]),
+  );
+  if (maybeWords) return { row, words: maybeWords };
+
+  const jpTextClean = row.jpnSearchText.replaceAll("<br/>", "\n");
+  const parsed = await profile("jpdb parse text", () => parseText(jpTextClean));
+
+  const translation: Word[] = [];
+  const wordsToAdd: Record<
+    string,
+    {
+      data: Vocabulary;
+      locations: {
+        sentence_id: string;
+        word_id: string;
+        form_id: string;
+        dictionary: string;
+        literal: string;
+        offset: number;
+      }[];
+    }
+  > = {};
+
+  for (const token of parsed.tokens) {
+    if (token.type === "vocabulary") {
+      const vocabulary = parsed.vocabulary[token.id];
+      const [wid, fid] = token.id.split(":");
+      const entry = wordsToAdd[wid];
+      if (!entry) {
+        wordsToAdd[wid] = {
+          data: vocabulary,
+          locations: [],
+        };
+      }
+      wordsToAdd[wid].locations.push({
+        sentence_id: id,
+        word_id: wid,
+        form_id: fid,
+        dictionary: vocabulary.dictionary,
+        literal: token.literal,
+        offset: token.offset,
+      });
+      translation.push({
+        id: wid,
+        word: token.literal,
+        meaning: vocabulary.meanings.at(0)?.split(";").at(0) ?? "",
+        reading: token.reading.map((r) => r.reading ?? r.text).join(""),
+        type: "word",
+        form: "",
+        dictionary: vocabulary.dictionary,
+        data: vocabulary,
+      });
+    }
+  }
+
+  const examples = Object.values(wordsToAdd).flatMap((word) => word.locations);
+  const wordsData = Object.entries(wordsToAdd).map(([wordId, { data }]) => {
+    return {
+      id: wordId,
+      word: data.dictionary,
+      metadata: data,
+    };
+  });
+
+  await profile("sb update records", async () => {
+    const resp1 = await Promise.all([
+      sb.from("sentences").upsert({ id, translation_blob: translation }),
+      sb.from("dictionary").upsert(wordsData),
+    ]);
+    const resp2 = await sb.from("examples").upsert(examples);
+    return { resp1, resp2 };
+  });
+
+  translationCache.set(id, { row, words: translation });
+  return { row, words: translation };
+}
+
 export const getRow = cache(async function getRow({
   game,
   scriptId,
@@ -82,14 +200,11 @@ export const getRow = cache(async function getRow({
   rowNumber: number;
 }): Promise<Row | undefined> {
   const gameId = mapGameToId[game];
-  const [response, translation] = await Promise.all([
-    getScript({ gameId, scriptId }),
-    getTranslation({ gameId, scriptId, rowNumber }),
-  ]);
-  const row = response?.at(rowNumber - 1);
-  if (!row || !translation) return;
+  const response = await getJpdbTranslation({ gameId, scriptId, rowNumber });
+  if (!response) return;
+  const { row, words } = response;
   return {
-    translation: translation.words,
+    translation: words,
     audio: getAudioFromRow(row),
     jp: {
       name: row.jpnChrName,
