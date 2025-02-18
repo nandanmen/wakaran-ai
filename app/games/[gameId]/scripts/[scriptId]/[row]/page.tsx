@@ -1,7 +1,6 @@
 import { getScript } from "@/app/_lib/script";
 import { getTranslation } from "@/app/games/[gameId]/scripts/[scriptId]/actions";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { ChatForm } from "./chat";
 
 type Row = {
@@ -34,10 +33,11 @@ async function getRow({
 }
 
 export default async function RowPage({
-  params,
+  params: paramsPromise,
 }: {
-  params: { gameId: string; scriptId: string; row: string };
+  params: Promise<{ gameId: string; scriptId: string; row: string }>;
 }) {
+  const params = await paramsPromise;
   const row = await getRow(params);
   if (!row) return null;
 
@@ -61,21 +61,27 @@ export default async function RowPage({
               row.row - 1
             }`}
           >
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <svg
+              aria-hidden="true"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
                 d="M10.25 6.75L4.75 12L10.25 17.25"
-              ></path>
+              />
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
                 d="M19.25 12H5"
-              ></path>
+              />
             </svg>
           </Link>
           <Link
@@ -84,21 +90,27 @@ export default async function RowPage({
               row.row + 1
             }`}
           >
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <svg
+              aria-hidden="true"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
                 d="M13.75 6.75L19.25 12L13.75 17.25"
-              ></path>
+              />
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
                 d="M19 12H4.75"
-              ></path>
+              />
             </svg>
           </Link>
         </div>

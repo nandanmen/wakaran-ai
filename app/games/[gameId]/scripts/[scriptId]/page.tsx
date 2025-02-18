@@ -16,19 +16,21 @@ import { FavouriteButton, Script, type Word } from "./script";
 export const dynamic = "force-dynamic";
 
 export default async function ScriptPage({
-  params: { gameId, scriptId },
+  params,
   searchParams,
 }: {
-  params: { gameId: string; scriptId: string };
-  searchParams?: { row: string };
+  params: Promise<{ gameId: string; scriptId: string }>;
+  searchParams?: Promise<{ row: string }>;
 }) {
+  const { gameId, scriptId } = await params;
+  const { row } = (await searchParams) ?? {};
   const script = await getScript({ gameId, scriptId });
   if (!script) return null;
-  const rowNumber = Number.parseInt(searchParams?.row ?? "");
+  const rowNumber = row ? Number.parseInt(row) : undefined;
   return (
     <div className="p-8 lg:px-12 flex gap-8">
       <Script script={script} />
-      {!isNaN(rowNumber) && (
+      {rowNumber !== undefined && !Number.isNaN(rowNumber) && (
         <Translation
           gameId={gameId}
           scriptId={scriptId}

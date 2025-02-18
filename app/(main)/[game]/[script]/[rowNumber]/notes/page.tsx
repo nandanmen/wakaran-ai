@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import type { Params } from "../types";
 import { NoteForm } from "./form";
 
-export default function NotesPage({ params }: { params: Params }) {
+export default function NotesPage({ params }: { params: Promise<Params> }) {
   return (
     <Suspense fallback={null}>
       <NotesLoader params={params} />
@@ -13,11 +13,12 @@ export default function NotesPage({ params }: { params: Params }) {
   );
 }
 
-async function NotesLoader({ params }: { params: Params }) {
+async function NotesLoader({ params }: { params: Promise<Params> }) {
+  const { game, script, rowNumber } = await params;
   const key = `nanda:comments:${getKey({
-    gameId: toGameId(params.game),
-    scriptId: params.script,
-    rowNumber: params.rowNumber,
+    gameId: toGameId(game),
+    scriptId: script,
+    rowNumber,
   })}`;
   const comments = await kv.get<string | null>(key);
   return (

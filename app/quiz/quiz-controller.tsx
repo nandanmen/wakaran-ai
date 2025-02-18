@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import React, { type FormEvent, useEffect, useRef, useState } from "react";
 import { toHiragana } from "wanakana";
-import type { Entry } from "../_lib/dictionary";
 import { checkCorrect } from "./check-correct";
 import { QuizSidebar } from "./sidebar";
 import { Check, Close, CheckCircle, CloseCircle } from "../_components/icons";
@@ -41,7 +40,7 @@ export function QuizController({ words }: { words: SavedWord[] }) {
         )}
       >
         <aside className="shrink-0 h-full flex flex-col">
-          <header className="px-4 py-3 border-b border-gray-6 border-dashed">
+          <header className="px-4 py-3 border-b border-gray-6 border-dashed bg-gray-1">
             <h2 className="font-jp font-medium text-lg">分</h2>
           </header>
           <div className="relative grow">
@@ -250,7 +249,7 @@ export function Question({
               className="underline"
               target="_blank"
               rel="noreferrer"
-              href={`https://jisho.org/search/${word.text}`}
+              href={`https://jisho.org/search/${word.word}`}
             >
               Jisho -{">"}
             </a>

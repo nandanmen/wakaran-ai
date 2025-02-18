@@ -13,7 +13,7 @@ export default function WordsPage() {
       <main className="max-w-[900px] mx-auto">
         <header className="flex justify-between items-center">
           <h1 className="text-2xl font-medium mb-4">Saved Words</h1>
-          <Link href="/quiz">Quiz {`->`}</Link>
+          <Link href="/quiz">Quiz -{">"}</Link>
         </header>
         <Suspense fallback={<p>Loading...</p>}>
           <WordsList />

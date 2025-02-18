@@ -36,8 +36,10 @@ export async function saveNewWord(id: string) {
 }
 
 export async function getIsSaved(id: string) {
-  const response = await sql<{
-    exists: boolean;
-  }>`select exists (select 1 from saved where word_id = ${id})`;
+  const response = await sql<
+    {
+      exists: boolean;
+    }[]
+  >`select exists (select 1 from saved where word_id = ${id})`;
   return response.at(0)?.exists;
 }

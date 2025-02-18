@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import type { Game } from "../_lib/script";
+import type { Game } from "@/app/_lib/script";
 
 const mapGameToTitle = {
   sky: "Trails in the Sky",
