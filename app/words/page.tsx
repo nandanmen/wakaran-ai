@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { sql } from "../_lib/sql";
+import type { SavedWord } from "../quiz/types";
 
 export const dynamic = "force-dynamic";
 
@@ -23,16 +24,13 @@ export default function WordsPage() {
   );
 }
 
-interface Word {
-  id: string;
-  text: string;
-  meanings: string[];
-  readings: string[];
-  created_at: Date;
-}
-
 async function WordsList() {
-  const words = await sql<Word[]>`SELECT * FROM words`;
+  const words = await sql<SavedWord[]>`
+    select * from saved
+    inner join dictionary on word_id = dictionary.id
+    where user_id = 'nanda.s@hey.com'
+    order by saved.created_at desc
+  `;
   return (
     <ul className="flex flex-wrap gap-2">
       {words.map((word) => {
@@ -41,7 +39,7 @@ async function WordsList() {
             className="h-16 min-w-16 bg-sand-1 rounded-xl text-2xl flex items-center px-4 w-fit font-jp"
             key={word.id}
           >
-            {word.text}
+            {word.word}
           </li>
         );
       })}
