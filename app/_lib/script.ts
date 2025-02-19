@@ -6,20 +6,7 @@ import type { Word } from "./translation";
 import { parseText } from "./jpdb/parse";
 import { profile } from "./utils";
 import type { Vocabulary } from "./jpdb/types";
-import { createClient } from "@supabase/supabase-js";
-
-const assertEnv = (key: string) => {
-  const value = process.env[key];
-  if (!value) {
-    throw new Error(`Environment variable ${key} is not set`);
-  }
-  return value;
-};
-
-const sb = createClient(
-  assertEnv("SUPABASE_URL"),
-  assertEnv("SUPABASE_ANON_KEY"),
-);
+import { sb } from "./supabase";
 
 const BASE_URL = "https://trailsinthedatabase.com";
 const API_BASE_URL = `${BASE_URL}/api/script/detail`;
@@ -104,18 +91,24 @@ async function getJpdbTranslation({
   const cached = translationCache.get(id);
   if (cached) return cached;
 
-  const script = await getScript({ gameId, scriptId });
-  const row = script?.at(rowNumber - 1);
-  if (!row) return;
   const maybeWords = await profile("sb get sentence", () =>
     sb
       .from("sentences")
-      .select("translation_blob")
+      .select("row_blob, translation_blob")
       .eq("id", id)
       .single()
-      .then((r) => r.data?.translation_blob as Word[]),
+      .then((r) => r.data),
   );
-  if (maybeWords) return { row, words: maybeWords };
+  if (maybeWords) {
+    return {
+      row: maybeWords.row_blob as RawRow,
+      words: maybeWords.translation_blob as Word[],
+    };
+  }
+
+  const script = await getScript({ gameId, scriptId });
+  const row = script?.[rowNumber - 1];
+  if (!row) return;
 
   const jpTextClean = row.jpnSearchText.replaceAll("<br/>", "\n");
   const parsed = await profile("jpdb parse text", () => parseText(jpTextClean));
@@ -179,7 +172,9 @@ async function getJpdbTranslation({
 
   await profile("sb update records", async () => {
     const resp1 = await Promise.all([
-      sb.from("sentences").upsert({ id, translation_blob: translation }),
+      sb
+        .from("sentences")
+        .upsert({ id, translation_blob: translation, row_blob: row }),
       sb.from("dictionary").upsert(wordsData),
     ]);
     const resp2 = await sb.from("examples").upsert(examples);

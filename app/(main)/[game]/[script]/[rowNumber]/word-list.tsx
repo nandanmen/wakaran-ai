@@ -34,7 +34,7 @@ export function WordList({
           return (
             <Word
               active={activeWord ? match : false}
-              key={word.word}
+              key={word.id}
               onClick={() => setActiveWord(word)}
               word={word}
             />

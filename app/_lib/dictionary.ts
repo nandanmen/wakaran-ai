@@ -2,8 +2,6 @@ import jisho from "./jisho";
 import { get, set } from "./kv";
 import { profile } from "./utils";
 
-const WANIKANI_TOKEN = process.env.WANIKANI_API_KEY;
-
 export interface Entry {
   id: string;
   text: string;
@@ -11,39 +9,6 @@ export interface Entry {
   readings: string[];
   wanikani?: boolean;
 }
-
-const searchWanikani = async (texts: string[]): Promise<Entry[]> => {
-  try {
-    const wanikani = await fetch(
-      `https://api.wanikani.com/v2/subjects?slugs=${texts.join(",")}`,
-      {
-        headers: {
-          Authorization: `Bearer ${WANIKANI_TOKEN}`,
-        },
-      },
-    );
-    let { data: response } = await wanikani.json();
-    if (response.length > 1) {
-      response = response.filter((d: any) => d.object === "vocabulary");
-    }
-    return response.map((d: any) => {
-      return {
-        id: d.id,
-        text: d.data.slug,
-        meanings: d.data.meanings
-          ?.filter((v: any) => v.accepted_answer)
-          .map((m: any) => m.meaning.toLowerCase()),
-        readings: d.data.readings
-          ?.filter((v: any) => v.accepted_answer)
-          .map((r: any) => r.reading),
-        wanikani: true,
-      };
-    });
-  } catch {
-    console.log(`Could not find wanikani results for ${texts.join(", ")}`);
-    return [];
-  }
-};
 
 export interface KanjiEntry {
   text: string;
@@ -54,10 +19,15 @@ export interface KanjiEntry {
   jlptLevel: "N5" | "N4" | "N3" | "N2" | "N1";
 }
 
+const cache = new Map<string, KanjiEntry>();
+
 export const searchForKanji = async (
   text: string,
 ): Promise<KanjiEntry | null> => {
   const key = `kanji:${text}`;
+  const inMemoryCached = cache.get(key);
+  if (inMemoryCached) return inMemoryCached;
+
   const cached = await profile("get cf kv", () => get<KanjiEntry>(key));
   if (cached) return cached;
   const result = await profile("get jisho", () => jisho.searchForKanji(text));
@@ -71,6 +41,7 @@ export const searchForKanji = async (
     jlptLevel: result.jlptLevel as KanjiEntry["jlptLevel"],
   };
   await profile("set cf kv", () => set(key, parsed));
+  cache.set(key, parsed);
   return parsed;
 };
 
