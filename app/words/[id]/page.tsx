@@ -1,4 +1,3 @@
-import { NoteForm } from "@/app/(main)/[game]/[script]/[rowNumber]/notes/form";
 import { BackgroundDots } from "@/app/_components/background-dots";
 import { searchForKanji } from "@/app/_lib/dictionary";
 import { getSavedWord } from "@/app/_lib/saved";
@@ -30,7 +29,7 @@ export default async function WordPage({
         </div>
         <div className="border-t border-gray-6">
           <header className="p-4 -mb-2 pb-0">
-            <h3 className="text-sm font-medium">Examples</h3>
+            <h3 className="text-sm font-medium text-gray-11">Examples</h3>
           </header>
           <ul className="divide-y divide-gray-6 divide-dashed">
             {word.examples.map((e) => {
@@ -69,14 +68,14 @@ export default async function WordPage({
           </ul>
         </div>
       </div>
-      <aside className="shrink-0 w-[450px] h-[calc(100vh-34px)] flex flex-col divide-y divide-gray-6">
+      <aside className="shrink-0 w-[450px] h-[calc(100vh-62px)] flex flex-col divide-y divide-gray-6">
         <section className="p-4">
           <p className="py-1 px-3 text-blue-11 text-sm w-fit rounded-full font-medium bg-blue-5">
             Top {word.metadata.ranking}
           </p>
         </section>
         <section className="p-4">
-          <h3 className="text-sm font-medium mb-2">Meanings</h3>
+          <h3 className="text-sm font-medium mb-2 text-gray-11">Meanings</h3>
           <ul className="list-disc pl-4">
             {word.metadata.meanings.slice(0, 5).map((m) => {
               return <li key={m}>{m}</li>;
@@ -129,7 +128,7 @@ async function KanjiLoader({ word }: { word: string }) {
   const results = await Promise.all(kanjis.map(searchForKanji));
   return (
     <section className="p-4">
-      <h3 className="text-sm font-medium">Kanji</h3>
+      <h3 className="text-sm font-medium text-gray-11">Kanji</h3>
       <ul className="space-y-1">
         {results.flat().map((r) => {
           if (!r) return null;

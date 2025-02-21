@@ -32,7 +32,7 @@ export function Notes({
   return (
     <>
       <header className="flex items-center justify-between">
-        <h3 className="text-sm font-medium mb-2">Notes</h3>
+        <h3 className="text-sm font-medium mb-2 text-gray-11">Notes</h3>
         <p
           className={clsx(
             "flex items-center text-sm text-gray-10 transition-opacity duration-300",
