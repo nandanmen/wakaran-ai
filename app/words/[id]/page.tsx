@@ -6,6 +6,7 @@ import { sb } from "@/app/_lib/supabase";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { isKanji } from "wanakana";
+import { Notes } from "./notes";
 
 export default async function WordPage({
   params,
@@ -68,7 +69,7 @@ export default async function WordPage({
           </ul>
         </div>
       </div>
-      <aside className="w-[450px] h-[calc(100vh-34px)] flex flex-col divide-y divide-gray-6">
+      <aside className="shrink-0 w-[450px] h-[calc(100vh-34px)] flex flex-col divide-y divide-gray-6">
         <section className="p-4">
           <p className="py-1 px-3 text-blue-11 text-sm w-fit rounded-full font-medium bg-blue-5">
             Top {word.metadata.ranking}
@@ -77,7 +78,7 @@ export default async function WordPage({
         <section className="p-4">
           <h3 className="text-sm font-medium mb-2">Meanings</h3>
           <ul className="list-disc pl-4">
-            {word.metadata.meanings.map((m) => {
+            {word.metadata.meanings.slice(0, 5).map((m) => {
               return <li key={m}>{m}</li>;
             })}
           </ul>
@@ -106,10 +107,9 @@ async function NotesLoader({ id }: { id: string }) {
     .single();
   return (
     <section className="p-4 flex flex-col grow">
-      <h3 className="text-sm font-medium mb-2">Notes</h3>
-      <NoteForm
+      <Notes
         initialValue={note.data?.contents}
-        saveComment={async (comment) => {
+        onSave={async (comment) => {
           "use server";
           if (!comment) return;
           await sb.from("word_notes").upsert({

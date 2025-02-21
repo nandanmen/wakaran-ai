@@ -9,6 +9,7 @@ import { checkCorrect } from "./check-correct";
 import { QuizSidebar } from "./sidebar";
 import { Check, Close, CheckCircle, CloseCircle } from "../_components/icons";
 import type { SavedWord } from "./types";
+import Link from "next/link";
 
 function invariant(condition: boolean, message: string): asserts condition {
   if (!condition) throw new Error(message);
@@ -40,8 +41,11 @@ export function QuizController({ words }: { words: SavedWord[] }) {
         )}
       >
         <aside className="shrink-0 h-full flex flex-col">
-          <header className="px-4 py-3 border-b border-gray-6 border-dashed bg-gray-1">
+          <header className="px-4 py-3 border-b border-gray-6 bg-gray-1 relative z-10 flex items-center justify-between">
             <h2 className="font-jp font-medium text-lg">分</h2>
+            <Link className="text-sm" href="/words">
+              {"<-"} Words
+            </Link>
           </header>
           <div className="relative grow">
             <div className="absolute left-0 right-0 top-1/2 h-[28px] bg-gray-3 translate-y-[-14px]">

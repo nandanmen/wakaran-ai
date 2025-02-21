@@ -4,6 +4,7 @@ import { kv } from "@vercel/kv";
 import { Suspense } from "react";
 import type { Params } from "../types";
 import { NoteForm } from "./form";
+import { Notes } from "@/app/words/[id]/notes";
 
 export default function NotesPage({ params }: { params: Promise<Params> }) {
   return (
@@ -22,9 +23,9 @@ async function NotesLoader({ params }: { params: Promise<Params> }) {
   })}`;
   const comments = await kv.get<string | null>(key);
   return (
-    <NoteForm
-      initialValue={comments ?? undefined}
-      saveComment={async (comment) => {
+    <Notes
+      initialValue={comments ?? ""}
+      onSave={async (comment) => {
         "use server";
         await kv.set(key, comment);
       }}

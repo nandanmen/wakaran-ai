@@ -29,7 +29,7 @@ async function WordsLoader({
   });
   if (!row?.translation) return null;
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-[calc(100%-20px)] flex flex-col gap-4">
       <WordList words={row.translation} />
     </div>
   );
